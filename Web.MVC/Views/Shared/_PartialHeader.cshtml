@@ -1,0 +1,354 @@
+﻿@using EnF
+@using Web.Repository
+@{
+    DoGoMyNgheEntities db = new DoGoMyNgheEntities();
+    Config config = db.Configs.First();
+    Layout = null;
+    var listmenu = db.Menus.Where(p => p.ParentId == 0 || p.ParentId == null).ToList();
+    //  var listslidetop = db.ADVs.Where(p => p.Type == 1).ToList();
+
+    var productgroupList = db.ProductGroups.ToList();
+    List<Product> listprodct = new List<Product>();
+}
+<!-- start header -->
+<header>
+    <nav class="navbar navbar-inverse menureponsive" style="z-index: 99999;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*<a class="navbar-brand" href="#">Thọ Huy Nam</a>*@
+                <div style="height:70px;width: 20%;background: white;text-align: center;">
+                    <a href="/"> <img class="logo" src="/images/logo.png" style="height:70px"> </a>
+                </div>
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="Proctmnu" style="position:relative;">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="Proctmnu" style="position: relative;">
+                        <a>Gói cước</a>
+
+                        <div class="mdivc2 mdivc2-mb" style="min-width: 225px; position: absolute">
+                            <ul id="topproduct">
+                                @foreach (var proG in productgroupList)
+                                {
+
+                                    <li class="Proctmnu">
+                                        <a>@proG.Name </a>
+
+                                        @{ listprodct = db.Products.Where(p => p.ProductGroupID == proG.ProductGroupId).ToList();
+
+                                            <div class="mdivc3 mdivc3-mb" style="min-width: 225px; position: absolute">
+                                                <ul class="submobile-3">
+                                                    @foreach (var pr in listprodct)
+                                                    {
+
+
+                                                        <li class="mlic2" style="padding: 0px">
+                                                            <a class="amenutop" href="/ProductList/ProductDetail?productId=@pr.ProductId" title="">@pr.TenGoi</a>
+                                                        </li>
+
+
+                                                    }
+                                                </ul>
+                                            </div>
+                                        }
+
+                                    </li>
+
+                                            }
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    @foreach (Menu mn in listmenu)
+                    {
+                        List<Menu> listSubmenu = MenuRepository.GetSubMenu(mn.MenuId);
+
+                        var isnumPa = MenuRepository.IsNumber(mn.Link);
+                        <li class="Proctmnu" style="position:relative;">
+
+                            <a href="@(isnumPa ? "/Home/NewsDetail?pageId="+mn.Link : mn.Link)" target="@(mn.IsNewTab?"_blank":"")" title="">@mn.Name</a>
+
+                            <div class="mdivc2" style="position: static;">
+                                <ul id="topproduct">
+
+                                    @foreach (Menu sub in listSubmenu)
+                                    {
+                                    <li class="mlic2" style="padding: 0px">
+                                        @{
+
+                                                var isnum = MenuRepository.IsNumber(sub.Link);
+
+                                        }
+
+
+                                        <a class="amenutop" target="@(sub.IsNewTab?"_blank":"")" href="@(isnum ? "/Home/NewsDetail?pageId="+sub.Link : sub.Link)" title="">@sub.Name</a>
+
+                                    </li>
+                                                }
+
+
+
+                                </ul>
+                            </div>
+
+                        </li>
+                                            }
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div id="menuPC" class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <a href="/"><img src="~/images/logo.png" alt="" id="logo" /></a>
+
+            </div>
+            <div class="col-lg-9" style="padding-top: 12px;padding-right: 7%;">
+                <nav id="top-nav">
+                    <ul>
+                        <li class="Proctmnu">
+                            <a href="/">Home</a>
+                        </li>
+
+                        <li class="Proctmnu" style="position: relative;">
+                            <a href="/">Gói cước</a>
+
+                            <div class="mdivc2" style="min-width: 225px; position: absolute">
+                                <ul id="topproduct">
+                                    @foreach (var proG in productgroupList)
+                                    {
+                                        <li class="Proctmnu">
+                                            <a href="#">@proG.Name </a>
+
+                                            @{
+                                                listprodct = db.Products.Where(p => p.ProductGroupID == proG.ProductGroupId).ToList();
+
+                                                <div class="mdivc3" style="min-width: 225px; position: absolute">
+                                                    <ul id="topproduct">
+                                                        @foreach (var pr in listprodct)
+                                                        {
+
+                                                        <li class="mlic2" style="padding: 0px">
+                                                            <a class="amenutop" href="/ProductList/ProductDetail?productId=@pr.ProductId" title="">@pr.TenGoi</a>
+                                                        </li>
+
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            }
+
+                                        </li>
+
+                                                }
+
+                                </ul>
+                            </div>
+
+
+                        </li>
+
+
+                        @foreach (Menu mn in listmenu)
+                        {
+                            List<Menu> listSubmenu = MenuRepository.GetSubMenu(mn.MenuId);
+
+                            var isnumPa = MenuRepository.IsNumber(mn.Link);
+
+                            <li class="Proctmnu" style="position: relative;">
+                                <a href="@(isnumPa ? "/Home/NewsDetail?pageId="+mn.Link : mn.Link)" target="@(mn.IsNewTab?"_blank":"")" title="">@mn.Name</a>
+                                <div class="mdivc2" style="min-width: 225px; position: absolute">
+                                    <ul id="topproduct">
+
+                                        @foreach (Menu sub in listSubmenu)
+                                        {
+                                            <li class="mlic2" style="padding: 0px">
+                                                @{
+
+                                                    var isnum = MenuRepository.IsNumber(sub.Link);
+                                                    //if (isnum)
+                                                    //{
+                                                    //    pag = db.Pages.Find(Convert.ToInt64(sub.Link));
+                                                    //}
+                                                }
+
+
+                                                <a class="amenutop" target="@(sub.IsNewTab?"_blank":"")" href="@(isnum ? "/Home/NewsDetail?pageId="+sub.Link : sub.Link)" title="">@sub.Name</a>
+
+                                            </li>
+                                                    }
+
+
+
+                                    </ul>
+                                </div>
+
+                            </li>
+                                                    }
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="support">
+        <div class="col-md-3 col-xs-3" style="margin-left: -13px;">
+            <div class="phone">
+                <i class="fa fa-phone-square" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="col-md-9 col-xs-9" style="font-family: initial; font-size: 6px; padding: 0; margin-left: 21px; width: 69%;">
+            <div class="txt-support">
+                <span class="name">Dương Quốc Hiếu</span>
+                <span class="number_phone">0968348438</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style type="text/css">
+    .support {
+        background: #009490;
+        border-radius: 7px 0px 0px 7px;
+        color: #fff;
+        float: right;
+        height: 50px;
+        margin-top: 4px;
+        width: 215px;
+        max-width: 60%;
+    }
+
+        .support .phone .fa-phone-square {
+            font-size: 49px;
+        }
+
+    ul.menu li {
+        display: inline;
+        padding: 0 12px;
+    }
+
+    .Proctmnu:hover > div {
+        display: block;
+        background: #FFCC4E;
+    }
+
+    .mdivc2 {
+        position: absolute;
+        background: #FFCC4E;
+        z-index: 999;
+        min-width: 214px;
+        display: none;
+        border: solid #DDD 1px;
+        left: 0px;
+        top: 100%;
+    }
+
+    #topproduct li {
+        position: relative;
+    }
+
+        #topproduct li:hover > .mdivc3 {
+            display: block;
+        }
+
+    .mdivc3 {
+        position: absolute;
+        background: #FFCC4E;
+        z-index: 999;
+        min-width: 214px;
+        display: none;
+        border: solid #DDD 1px;
+        left: 99%;
+        top: 5%;
+    }
+
+    .mdivc2 ul {
+        padding: 0;
+        margin: 0;
+        /* list-style: none; */
+    }
+
+    .mdivc2 li {
+        list-style: none;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        width: 100%;
+        float: left;
+        text-align: left;
+    }
+
+    .mlic2 {
+        position: relative;
+        padding: 0px;
+    }
+
+    .subcate {
+        display: none;
+        position: absolute;
+        background: #FFF;
+        z-index: 999;
+        min-width: 157px;
+        display: none;
+        border: solid #DDD 1px;
+        left: 99%;
+        top: 0%;
+    }
+
+    .mdivc2 ul {
+        padding: 0;
+        margin: 0;
+        /* list-style: none; */
+    }
+
+    .mdivc2 li {
+        list-style: none;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        width: 100%;
+        float: left;
+        text-align: left;
+    }
+
+    #topproduct li {
+        width: 179px;
+        text-align: center;
+        background: #e2d5a5;
+        width: 100%;
+    }
+
+    .submobile-3 li {
+        width: 179px;
+        text-align: center;
+        background: #5f4d0e;
+        width: 100%;
+    }
+
+    .mdivc3-mb {
+        background: #77580c;
+        left: 45% !important;
+        top: 99% !important;
+    }
+
+        .mdivc3-mb li {
+            background: #77580c !important;
+        }
+
+    .mdivc2-mb > ul > li {
+        background: #ad7f0f !important;
+    }
+</style>

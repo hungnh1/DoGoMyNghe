@@ -1,0 +1,114 @@
+﻿@model EnF.Product
+@using EnF;
+@using System.Data;
+@{
+    ViewBag.Title = "NewsDetail";
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+
+    DoGoMyNgheEntities db = new DoGoMyNgheEntities();
+ 
+    var listProduct = (List<Product>)ViewBag.GroupList;
+}
+<div id="introcontent" class="intro-home container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="cold-md-12 ProDetail">
+              
+                    <div class="col-md-4 tab-mobi">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span>@db.ProductGroups.Find(Model.ProductGroupID).Name</span>
+                            </div>
+                         
+                            @foreach (Product detail in listProduct)
+                            {
+                                <div class="panel-tab">
+                                    <div class="block_home_right">
+                                        <ul>
+                                            <li class="clearfix">
+                                                <a class="package-name" href="">@detail.TenGoi</a>
+
+                                                <div class="btn-register"><a href="javascript:void(0);" onclick="smsbutton(9, '@detail.DauSo', '@detail.CuPhap 0968348348')">Đăng Ký </a></div>
+                                                <span>@detail.GiaCuoc</span>
+
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+                            }
+
+                        </div>
+
+
+                    </div>
+                
+                <div class="col-md-8 promobi">
+                    <div class="col-md-12 box-chitiet">
+                        <div class=" col-lg-12 product">
+                            <div class="panel-heading">
+                                <div class="name-chitiet">
+                                    <h1> @Model.TenGoi</h1>
+                                </div>
+                            </div>
+                            <div class="panel-chitiet">
+                                
+                                    <div class="col-md-12 detail-utility">
+                                        <div class="col-md-12 noidung-tienich">
+                                            <div class="panel-noidung">
+                                                <p>
+                                                    @Model.Des
+                                                </p>
+                                               @*//test*@
+                                                 <div class="col-md-12 panel-body">
+                                                    <div class="info-package">
+                                                        <p><a href="">@Model.TenGoi</a></p>
+                                                        <ul>
+                                                            <li><span>@Model.LuuLuong</span></li>
+
+                                                            <li>Giá cước: <span>@Model.GiaCuoc</span></li>
+                                                        </ul>
+                                                        <div class="text-center clearfix">
+
+                                                            <div class="button">
+                                                                <a class="btn-register" href="javascript:void(0);" onclick="smsbutton(9, '@Model.DauSo', '@Model.CuPhap 0968348348')">Đăng Ký Ngay</a>
+                                                            </div>
+                                                            <span style="font-size: 20px;"> Hoặc Soạn Tin:</span>
+                                                            <div class="sms_syntax">                                                                
+                                                                <span> @Model.CuPhap 0968348348 </span> gửi
+                                                                <span>@Model.DauSo</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </div>
+
+                                            <p>
+                                                @Model.Des
+                                            </p>
+                                        </div>
+                                        </div>
+                                    </div>
+
+                               
+                            </div>
+                        </div>
+                    </div>
+                   
+
+                </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+   
