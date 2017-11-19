@@ -1,0 +1,155 @@
+﻿@model EnF.Menu
+@using Web.Repository
+@using EnF
+@{
+    DoGoMyNgheEntities db = new DoGoMyNgheEntities();
+    ViewBag.Title = "Create";
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    var listMenus = MenuRepository.GetAllMenu();
+    listItems.Add(new SelectListItem { Text = "---Chọn menu cha---", Value = "0" });
+    if (listMenus.Count > 0)
+    {
+        for (int i = 0; i < listMenus.Count; i++)
+        {
+            listItems.Add(new SelectListItem { Text = listMenus[i].Name, Value = listMenus[i].MenuId.ToString() });
+        }
+    }
+    ///
+    List<SelectListItem> listNewsItem = new List<SelectListItem>();
+    var listNews = db.Pages.ToList();
+    listNewsItem.Add(new SelectListItem { Text = "---Chọn trang link tới---", Value = "#" });
+    if (listNews.Count > 0)
+    {
+        for (int i = 0; i < listNews.Count; i++)
+        {
+            listNewsItem.Add(new SelectListItem { Text = listNews[i].Name, Value = listNews[i].PageId.ToString() });
+        }
+    }
+}
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Menu</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MenuId)
+
+
+
+        <div class="form-horizontal">
+            <h4>Menu</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+
+
+            <div class="form-group">
+                @Html.Label("Tên", new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Link, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-3 choice">
+                    @{ 
+                        bool isNum = MenuRepository.IsNumber(Model.Link);
+                    }
+                    <input type="radio" name="cbchoice" @(isNum?"checked":"") style="display: inline;" />
+                    @Html.DropDownList("Link", listNewsItem, new { @class = "form-control", @style = "width: 90%; display: inline;" })
+                    @Html.ValidationMessageFor(model => model.Link)
+                </div>
+
+                <div class="col-md-3 inputlink">
+                    <input type="radio" name="cbchoice" @(!isNum?"checked":"")  value="inputtext" style="display: inline;" />
+                    @Html.TextBoxFor(model => model.Link, new { @disabled = "true", @class = "form-control", @style = "width: 90%; display: inline;" })
+                    @Html.ValidationMessageFor(model => model.Link)
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ParentId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.DropDownList("ParentId", listItems, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ParentId)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.Label("Mở tab mới", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.IsNewTab)
+                    @Html.ValidationMessageFor(model => model.IsNewTab)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Pos, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    <input type="number" class="form-control" />
+
+                    @Html.ValidationMessageFor(model => model.Pos)
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+
+     
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript">
+    $('.choice input[type=radio]').change(function () {
+        $('.inputlink input[type=text]').attr("disabled", "true");
+        $('.choice select').removeAttr("disabled", "false");
+    }
+        )
+    /////
+    $('.inputlink input[type=radio]').change(function () {
+        $('.choice select').attr("disabled", "true");
+        $('.inputlink input[type=text]').removeAttr("disabled");
+    }
+
+       )
+    debugger;
+    if ($('.inputlink input[type=radio]')[0].checked)
+    {
+        $('.choice select').attr("disabled", "true");
+        $('.inputlink input[type=text]').removeAttr("disabled");
+        
+    }
+    else {
+
+        $('.inputlink input[type=text]').attr("disabled", "true");
+        $('.choice select').removeAttr("disabled", "false");
+
+       
+    }
+
+
+    </script>
+
+}

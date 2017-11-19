@@ -1,0 +1,63 @@
+﻿@model IEnumerable<EnF.Category>
+
+@{
+    ViewBag.Title = "Danh mục sản phẩm";
+}
+
+<h2>@ViewBag.Title</h2>
+
+ 
+<div class="panel panel-primary color noneborder">
+    <div class="panel-heading colortheme noneborder">
+        <div class="titletable">@ViewBag.Title </div>
+        <ul class="list-unstyled menu">
+
+            <li>
+                <i class="fa fa-plus-square-o"></i>
+                @Html.ActionLink("Thêm mới", "Create", new { categoryId = ViewBag.categoryId })
+
+            </li>
+
+            <li>
+                <a href="#" onclick="ReloadCurrentPage()">
+                    <i class="fa fa-refresh"></i> Nạp lại
+                </a>
+            </li>
+
+
+
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped display table-bordered">
+            <tr>
+                <th>
+                  Tên Danh mục
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Des)
+                </th>*@
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="/Admin/ProductGroup/Index?CategoryId=@item.Id">@Html.DisplayFor(modelItem => item.CategoryName)</a> 
+           
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Des)
+        </td>*@
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.Id }) |
+           
+            @Html.ActionLink("Xóa", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@using Web.Repository
+@using System.Data
+
+
+@if (ViewBag.Level == "product")
+{
+    ProductRepository productRepository = new ProductRepository();
+    DataRow myRow = productRepository.GetBrekCumForProduct((Int32)ViewBag.ParentId);
+
+    if (myRow != null)
+    {
+        <h2><a href="/Admin/Categories/Index">@myRow["CategoryName"]</a>  >> <a href="/Admin/ProductGroup/Index?CategoryId=@myRow["CategoryId"]">@myRow["Name"]</a>  </h2>
+    }
+
+}
+else if (ViewBag.Level == "productGroup")
+{
+    ProductRepository productRepository = new ProductRepository();
+    DataRow myRow = productRepository.GetBrekCumForProductGroup((Int32)ViewBag.ParentId);
+
+    if (myRow != null)
+    {
+        <h2><a href="/Admin/Categories/Index">@myRow["CategoryName"]</a> </h2>
+    }
+}

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<EnF.Menu>
+@using Web.Repository;
+@using EnF;
+
+@{
+    ViewBag.Title = "Index";
+
+    DoGoMyNgheEntities db = new DoGoMyNgheEntities();
+}
+ 
+    <h2>Danh sách menu</h2>
+
+    <p>
+        @*@Html.ActionLink("Create New", "Create")*@
+
+    </p>
+
+ 
+
+    <div class="panel panel-primary color noneborder">
+        <div class="panel-heading colortheme noneborder">
+            <div class="titletable">@ViewBag.Title </div>
+            <ul class="list-unstyled menu">
+
+                <li>
+                    <i class="fa fa-plus-square-o"></i>
+                    @Html.ActionLink("Thêm mới", "Create")
+
+                </li>
+
+                <li>
+                    <a href="#" onclick="ReloadCurrentPage()">
+                        <i class="fa fa-refresh"></i> Nạp lại
+                    </a>
+                </li>
+
+
+
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+
+            <table id="tblXepLoai" class="table table-striped display table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Tên
+                        </th>
+                     
+                        <th>
+                            Link
+                        </th>
+
+                        <th>
+                            Mở tab mới
+                        </th>
+                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a href="/Admin/Menus/Edit/@item.MenuId">@item.Name</a>
+                               
+                            </td>
+
+                            <td>
+                                @{
+                                    EnF.Page pag = null;
+                                    var isnum = MenuRepository.IsNumber(item.Link);
+                                    if (isnum)
+                                    {
+                                        pag = db.Pages.Find(Convert.ToInt64(item.Link));
+                                    }
+                                }
+                                @(pag != null ? pag.Name : item.Link)
+                            
+                              </td>
+                            <td>
+                                @item.IsNewTab
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.MenuId }) |
+                                @*<a href="#">Edit</a>|*@
+                                <a href="/Admin/Menus/Delete/@item.MenuId" onclick="return ConfirmDel()">Xóa</a>
+
+                            </td>
+                        </tr>
+
+                        @Html.Partial("_PartialMenu", item.MenuId)
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+   
+ 
+
