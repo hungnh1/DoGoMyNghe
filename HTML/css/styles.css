@@ -300,6 +300,12 @@ text-transform: uppercase;}
 }
 
 /*style san pham*/
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+  background-color: #ffcc4e !important; 
+}
+.nav-pills>li>a{
+  border-radius: 0px !important;
+}
 
 .sanpham {
   width: 100%;
@@ -324,7 +330,7 @@ margin: 0;
 }
 .title li a {
 font-size: 14px;
-    padding: 0px 16px;
+    padding: 0px 16px !important;
     text-decoration: none;
     text-transform: uppercase;
     display: block;    
