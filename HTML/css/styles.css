@@ -300,6 +300,17 @@ text-transform: uppercase;}
 }
 
 /*style san pham*/
+#xemthem{
+  float: right;
+    display: inline-block;
+}
+#xemthem .fa {
+font-size: 32px;
+color: black
+}
+#xemthem .fa:hover{
+  color: #ffcc4e;
+}
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
   background-color: #ffcc4e !important; 
 }
