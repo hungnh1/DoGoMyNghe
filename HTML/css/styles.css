@@ -13,6 +13,59 @@
     height:85px;
     background: #e0dfd9;
 }
+.menusub {
+  position: absolute;
+  height: auto;  
+  display: none;
+}
+#menu li ul {
+    position: absolute;    
+    display: none;
+    width: 200px;
+    z-index: 999;
+}
+#menu > ul > li:hover > .sub-menu {
+    display: block;
+    z-index: 9999;
+    height: auto;
+    background: #e0dfd9;
+}
+#menu li ul li {
+    margin: 0;
+    line-height: 40px;
+    width: 200px;
+    background: #86857f;
+    float: none;
+    height: 35px;
+    border-bottom: 1px solid white;
+  }
+#menu li ul li a {
+        font-size: 11px;
+    height: 100%;
+    line-height: 3;
+    padding: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+#menu li ul li ul {
+position: absolute;    
+    display: none;
+    width: 200px;
+    z-index: 999;    
+    left: 100%;
+    top: 0;
+}
+#menu li ul li ul li {
+background: #c3baba;
+    border-right: 1px solid white;
+    border-left: 2px solid white;
+}
+#menu li ul li:hover .sub-menu2{
+     display: block;
+    z-index: 9999;
+    height: auto;
+    background: #e0dfd9;
+}
 #wap-header #at4-share {
    margin-top: 0px;
 text-align: right;
@@ -117,7 +170,6 @@ height: 100%;
 #menu ul li {
   float: left;
 position: relative;
-z-index: 50;
 height: 100%;
 }
 .infologo {
@@ -139,6 +191,7 @@ display: block;
 line-height: 6;
 font-weight: 600;
 color: #090909;
+position: relative;
 }
 #menu li a.active {
   background: #ffcc4e;
@@ -148,19 +201,7 @@ height: 100%;
 #menu li a:hover {
   background: #ffcc4e;
 color: #000;
-height: 100%;
-}
-.sub-menu{
-  visibility: hidden;
-display: block;
-}
-#menu ul li ul{
-  position: absolute;
-margin-left: 0px;
-display: none;
-min-width: 200px;
-background: #6dc71c;
-line-height: 1.5;
+height: auto;
 }
 div.menu ul li:hover ul li ul {
   position: absolute;
@@ -228,7 +269,7 @@ padding: 0;
 }
 /*end slide*/
 .container {
-    width: 1200px !important;
+    width: 1200px ;
     padding: 0 !important;
 }
 .wapper{
@@ -317,12 +358,15 @@ color: black
 .nav-pills>li>a{
   border-radius: 0px !important;
 }
-
+.product{
+      height: auto;
+      display: inline-block;
+}
 .sanpham {
   width: 100%;
   padding: 0;
   border-top: 2px solid #ffcc4e;
-
+display: inline-block;
 }
 .title {
   width: 100%;
@@ -568,3 +612,23 @@ font-weight: 600;}
   color:white;
  } 
 /*end footer*/
+
+
+/*style responsive*/
+@media only screen and (max-width: 1024px) {
+   .xem-sp .goingay {
+    padding: 0px 4px;
+    width: 50%;
+   }
+   .xem-sp .chitiet {
+    padding: 0px 4px;
+    width: 49%;
+   }
+   .info-company{
+    width: 70%;
+   }
+   .home-slider  img {
+    width: 100% !important;
+   }
+}
+/*end style responsive*/
