@@ -15,9 +15,8 @@ namespace baohiem.Controllers
             int lstnewKey1 = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["listNew1"]);
             int lstnewKey2 = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["listNew2"]);
 
-            ViewBag.ListNew1 = db.Pages.Where(p=>p.ParentId== lstnewKey1).ToList();
-            ViewBag.ListNew2 = db.Pages.Where(p => p.ParentId == lstnewKey2).ToList();
-         
+            ViewBag.Slide = db.ADVs.Take(10).ToList();
+            ViewBag.listCategory = db.Categories.ToList();
 
             return View();
         }
