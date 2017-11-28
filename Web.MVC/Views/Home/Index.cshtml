@@ -7,203 +7,180 @@
 
     //var listProduct = (List<Product>)ViewBag.TopProduct;
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
-    var grouplist = (List<ProductGroup>)ViewBag.GroupList;
-    var Architecproductgroup = (List<ProductGroup>)ViewBag.Architecproductgroup;
-    DataTable listProduct = (DataTable)ViewData["TopProduct"];
-    var listPage = (List<EnF.Page>)ViewData["ListPages"];
+
+    List<ADV> slideList = (List<ADV>)ViewBag.Slide;
+
+    List<Category> categoryList = (List<Category>)ViewBag.listCategory;
+
     var listNew1 = (List<EnF.Page>)ViewBag.ListNew1;
     var listNew2 = (List<EnF.Page>)ViewBag.ListNew2;
-    
-
-
 }
 
-<!-- start slider -->
-<!-- end header -->
+<!-- slider -->
+<div class="home-slider">
 
-<div class="col-md-12 boxsection productevent" style="background: rgba(76, 76, 76, 0.07); padding-top: 6%;">
-    <div class="container" style="width:auto;">
-        <div class="col-md-12 box-product">
-            <div class="col-md-4 tab-mobi">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <span>Các gói cước Viettel </span>
-                    </div>
-                    @foreach (Product pro in db.Products.ToList())
+    <div class="box-img">
+        <ul class="bxslider" id="boxsl">
+            @foreach (ADV ad in slideList)
+            {
+                <li>
+                    <img src="/@ad.Image" />
+                </li>
+            }
+
+        </ul>
+
+    </div>
+
+</div>
+<!-- end slider -->
+<!-- icon chính sách mua hàng -->
+<div class="chinhsach">
+    <ul>
+        <li class="col4 item_cs">
+            <a href="">
+                <div class="avarta"><i class="fa fa-truck" aria-hidden="true"></i></div>
+                <div class="info_cs">
+                    <h3>MIỄN PHÍ VẬN CHUYỂN</h3>
+                    <p>Tất cả đơn hàng</p>
+                </div>
+            </a>
+        </li>
+        <li class="col4 item_cs">
+            <a href="">
+                <div class="avarta"><i class="fa fa-headphones" aria-hidden="true"></i></div>
+                <div class="info_cs">
+                    <h3>HỔ TRỢ KHÁCH HÀNG</h3>
+                    <p>27/7</p>
+                </div>
+            </a>
+        </li>
+        <li class="col4 item_cs">
+            <a href="">
+                <div class="avarta"><i class="fa fa-reply-all" aria-hidden="true"></i></div>
+                <div class="info_cs">
+                    <h3>DỄ DÀNG</h3>
+                    <p>đổi trả</p>
+                </div>
+            </a>
+        </li>
+        <li class="col4 item_cs">
+            <a href="">
+                <div class="avarta"><i class="fa fa-bullhorn" aria-hidden="true"></i></div>
+                <div class="info_cs">
+                    <h3>THANH TOÁN</h3>
+                    <p>khi nhận hàng</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- End Chính sách mua hàng -->
+<!-- show product -->
+<div class="product">
+    @foreach (Category cate in categoryList)
+    {
+        List<ProductGroup> lstProGrp = db.ProductGroups.Where(p => p.CategoryId == cate.Id).ToList();
+
+        int counttab = 1;
+        int countdtl = 1;
+        <div class="sanpham">
+            <div class="title">
+                <ul class="nav nav-pills">
+
+                    @foreach (ProductGroup progrp in lstProGrp)
+                {
+                    if (counttab == 1)
                     {
-                        <div class="panel-tab">
-                            <div class="block_home_right">
-                                <ul>
-                                    <li class="clearfix">
-                                        <a class="package-name" href="">@pro.TenGoi</a>
+                    <li class="active">
+                        <a data-toggle="pill" href="#sanpham@(counttab)">@progrp.Name</a>
+                    </li>
+                        }
+                        else
+                        {
+                    <li>
+                        <a data-toggle="pill" href="#sanpham@(counttab)">@progrp.Name</a>
+                    </li>
+                        }
 
-                                        <div class="btn-register"><a href="javascript:void(0);" onclick="smsbutton(9, '@pro.DauSo', '@pro.CuPhap 0968348438')">Đăng Ký </a></div>
-                                        <span>@pro.GiaCuoc</span>
-
-                                    </li>
-                                </ul>
-
-                            </div>
-
-                        </div>
+                        counttab++;
                     }
 
+
+
+                </ul>
+                <div id="xemthem">
+                    <a href=""><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></a>
                 </div>
-
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- dangky-4gviettel.1 -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-5671168710574709"
-                     data-ad-slot="7029329160"
-                     data-ad-format="auto"></ins>
-                <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-
-
             </div>
 
-            <div class="col-md-8 promobi">
-                @foreach (ProductGroup prgp in grouplist)
+            <div class="box-sanpham tab-content">
+                @foreach (ProductGroup progrp in lstProGrp)
                 {
-                    <div class="col-lg-12 box">
-                        <div class="col-lg-12 product">
-                            <div class="panel panel-heading" >
-                                <div  class="nameproduct" >
-                                    <span> @prgp.Name</span> 
-</div>
+                    List<Product> lstProduct = db.Products.Where(p => p.ProductGroupID == progrp.ProductGroupId).ToList();
+
+                <div id="sanpham@(countdtl)" class="tab-pane fade in @(countdtl==1?"active":"")">
+
+                    @foreach (Product pro in lstProduct)
+                    {
+                        <div class="col-md-3 item">
+                            <div class="img-sp">
+                                <p>
+                                    <a href="">
+                                        <img src="/@pro.Image">
+                                    </a>
+                                </p>
+                                <div class="info-sp">
+                                    <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
+                                    <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
+                                </div>
                             </div>
-                            <div class="panel-product">
-                                @{
-                                    List<Product> listProuct = db.Products.Where(p => p.ProductGroupID == prgp.ProductGroupId).ToList();
-                                    listProuct = listProuct.Take(4).ToList();
 
-                                      }
+                            <div class="name-sp">
+                                <h3 class="tensp">
+                                    <a href="" title="">
+                                        @pro.Name
+                                    </a>
+                                </h3>
+                            </div>
 
-                                @foreach (Product pro in listProuct)
-                                {
-                                    <div class="col-md-6 panel-body">
-                                        <div class="info-package">
-                                            <p><a href="/goi-cuoc/@(ClearWordRepository.NoVNeseLower(pro.TenGoi)+"-"+pro.ProductId)">@pro.TenGoi</a></p>
-
-                                            <ul>
-                                                <li><span>@pro.LuuLuong</span></li>
-
-                                                <li>Giá cước: <span>@pro.GiaCuoc</span></li>
-                                            </ul>
-                                            <div class="text-center clearfix">
-
-                                                <div class="button">
-                                                    <a class="btn-register" href="javascript:void(0);" onclick="smsbutton(9, '@pro.DauSo', '@pro.CuPhap 0968348438')">Đăng Ký Ngay</a>
-                                                </div>
-                                                <span style="font-size: 20px;"> Hoặc Soạn Tin:</span>
-
-                                                <div class="sms_syntax">
-                                                    <span> @pro.CuPhap 0968348438 </span> gửi
-                                                    <span>@pro.DauSo</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
+                            <div class="xem-sp">
+                                <div class="button">
+                                    <div class="chitiet">
+                                        <a href="">Chi Tiết</a>
                                     </div>
-                                }
-
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                                    }
-
-
-
-
-
-
-            </div>
-        </div>
-
-
-        <div class="col-md-12 box-tienich">
-            <div class="col-md-4">
-
-            </div>
-            <div class="col-md-8 tienich-mobi">
-                <div class="col-lg-12 product-utility">
-                    <div class="panel-utility">
-                        <div class="name-utility">
-                            <span> TIỆN ÍCH VIETTEL</span>
-                        </div>
-                    </div>
-                    <div class="panel-detail">
-                        @if (listNew1 != null)
-                        {
-                            foreach (EnF.Page pag in listNew1)
-                            {
-                                <div class="col-md-6 detail-utility">
-                                    <div class="col-md-12 noidung-tienich">
-                                        <div class="page-item item1">
-                                            <h1><a class="tieude-tienich" href="/Home/NewsDetail?pageId=@pag.PageId">@pag.Name</a></h1>
-                                            <p>@pag.Recap</p>
-                                            <a href="/Home/NewsDetail?pageId=@pag.PageId" class="btn-detail">Chi tiết</a>
-                                        </div>
+                                    <div class=" goingay">
+                                        <a href="">Gọi Ngay</a>
                                     </div>
                                 </div>
-
-                            }
+                            </div>
+                        </div>
                         }
 
 
-
-
-                    </div>
-
                 </div>
-            </div>
 
-        </div>
-        <div class="col-md-12 box-khuyenmai">
 
-            <div class="col-md-4">
+                    countdtl++;
+                }
 
-            </div>
-            <div class="col-md-8 khuyenmai-mobi">
-                <div class="col-md-12 khuyenmai">
-                    <div class="text-khuyenmai">
-                        <div class="name-khuyenmai">
-                            <span> Khuyến mãi Viettel</span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 nd-khuyenmai">
-                        <ul class="block-khuyenmai ">
-                            @if (listNew2 != null)
-                            {
-                                foreach (EnF.Page pag in listNew2)
-                                {
-                                    <li>
-                                        <img src="@pag.Image" alt="" />
-                                        <a href="/Home/NewsDetail?pageId=@pag.PageId">@pag.Name </a>
-                                    </li>
-                                }
-                            }
-
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
-</div>
-@section Scripts {
+    }
+
+ </div>
 
 
 
-}
-<style type="text/css">
+    <!-- end product -->
 
-</style>
+
+
+    @section Scripts {
+
+
+
+    }
+    <style type="text/css">
+    </style>
 
