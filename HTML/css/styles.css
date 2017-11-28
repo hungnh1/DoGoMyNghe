@@ -1,4 +1,5 @@
-﻿/*Style Header*/ 
+/*Style Header*/ 
+
 #wap-header {
     width: 100%;
     height: 120px;
@@ -7,6 +8,9 @@
     width: 100%;
     height: 35px;
     background: #ffcc4e;
+}
+.logotop1 {
+   display: none;
 }
 .wap-menu {
     width: 100%;
@@ -373,6 +377,7 @@ display: inline-block;
   border-bottom: 2px solid black;
   margin-top: 2%;
   height: 35px;
+  margin-bottom: 2%;
 }
 .title ul{
 list-style: none;
@@ -451,9 +456,10 @@ background: #c7c7c1;
     margin-bottom: 1%;
 }
 #info-diachi {
-  font-size: 19px;
+  font-size: 15px;
       margin-top: 0%;
     margin-bottom: 1%;
+    font-weight: 600;
 }
 .tensp a:hover{
   text-decoration: none;
@@ -516,6 +522,9 @@ background: #c7c7c1;
 
 
 /*style footer*/
+.menu-footermobi {
+  display: none;
+}
 .menu-footer {
   height: 45px;
 }
@@ -612,7 +621,9 @@ font-weight: 600;}
   color:white;
  } 
 /*end footer*/
-
+.menumobi {
+    display: none;
+}
 
 /*style responsive*/
 @media only screen and (max-width: 1024px) {
@@ -630,5 +641,188 @@ font-weight: 600;}
    .home-slider  img {
     width: 100% !important;
    }
+   .wap-content {
+       display: none;
+   }
+   .logotop1{
+       display: inline-block;
+    width: 40%;}
+   .logotop1 img {
+    width: 80%;
+    height: 100%;
+}
+   #wap-header {
+       height:85px;
+   }
+   .infologo {
+       height:100%;
+       width:25% !important;
+       padding-right: 0px !important;
+   }
+   .header-menu {
+           width: 75% !important;
+    padding: 0px !important;
+   }
+   #menu li a {
+       padding: 0px 7px;
+   }
+   .menu-footer ul li {
+       padding: 0px 8px;
+       font-size: 13px;
+   }
+   
+}
+@media (max-width: 768px){
+#wap-header {
+    display: none;
+}
+.navbar-header button {
+    display: block;
+   
+}
+.navbar-header {
+     padding-right: 4%;
+    float: right !important;
+}
+.menumobi {
+       display: block;
+   }
+.container-fluid {
+    padding: 0 !important;
+}
+.navbar-nav>li {
+    width: 100%;
+}
+.navbar-collapse {
+    display: inline-block !important;
+   
+}
+.chinhsach ul li {
+    width: 50%;
+    float: left;
+    padding-right: 5px;
+        margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.chinhsach ul {
+  width: 100%;
+}
+.container {
+  width: 100%;
+}
+.box-sanpham .item {
+ width: 49% !important;
+    float: left;    
+    padding: 0;
+    margin: 0; 
+    margin-right: 1%; 
+}
+.menu-footermobi {
+  display: block;
+}
+.menu-footer {
+  display: none;
+}
+.menu-footermobi .navbar-header {
+  width: 100%;
+  padding-left: 2%;
+}
+.menu-footermobi .navbar-header a {
+  color: white;
+}
+.menu-footermobi ul li {
+  border-bottom: 1px solid white;
+}
+.menu-footermobi ul li a {
+  font-size: 18px;
+    color: white !important;
+    font-weight: 600;
+}
+.wap-footer {
+  height: auto;
+}
+#wapper-footer .for-title h1 {
+  margin-top: 0px !important;
+}
+.menu-footermobi {
+  margin-bottom: 1% !important;
+}
+#wapper-footer {
+      padding-top: 1%;
+      padding-right: 1%;
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+.for {
+      margin-bottom: 3%;
+}
+.nav li {
+ position: relative;
+}
+.mdivc3-mb {
+  position: absolute;
+}
+}
+@media (max-width: 680) {
+.for-lienhe .intro h1 {
+    font-size: 17px !important; 
+}
+.navbar-header {
+  margin: 0px !important;
+}
+
+}
+@media (max-width: 480px) {
+.chinhsach {
+  display: inline-block;
+}
+.navbar-header {
+  margin: 0px !important;
+}
+.chinhsach ul {
+  display: inline-block;
+  text-align: center;
+}
+.chinhsach ul li {
+      width: 80%;
+  float: none;
+}
+.chinhsach .info_cs {
+      border: 1px solid #000;
+    padding: 30px 0px 9px 0px;
+    margin-top: -40px
+}
+#sanpham1 {
+  display: inline-block;
+      text-align: center;
+}
+.box-sanpham .item {
+  width: 80% !important;
+  float: none;
+  margin-bottom: 3%;
+  height: auto;
+}
+.info-sp {
+  display: block;
+}
+.img-sp img {
+  height: 350px;
+}
+.xem-sp{
+  padding-right: 6%;
+    padding-left: 6%;
+    height: 37px;
+    display: inline-block;
+}
+.carousel-inner {
+  height: 200px !important;
+  }
+.carousel-inner .item {
+  height:100% !important; 
+  }
+  .carousel-inner .item img {
+    height: 100% !important;
+  }
 }
 /*end style responsive*/
