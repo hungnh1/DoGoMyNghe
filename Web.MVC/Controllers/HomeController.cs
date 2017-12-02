@@ -16,7 +16,7 @@ namespace baohiem.Controllers
             int lstnewKey2 = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["listNew2"]);
 
             ViewBag.Slide = db.ADVs.Take(10).ToList();
-            ViewBag.listCategory = db.Categories.ToList();
+            ViewBag.listCategory = db.Categories.Where(p=>p.Des=="1").ToList();
 
             return View();
         }

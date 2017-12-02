@@ -36,6 +36,7 @@ namespace baohiem.Controllers
             productdt = db.Products.Where(p => p.ProductId == productId).First();
          
             ViewBag.GroupList=db.Products.Where(p=>p.ProductGroupID== productdt.ProductGroupID).ToList();
+            ViewBag.listImg = db.ProductImages.Where(p => p.ProductId == productdt.ProductId).ToList();
 
             return View(productdt);
         }
