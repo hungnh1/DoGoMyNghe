@@ -13,10 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min">             
     <link href="font-awesome/css/font-awesome.css" type="text/css" rel="stylesheet" />    
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
     
 
 
@@ -182,19 +179,20 @@
                 </div>
             </div>
         </div>
+
+
         <div class="menumobi">
-            <nav class="navbar navbar-inverse" style="z-index: 99999;">
-                <div class="container-fluid">
+            <nav class="navbar menureponsive dropdown" >               
                     <div class="navbar-header">
 
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <button type="button" class="navbar-toggle dropbtn" onclick="myFunction()">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>  
                      </div>
 
-                    <div class="collapse navbar-collapse" id="myNavbar">     
+                    <div class=" dropdown-content" id="myDropdown">     
                         <ul class="nav navbar-nav">
                             <li>
                                 <a class="active" href="">Trang Chủ</a>
@@ -205,79 +203,95 @@
                             <li >
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sản Phẩm<span class="caret"></span></a>
                                 <!--menu danh mục sản phẩm-->
-                                <div class="mdivc2-mb">
-                                <ul >
+                                <div class="mdivc2 mdivc2-mb" >
+                                <ul>
                                     <li >
-                                        <a href="">Bàn Ghế - Phản Gỗ</a>
+                                        <a href="">Bàn Ghế - Phản Gỗ<span class="caret"></span></a>
                                         <!--menu danh sách nhóm sản phẩm-->
+                                        <div class="mdivc3 mdivc3-mb" >
                                         <ul class="sub-menu2 dropdown-menu">
                                             <li><a class="" href="">Bàn Ghế Gỗ</a></li>
                                             <li><a class="" href="">Phản Gỗ</a></li>
                                         </ul>
+                                    </div>
                                     </li>
                                     <li>
-                                        <a class="" href="">Lục Bình Gỗ - Gỗ Hóa Thạch </a>
+                                        <a class="" href="">Lục Bình Gỗ - Gỗ Hóa Thạch<span class="caret"></span> </a>
                                         <!--menu danh sách nhóm sản phẩm-->
+                                        <div class="mdivc3 mdivc3-mb" >
                                         <ul class="sub-menu2">
                                             <li><a class="" href="">Lục Bình Gỗ</a></li>
                                             <li><a class="" href="">Gỗ Hóa Thạch</a></li>
                                         </ul>
+                                    </div>
                                     </li>
                                     <li>
-                                        <a class="" href="">Tượng Phật Gỗ</a>
+                                        <a class="" href="">Tượng Phật Gỗ<span class="caret"></span></a>
                                         <!--menu danh sách nhóm sản phẩm-->
+                                        <div class="mdivc3 mdivc3-mb" >
                                         <ul class="sub-menu2">
                                             <li><a class="" href="">Tượng Phật</a></li>
                                             <li><a class="" href="">Tượng Phật Di Lặc</a></li>
                                             <li><a class="" href="">Tượng Phật Quan Âm</a></li>
                                         </ul>
+                                    </div>
                                     </li>
                                     <li>
-                                        <a class="" href="">Tượng Gỗ</a>
+                                        <a class="" href="">Tượng Gỗ<span class="caret"></span></a>
                                         <!--menu danh sách nhóm sản phẩm-->
+                                        <div class="mdivc3 mdivc3-mb" >
                                         <ul class="sub-menu2">
                                             <li><a class="" href="">Tượng Phúc Lộc Thọ</a></li>
                                             <li><a class="" href="">Tượng Thần Tài</a></li>
                                             <li><a class="" href="">Tượng Đạt Ma</a></li>
                                             <li><a class="" href="">Tượng Công Giáo</a></li>
                                         </ul>
+                                    </div>
                                     </li>
                                     <li>
-                                        <a class="" href="">Tượng Gỗ Khác</a>
+                                        <a class="" href="">Tượng Gỗ Khác<span class="caret"></span></a>
                                         <!--menu danh sách nhóm sản phẩm-->
+                                        <div class="mdivc3 mdivc3-mb" >
                                         <ul class="sub-menu2">
                                             <li><a class="" href="">Tượng Khổng Minh</a></li>
                                             <li><a class="" href="">Tượng Quan Công</a></li>
                                             <li><a class="" href="">Tượng Ngựa Gỗ</a></li>
                                             <li><a class="" href="">Tượng Linh Vật</a></li>
                                         </ul>
+                                    </div>
                                     </li>
 
                                     <li>
-                                        <a class="" href="">Tranh - Đồng Hồ Gỗ</a>
+                                        <a class="" href="">Tranh - Đồng Hồ Gỗ<span class="caret"></span></a>
                                         <!--menu danh sách nhóm sản phẩm-->
+                                        <div class="mdivc3 mdivc3-mb" >
                                         <ul class="sub-menu2">
                                             <li><a class="" href="">Tranh Gỗ</a></li>
                                             <li><a class="" href="">Tranh Tứ Linh</a></li>
                                             <li><a class="" href="">Tranh Tứ Quý</a></li>
                                         </ul>
+                                    </div>
                                     </li>
                                     <li>
-                                        <a class="" href="">Đá - Trang Sức Phong Thủy</a>
+                                        <a class="" href="">Đá - Trang Sức Phong Thủy<span class="caret"></span></a>
                                         <!--menu danh sách nhóm sản phẩm-->
+                                        <div class="mdivc3 mdivc3-mb" >
                                         <ul class="sub-menu2">
                                             <li><a class="" href="">Đá Phong Thủy</a></li>
                                             <li><a class="" href="">Trang Sức Phong Thủy</a></li>
                                         </ul>
+                                    </div>
                                     </li>
                                     <li>
-                                        <a class="" href="">Loại Khác</a>
+                                        <a class="" href="">Loại Khác<span class="caret"></span></a>
                                         <!--menu danh sách nhóm sản phẩm-->
+                                        <div class="mdivc3 mdivc3-mb" >
                                         <ul class="sub-menu2">
                                             <li><a class="" href="">Trầm Hương Việt</a></li>
                                             <li><a class="" href="">Thác Khói</a></li>
                                             <li><a class="" href="">Xông Trầm</a></li>
                                         </ul>
+                                    </div>
                                     </li>
                                 </ul>
                                 </div>
@@ -299,9 +313,7 @@
                             </li>
                         </ul>                                          
                     </div>
-
-                </div>
-            </nav>
+                                </nav>
         </div>
     </header>
     <!-- end header -->
@@ -681,18 +693,8 @@
                 </li>
             </ul>
         </div>
-
-        <nav class="menu-footermobi navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar1">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>   
-      <a class="navbar-brand" href="#">Hướng Dẫn Mua Hàng Gỗ Mỹ Nghệ</a>  
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar1">
+       
+    <div class=" menu-footermobi ">
       <ul class="nav navbar-nav">        
                 <li>
                     <a href="">
@@ -727,7 +729,7 @@
             </ul>    
     </div>
   </div>
-</nav>
+
 
         <div class="wap-footer">
             <div class="col-md-12" id="wapper-footer">
@@ -820,5 +822,29 @@
 
     </script>
     <!-- end JS slider -->
+    <!-- menu di dong -->
+
+            <script>
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+<!-- end menu di dong -->
+
+
 </body>
 </html>
