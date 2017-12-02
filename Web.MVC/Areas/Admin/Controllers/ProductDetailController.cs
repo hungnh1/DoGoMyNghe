@@ -76,6 +76,8 @@ namespace baohiem.Areas.Admin.Controllers
         {
             ProductGroup productGroup = db.ProductGroups.Find(product.ProductGroupID);
             product.ProductGroupName = productGroup.Name;
+            product.CategoryId = productGroup.CategoryId;
+            product.CategoryName = productGroup.CategoryName;
             db.Products.Add(product);
             db.SaveChanges();
             int indexfile = 0;

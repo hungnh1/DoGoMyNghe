@@ -127,5 +127,18 @@ namespace baohiem.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        public JsonResult ShowCateGory(int categoryId, int isCheck) 
+        {
+            Category category = db.Categories.Find(categoryId);
+            category.Des = isCheck.ToString();
+            if (db.SaveChanges() > 0)
+            {
+                return Json(1, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(0, JsonRequestBehavior.AllowGet);
+        }
     }
 }
