@@ -6,14 +6,14 @@
     Layout = "~/Views/Shared/_LayoutDefault.cshtml";
 
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
- 
+
     var listProduct = (List<Product>)ViewBag.GroupList;
 }
 <link href="~/Content/css/Cust.css" rel="stylesheet" />
 <div class="col-md-12">
     <div class="detail-product">
         <div id="imgPro">
-            <img src="/@Model.Image" class="imgLarge" />
+            <img id="mainImg" src="/@Model.Image" class="imgLarge" />
 
             <div id="iconZoom">
             </div>
@@ -47,13 +47,37 @@
                 </div>
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
                 @*<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5348c97229f88208"
-                        async></script>*@
+                    async></script>*@
             </div>
         </div>
     </div>
 
+    <div class="col-md-10 boxListImg">
+        <img src="~/images/back.png" class="back" />
+        <div id="boxdynamic" style="left:0">
+            @{List<ProductImage> listImg = (List<ProductImage>)ViewBag.listImg;
+                foreach (ProductImage proImg in listImg)
+                {
+                    <div>
+                        <img src="/@proImg.Image" class="" />
+                    </div>
+                }
+
+            }
+ 
+        </div>
+        <img src="~/images/next.jpg" class="next" />
+    </div>
+
+    <div class="col-md-12">
+        <h1>Chi tiết</h1>
+        <div>
+            @Model.Des
+        </div>
+    </div>
+
     @*---------*@
-    <div class="showtilte">
+    <div class="showtilte" style="width:100%; float:left">
         <div class="txtshowtitle">
             <h2 style="font-size:17px">
                 Sản phẩm cùng loại
@@ -76,14 +100,14 @@
         }
     }
 </div>
-
-@section scripts{
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/js/multizoom.js"></script>
+<script src="~/js/multizoom.js"></script>
+@section scripts{
+    
     <script type="text/javascript">
-        var t = $('.imgLarge');
+
         jQuery(document).ready(function ($) {
-            
+
             $('.imgLarge').addimagezoom({
                 speed: 1500,
                 descpos: true,
@@ -95,15 +119,100 @@
                 cursorshade: true
             });
 
+
+        });
+
+       
+
+        $('.back').click(function () {
+           
+
+            var lps = $('.boxListImg > div')[0].style.left;
+            lps = lps.split('p')[0] * 1;
+            if (lps >= 0) {
+                return;
+            }
+            $('.boxListImg > div')[0].style.left = (lps + 250) + "px";
+
            
         });
-        var t = $('.imgLarge');
+
+        $('.next').click(function () {
+            var imgNum = $('.boxListImg > div >div').length;
+            var imgMoveNum = imgNum - 4;
+
+            var lps = $('.boxListImg > div')[0].style.left;
+            lps = lps.split('p')[0] * 1;
+           
+            if (Math.abs(lps) >= imgMoveNum * 250) {
+                return;
+            }
+
+            $('.boxListImg > div')[0].style.left = (lps - 250) + "px";
+        })
+
+
+        $('.boxListImg > div > div > img').click(function () {
+            
+            $('#mainImg')[0].setAttribute("src", this.src);
+            //$('.imgLarge').addimagezoom().largeimage = "myimagescr";
+            $('.magnifyarea > div > img')[0].setAttribute("src", this.src);
+            
+        })
     </script>
 
 
 
 }
 
+<style type="text/css">
+    .imgLarge {
+        max-height: 290px;
+    }
 
+    .boxListImg {
+        position: relative;
+        height: 200px;
+        padding-top: 10px;
+        overflow: hidden;
+         /*-webkit-transition: width 2s;
+            transition: width 2s;*/
+    }
 
-   
+        .boxListImg > div {
+            position: absolute;
+            width: max-content;
+            left:0;
+            -webkit-transition: width 2s;
+            transition: left 1s;
+        }
+
+    .next {
+        position: absolute;
+        right: 0;
+    }
+
+    .back {
+        position: absolute;
+        left: 0;
+        left: 14px;
+        z-index: 99;
+    }
+
+    .next, .back {
+        height: 40%;
+        top: 30%;
+        width: 50px;
+        cursor: pointer;
+    }
+
+    .boxListImg > div > div {
+        width: 250px;
+        float: left;
+    }
+
+    .boxListImg > div img {
+        width: 98%;
+        cursor: pointer;
+    }
+</style>

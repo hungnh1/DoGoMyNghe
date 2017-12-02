@@ -106,12 +106,10 @@
                         counttab++;
                     }
 
-
+                  
 
                 </ul>
-                <div id="xemthem">
-                    <a href=""><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></a>
-                </div>
+               
             </div>
 
             <div class="box-sanpham tab-content">
@@ -147,19 +145,22 @@
                             <div class="xem-sp">
                                 <div class="button">
                                     <div class="chitiet">
-                                        <a href="">Chi Tiết</a>
+                                        <a href="/ProductList/ProductDetail?productId=@pro.ProductId">Chi Tiết</a>
                                     </div>
-                                    <div class=" goingay">
+                                    <div class="goingay">
                                         <a href="">Gọi Ngay</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         }
-
-
+                    <div id="xemthem">
+                        <a href="@(lstProduct.Count>0?"/ProductList/ProductList?ProductGroupId=" +lstProduct.First().ProductGroupID :"#")">
+                            <i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
-
+                
 
                     countdtl++;
                 }
@@ -169,8 +170,6 @@
     }
 
  </div>
-
-
 
     <!-- end product -->
 
