@@ -1,0 +1,694 @@
+﻿/*Style Header*/ 
+#wap-header {
+    width: 100%;
+    height: 120px;
+}
+.wap-content {
+    width: 100%;
+    height: 35px;
+    background: #ffcc4e;
+}
+.wap-menu {
+    width: 100%;
+    height:85px;
+    background: #e0dfd9;
+}
+.menusub {
+  position: absolute;
+  height: auto;  
+  display: none;
+}
+#menu li ul {
+    position: absolute;    
+    display: none;
+    width: 200px;
+    z-index: 999;
+}
+#menu > ul > li:hover > .sub-menu {
+    display: block;
+    z-index: 9999;
+    height: auto;
+    background: #e0dfd9;
+}
+#menu li ul li {
+    margin: 0;
+    line-height: 40px;
+    width: 200px;
+    background: #86857f;
+    float: none;
+    height: 35px;
+    border-bottom: 1px solid white;
+  }
+#menu li ul li a {
+        font-size: 11px;
+    height: 100%;
+    line-height: 3;
+    padding: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+#menu li ul li ul {
+position: absolute;    
+    display: none;
+    width: 200px;
+    z-index: 999;    
+    left: 100%;
+    top: 0;
+}
+#menu li ul li ul li {
+background: #c3baba;
+    border-right: 1px solid white;
+    border-left: 2px solid white;
+}
+#menu li ul li:hover .sub-menu2{
+     display: block;
+    z-index: 9999;
+    height: auto;
+    background: #e0dfd9;
+}
+#wap-header #at4-share {
+   margin-top: 0px;
+text-align: right;
+}
+#wap-header #at4-share a {
+  font-size: 20px;
+width: 30px;
+text-align: center;
+color: black;
+background: #e0dfd9;
+height: 30px;
+line-height: 28px;
+border-radius: 18px;
+margin-right: 1%;
+text-decoration: none;
+}
+#wap-header #at4-share .fa-facebook:hover {
+   color: #3b5998;
+   transition: 1s;
+transform: rotate(360deg);
+}
+#wap-header #at4-share .fa-twitter:hover {
+  color: #1b95e0;
+  transition: 1s;
+transform: rotate(360deg);
+}
+#wap-header #at4-share .fa-youtube:hover {
+ color: #cc181e;
+ transition: 1s;
+transform: rotate(360deg);
+}
+#wap-header #at4-share .fa-google:hover {
+  color: #d14836;
+  transition: 1s;
+transform: rotate(360deg);
+}
+.header-phone p{
+    float: right;
+font-size: 18px;
+padding-top: 1%;
+}
+.header-mail p {
+    font-size: 18px;
+padding-top: 1%;
+}
+.contact-top {
+  width:   90%;
+float: right;
+padding: 0px 15px;
+height: 35px;
+}
+.info-company ul {
+    list-style: none;
+}
+.info-company {
+  width: 80%;
+float: left;
+}
+.info-company ul  li{
+      display: inline-block;
+    padding-right: 30px;
+    float: left;
+}
+.logotop {
+  float: left;
+z-index: 999;
+height: 120px;
+position: absolute;
+top: 0px;
+left: 0px;
+width: 85px;
+}
+.header-content {
+  width: 1100px;
+  position: relative;
+margin: auto;
+}
+.logotop img {
+  height: 100%;
+width: 100%;
+}
+#header-menu{
+  width: 100%;
+margin: auto;
+position: relative;
+height: 100%;
+}
+.infologo {
+  width: 30%;
+}
+.infologo img {
+  float: right;
+width: 50%;
+padding-top: 2%;
+}
+#menu ul{
+  list-style-type: none;
+float: left;
+padding-left: 0px;
+height: 100%;
+}
+#menu ul li {
+  float: left;
+position: relative;
+height: 100%;
+}
+.infologo {
+  padding-left: 0px;
+}
+.header-menu {
+  height: 100%;
+padding-left: 0px;
+}
+#menu {
+  height: 100%;
+}
+#menu li a{
+  font-size: 14px;
+padding: 0px 16px;
+text-decoration: none;
+text-transform: uppercase;
+display: block;
+line-height: 6;
+font-weight: 600;
+color: #090909;
+position: relative;
+}
+#menu li a.active {
+  background: #ffcc4e;
+color: #000;
+height: 100%;
+}
+#menu li a:hover {
+  background: #ffcc4e;
+color: #000;
+height: auto;
+}
+div.menu ul li:hover ul li ul {
+  position: absolute;
+margin-left: 0px;
+display: none;
+min-width: 200px;
+background: #6dc71c;
+line-height: 1.5;
+}
+/*End Header*/
+
+/*style icon fb left*/
+#at4-share-left  a:hover {
+    width: 4pc;
+    color: white;
+
+}
+.chuyenmuctin {
+       margin-top: 10px !important;
+    height: auto;
+    float: left;
+}
+
+
+#at4-share-left {
+   float: left;
+    width: 4%;    
+    position: fixed;
+   top: 149px;
+   z-index: 2;
+}
+#at4-share-left .fa {
+        padding: 5px;
+    font-size: 24px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 2px 2px;
+}
+#at4-share-left .fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+#at4-share-left .fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+#at4-share-left .fa-google {
+  background: #dd4b39;
+  color: white;
+}
+#at4-share-left .fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+/*end ic fb*/
+
+/*style slider*/
+.bxslider {
+  list-style: none;
+padding: 0;
+}
+.bx-controls{
+  display: none;
+}
+/*end slide*/
+.container {
+    width: 1200px ;
+    padding: 0 !important;
+}
+.wapper{
+  width: 100%;
+}
+.chinhsach ul {
+  list-style: none;
+      padding: 0;
+}
+.chinhsach ul li {
+display: inline-block;
+width: 23%;
+text-align: center;
+margin: 20px 0.8%;
+text-transform: uppercase;}
+.chinhsach ul .avarta {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border: 1px solid #000;
+    border-radius: 50%;
+    line-height: 80px;
+    position: relative;
+    background: #fff;
+}
+.chinhsach ul .avarta i {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    line-height: 70px;
+    font-size: 40px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background: #fff;
+}
+.chinhsach ul .avarta i {
+    line-height: 70px;
+    font-size: 40px;
+}
+.chinhsach .info_cs {
+    border: 1px solid #000;
+    padding: 40px 0px 12px 0px;
+    margin-top: -40px;
+}
+.chinhsach ul li.item_cs {
+    text-align: center;
+    text-transform: uppercase;
+}
+.info_cs h3{
+  font-weight: 600;
+  font-size: 18px;
+}
+.chinhsach ul li.item_cs:hover i {
+    border: 1px solid #f80205;
+    color: #fff;
+    background: #f80205;
+}
+.chinhsach ul li.item_cs:hover .info_cs {
+    color: #f80205;
+}
+.chinhsach a {
+  color: black;
+  text-decoration: none;
+}
+.chinhsach a:hover {  
+  text-decoration: none;
+}
+
+/*style san pham*/
+#xemthem{
+  float: right;
+    display: inline-block;
+}
+#xemthem .fa {
+font-size: 32px;
+color: black
+}
+#xemthem .fa:hover{
+  color: #ffcc4e;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+  background-color: #ffcc4e !important; 
+}
+.nav-pills>li>a{
+  border-radius: 0px !important;
+}
+.product{
+      height: auto;
+      display: inline-block;
+}
+.sanpham {
+  width: 100%;
+  padding: 0;
+  border-top: 2px solid #ffcc4e;
+display: inline-block;
+}
+.title {
+  width: 100%;
+  border-bottom: 2px solid black;
+  margin-top: 2%;
+  height: 35px;
+}
+.title ul{
+list-style: none;
+padding: 0;
+margin: 0;
+    float: left;
+    padding-left: 0px;
+    height: 100%;
+    line-height: 2.5;
+}
+.title li a {
+font-size: 14px;
+    padding: 0px 16px !important;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;    
+    font-weight: 600;
+    height: 100%;
+    color: black;
+background: #c7c7c1;
+}
+.title li a:active {
+  background: #ffcc4e;
+    color: #000;
+    height: 100%; }  
+.title li {
+  float: left;
+  border-right: 2px solid white;
+      height: 100%;
+}
+.item {
+  margin: 1% 0.8%;
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+.box-sanpham {
+  text-align: center;
+    position: relative;
+}
+.img-sp img {
+  width: 100%;
+  height: 250px;
+}
+.img-sp{
+  padding: 0;
+  position: relative;
+    line-height: 0px;
+}
+.info-sp {
+  position: absolute;
+    bottom: 0px;
+    display: none;
+    text-align: center;
+    width: 100%;
+    background: rgba(243, 174, 3, 0.74);
+}
+.img-sp p{
+      overflow: hidden;
+}
+.item:hover .info-sp{
+  display: block;
+}
+.box-sanpham .item{
+      padding: 0;
+          width: 23%;
+    margin: 1% 0.8%;    
+    display: inline-block;
+    vertical-align: top;
+    height:  370px;
+}
+#info-ten {
+  font-weight: 600;
+    margin-top: 6px;
+    font-size: 20px;
+    margin-bottom: 1%;
+}
+#info-diachi {
+  font-size: 19px;
+      margin-top: 0%;
+    margin-bottom: 1%;
+}
+.tensp a:hover{
+  text-decoration: none;
+  color: black;
+}
+.tensp {
+  margin-top: 1%;
+  font-size: 20px;
+}
+.tensp a{
+  color: black;
+}
+.name-sp {
+   padding-right: 3%;
+    padding-left: 3%;
+    height: 71px;
+}
+.xem-sp {
+  width: 100%;
+    padding-right: 4%;
+    padding-left: 4%;
+        height: 35px;
+}
+.xem-sp .chitiet {
+      font-size: 14px;
+        padding: 0px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    line-height: 2;
+    font-weight: 600;
+    background: black;
+    float: left;
+        margin-top: 2%;
+}
+.xem-sp .goingay{
+   font-size: 14px;
+      padding: 0px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    line-height: 2;
+    font-weight: 600;
+    background: black;
+    float: right;
+        margin-top: 2%;
+}
+.xem-sp a {
+  text-decoration: none;
+  color: white;
+}
+.xem-sp a:hover {
+  text-decoration: none;
+  color: red;
+}
+.button {
+  width: 100%;
+    border-top: 2px solid #ffcc4e;
+}
+
+
+/*style footer*/
+.menu-footer {
+  height: 45px;
+}
+.menu-footer ul {
+    list-style: none;
+        padding: 0;
+            width: 100%;
+    height: 100%;
+        background: #c7c7c1;
+}
+.menu-footer ul li a:hover{
+  text-decoration: none;
+  
+}
+.menu-footer ul li {
+font-size: 14px;
+    padding: 0px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    font-weight: 600;
+    height: 100%;
+    color: black;
+    background: #c7c7c1;
+    float: left;
+        line-height: 3;
+            border-right: 2px solid white;
+}
+.menu-footer ul li a {
+  color: black;
+}
+.menu-footer ul li:hover{
+  
+  background: #969690 ;
+}
+.menu-footer ul li:hover a{
+  
+   color: red;
+}
+.wap-footer {
+      width: 100%;
+       height: 260px;
+    background: #ffcc4e;
+}
+.for-title h1{
+  text-align: center;
+    font-weight: 600;
+    color: white;
+        font-size: 23px;
+}
+#wapper-footer {
+  width: 100%;
+      padding-right: 3%;
+    padding-left: 3%;
+}
+.tencty h1{
+  font-size: 19px;
+    font-weight: 600;
+}
+.chitiet-lienhe {
+      font-size: 18px;
+    font-weight: 600;
+}
+.chitiet-lienhe p span {
+  padding-right: 2%;
+}
+.for-thanhtoan ul{
+    list-style: none;
+        padding: 0;          
+}
+.for-thanhtoan ul li{
+        font-size: 16px;
+    font-weight: 600;  
+    padding-bottom: 3%;    
+}
+.intro h1{
+font-size: 20PX;
+    font-weight: 600;
+    text-align: center;
+}
+.creat-by {
+  background: black;
+    height: 35px;
+}
+.creat-by p{
+  text-align: center;
+  color: white;
+}
+.creat-by p a {
+  text-decoration: none;
+  color:  red ;
+font-weight: 600;}
+ .creat-by p a:hover{
+  color:white;
+ } 
+/*end footer*/
+
+/*producdetail*/
+
+.detail-product {
+    width: 100%;
+}
+    .detail-product:after {
+        clear: both;
+        content: "";
+        display: block;
+    }
+
+    .detail-product #imgPro {
+        background: none repeat scroll 0 0 #fff;
+        border: 1px solid #ddd;
+        float: left;
+        height: 310px;
+        margin-right: 1%;
+        padding: 2px;
+        text-align: center;
+        width: 45%;
+    }
+
+        .detail-product #imgPro img {
+            /*height: 300px;*/
+            max-width: 99%;
+        }
+
+    .detail-product .info {
+        background: none repeat scroll 0 0 #fff;
+        border: 1px solid #ddd;
+        float: left;
+        padding: 6px;
+        width: 54%;
+        height: 310px;
+    }
+
+        .detail-product .info .name {
+            color: #505050;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 8px 0;
+        }
+
+        .detail-product .info .detail {
+            border-bottom: 1px dashed #ddd;
+            border-top: 1px dashed #ddd;
+            margin: 5px 0 16px;
+            padding: 10px 0;
+        }
+
+            .detail-product .info .detail td {
+                font-weight: bold;
+                padding: 5px 0;
+            }
+
+            .detail-product .info .detail .title {
+                font-weight: normal;
+                padding-right: 8px;
+            }
+
+
+/*style responsive*/
+@media only screen and (max-width: 1024px) {
+   .xem-sp .goingay {
+    padding: 0px 4px;
+    width: 50%;
+   }
+   .xem-sp .chitiet {
+    padding: 0px 4px;
+    width: 49%;
+   }
+   .info-company{
+    width: 70%;
+   }
+   .home-slider  img {
+    width: 100% !important;
+   }
+}
+/*end style responsive*/
