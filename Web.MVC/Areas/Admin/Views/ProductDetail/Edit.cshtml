@@ -70,7 +70,13 @@
                 @Html.ValidationMessageFor(model => model.Material)
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.Label("Mã sản phẩm", new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.TextBoxFor(model => model.ImageList, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ImageList)
+            </div>
+        </div>
         <div class="form-group">
             @Html.Label("Trạng thái", new { @class = "control-label col-md-2" })
             <div class="col-md-5">
