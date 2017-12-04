@@ -12,93 +12,16 @@
 
 }
 
-<div id="introcontent" class="intro-home container-fluid">
-    <div class="container">
-        <div class="row">
+
+ 
             <div class="cold-md-12 ProDetail">
-                <div class="col-md-4 tab-mobi">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <span>Các gói cước Viettel </span>
-                        </div>
-                        @foreach (Product pro in listPro)
-                        {
-                            <div class="panel-tab">
-                                <div class="block_home_right">
-                                    <ul>
-                                        <li class="clearfix">
-                                            <a class="package-name" href="">@pro.TenGoi</a>
-
-                                            <div class="btn-register"><a href="javascript:void(0);" onclick="smsbutton(9, '@pro.DauSo', '@pro.CuPhap 0968348348')">Đăng Ký </a></div>
-                                            <span>@pro.GiaCuoc</span>
-
-                                        </li>
-                                    </ul>
-
-                                </div>
-
-                            </div>
-                        }
-
-                    </div>
-
+                <div><h1>@Model.Name</h1></div>
+                <div>
+                    <p>
+                        @Model.PContent
+                    </p>
 
                 </div>
 
-                <div class="col-md-8">
-                    <div class="col-md-12 box-tienich">
-                        <div class=" col-lg-12 product-utility">
-                            <div class="panel-utility">
-                                <div class="name-utility">
-                                    <span> TIỆN ÍCH VIETTEL</span>
-                                </div>
-                            </div>
-                            <div class="panel-detail">
-                                @foreach (EnF.Page pag in listPage)
-                                {
-                                    <div class="col-md-6 detail-utility">
-                                        <div class="col-md-12 noidung-tienich">
-                                            <div class="page-item item1">
-                                                <h1><a class="tieude-tienich" href="/Home/NewsDetail?pageId=@pag.PageId">@pag.Name</a></h1>
-                                                <p>@pag.Recap</p>
-                                                <a href="/Home/NewsDetail?pageId=@pag.PageId" class="btn-detail">Chi tiết</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                }
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-12 tienich-noidung">
-                        <div class="col-lg-12 ti">
-                            <div class="panel-tieude">
-                                <a class="tieude-tienich">
-                                    @Model.Name
-                                </a>
-                            </div>
-                            <div class="panel-noidung">
-                                <p>
-                                    <h2>
-                                        <a class="noidung">
-                                            @Html.Raw(Model.PContent)
-
-                                        </a>
-                                    </h2>
-                                </p>
-                            </div>
-                            }
-
-                        </div>
-                    </div>
-
-                </div>
             </div>
-        </div>
-
-    </div>
-
-</div>
+ 
