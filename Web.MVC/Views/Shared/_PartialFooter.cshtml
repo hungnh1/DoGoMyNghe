@@ -1,57 +1,64 @@
 ﻿@using EnF
 @{
 
-//DoGoMyNgheEntities db = new DoGoMyNgheEntities();
-//List<EnF.Page> lstPage = db.Pages.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["listNewFooter"])).ToList();
-//EnF.Page huongDanMua = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["huongDanMua"])).First();
-//EnF.Page huongThanhToan = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["huongThanhToan"])).First();
-//EnF.Page chinhSachVanChuyen = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["chinhSachVanChuyen"])).First();
-//EnF.Page quydinhDoiTra = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["quydinhDoiTra"])).First();
-//EnF.Page CamKetQuyDinh = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["CamKetQuyDinh"])).First();
-//EnF.Page BaoMatThongTin = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["BaoMatThongTin"])).First();
+    DoGoMyNgheEntities db = new DoGoMyNgheEntities();
+    int idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["listNewFooter"]);
+    List<EnF.Page> lstPage = db.Pages.Where(p => p.PageId == idKey).ToList();
+    List<EnF.Page> lstTempPage = new List<EnF.Page>();
+
+    idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["huongDanMua"]);
+    lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
+    Int64 huongDanMua = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
 
 
+    idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["huongThanhToan"]);
+    lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
+    Int64 huongThanhToan = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
+
+    idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["chinhSachVanChuyen"]);
+    lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
+    Int64 chinhSachVanChuyen = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
+
+    idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["quydinhDoiTra"]);
+    lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
+    Int64 quydinhDoiTra = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
+
+    //EnF.Page CamKetQuyDinh = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["CamKetQuyDinh"])).First();
+    //EnF.Page BaoMatThongTin = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["BaoMatThongTin"])).First();
 
 }
 
- <!-- Footer -->
+<!-- Footer -->
 <footer>
     <div class="menu-footer">
         <ul>
             <li>
-                <a href="">
+                <a href="@(huongDanMua!=0? "/Home/NewsDetail?pageId="+huongDanMua:"#")">
                     Hướng Dẫn Mua Hàng
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="@(huongDanMua!=0? "/Home/NewsDetail?pageId="+huongThanhToan:"#")">
+
                     Hướng Dẫn Thanh Toán
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="@(huongDanMua!=0? "/Home/NewsDetail?pageId="+chinhSachVanChuyen:"#")">
+
                     Chính Sách Vận Chuyển
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="@(huongDanMua!=0? "/Home/NewsDetail?pageId="+quydinhDoiTra:"#")">
                     Quy Định Đổi Trả
                 </a>
             </li>
-            <li>
-                <a href="">
-                    Cam Kết Và Quy Định
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    Bảo Mật Thông Tin
-                </a>
-            </li>
+
         </ul>
     </div>
-  
-      <div class="wap-footer">
+
+    <div class="wap-footer">
         <div class="col-md-12" id="wapper-footer">
             <div class="col-md-4 for-lienhe">
                 <div class="for-title">

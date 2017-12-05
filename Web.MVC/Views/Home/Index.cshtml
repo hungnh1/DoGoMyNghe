@@ -9,6 +9,8 @@
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
 
     List<ADV> slideList = (List<ADV>)ViewBag.Slide;
+    List<ADV>  slideListBanner = slideList.Where(p => p.Type == 1).ToList();
+    List<ADV> slideListPopup = slideList.Where(p => p.Type == 2).ToList();
 
     List<Category> categoryList = (List<Category>)ViewBag.listCategory;
 
@@ -22,7 +24,7 @@
 
     <div class="box-img">
         <ul class="bxslider" id="boxsl">
-            @foreach (ADV ad in slideList)
+            @foreach (ADV ad in slideListBanner)
             {
                 <li>
                     <img src="/@ad.Image" />
@@ -116,7 +118,7 @@
             <div class="box-sanpham tab-content">
                 @foreach (ProductGroup progrp in lstProGrp)
                 {
-                    List<Product> lstProduct = db.Products.Where(p => p.ProductGroupID == progrp.ProductGroupId).ToList();
+                    List<Product> lstProduct = db.Products.Where(p => p.ProductGroupID == progrp.ProductGroupId).Take(8).ToList();
 
                 <div id="sanpham@(countdtl)" class="tab-pane fade in @(countdtl==1?"active":"")">
 
@@ -157,7 +159,7 @@
                         }
                     <div id="xemthem">
                         <a href="@(lstProduct.Count>0?"/ProductList/ProductList?ProductGroupId=" +lstProduct.First().ProductGroupID :"#")">
-                            <i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+                            <i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -183,10 +185,17 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Gỗ Đại Nghĩa</h4>
+                @if (slideListPopup.Count > 0)
+                {
+                    <h4 class="modal-title">@slideListPopup.First().Name</h4>
+                }  
             </div>
             <div class="modal-body">
-                <img src="~/images/popupimg.jpg" style="width:100%" />
+                @if (slideListPopup.Count > 0)
+                {
+                    <img src="/@slideListPopup.First().Image" style="width:100%" />
+                }
+                
             </div>
             @*<div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -201,7 +210,11 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
-                $("#openPopup").click();
+                @if (db.ADVs.Where(p => p.Type == 2).Count() > 0)
+                {
+                    <text>   $("#openPopup").click();   </text>
+                }
+               
             });
             //$(window).load(function () {
             //    //$('#mypopup').popup($('#mypopup').data());
