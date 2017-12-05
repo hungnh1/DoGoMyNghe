@@ -28,8 +28,7 @@ namespace baohiem.Areas.Admin.Controllers
             Page rs = null;
             if (db.Pages.ToList().Count>0)
             {
-                 rs = db.Pages.OrderBy(p=>p.PageId).Skip(0).Take(1).First();
-                
+                 rs = db.Pages.OrderBy(p=>p.PageId).Skip(0).Take(1).First();                
             }
             return View(rs);
         }
@@ -216,6 +215,11 @@ namespace baohiem.Areas.Admin.Controllers
         // GET: /Admin/News/Delete/5
         public ActionResult Delete(long? id)
         {
+            int idKey1 = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["listNewFooter"]);
+            int idKey2 = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["huongDanMua"]);
+            int idKey3 = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["huongThanhToan"]);
+            int idKey4 = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["chinhSachVanChuyen"]);
+            int idKey5 = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["quydinhDoiTra"]);
             
             if (id == null)
             {
@@ -223,6 +227,10 @@ namespace baohiem.Areas.Admin.Controllers
             }
             Page page = db.Pages.Find(id);
             var parentId = page.ParentId;
+            if (id == 1 || id == 2 || id == 3 || id == 4 || id == 5)
+            {
+                return RedirectToAction("Index", new { newId = parentId });
+            }
             if (page == null)
             {
                 return HttpNotFound();
