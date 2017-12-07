@@ -5,31 +5,37 @@
     Layout = "~/Views/Shared/_LayoutDefault.cshtml";
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
    // ProductGroup pgp = db.ProductGroups.Find(Convert.ToInt16(Request.QueryString["ProductGroupId"]));
-
-
 }
-
 <link href="~/Content/css/Cust.css" rel="stylesheet" />
 
-        <div class="col-md-12">
-            <div class="showtilte">
-                <div class="txtshowtitle"><h2 style="font-size:17px">@ViewBag.groupname </h2></div>
-
-            </div>
-
-            @foreach (var p in Model)
-            {
-                <div class="divsanpham col-md-4">
-                    <div class="divimgsanpham">
-                        <a href="/San-pham/@(Web.Repository.ClearWordRepository.NoVNeseLower(p.Name)+"-"+p.ProductId.ToString())#mainContent">
-                            <img alt="@p.Name" title="@p.Name" src="/@p.Image" />
-                        </a>
-                    </div>
-                    <div class="divtensanpham">@p.Name</div>
+        <div class="col-md-12 productlist" >
+            <div class="col-md-3 productlist-left">
+                <div class="productlist-danhmuc">
+                    <div class="txtshowtitle"><h2>Danh Mục Sản Phẩm </h2></div>
+                    <div class="productlist-tab"><a>Lục Bình Gỗ</a></div>
+                    <div class="productlist-tab"><a>Lục Bình Gỗ</a></div>
 
                 </div>
-            }
+            </div>
+            <div class="col-md-9 productlist-right">
+                <div class="showtilte">
+                    <div class="txtshowtitle"><h2 style="font-size:17px">@ViewBag.groupname </h2></div>
 
+                </div>
+
+                @foreach (var p in Model)
+            {
+                    <div class="divsanpham col-md-4">
+                        <div class="divimgsanpham">
+                            <a href="/San-pham/@(Web.Repository.ClearWordRepository.NoVNeseLower(p.Name)+"-"+p.ProductId.ToString())#mainContent">
+                                <img alt="@p.Name" title="@p.Name" src="/@p.Image" />
+                            </a>
+                        </div>
+                        <div class="divtensanpham">@p.Name</div>
+
+                    </div>
+                }
+            </div>
 
         </div>
 
