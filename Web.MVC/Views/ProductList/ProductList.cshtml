@@ -4,18 +4,14 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_LayoutDefault.cshtml";
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
-   // ProductGroup pgp = db.ProductGroups.Find(Convert.ToInt16(Request.QueryString["ProductGroupId"]));
+    // ProductGroup pgp = db.ProductGroups.Find(Convert.ToInt16(Request.QueryString["ProductGroupId"]));
+    int totalPage = (int)ViewBag.totalPage;
 }
 <link href="~/Content/css/Cust.css" rel="stylesheet" />
 
         <div class="col-md-12 productlist" >
             <div class="col-md-3 productlist-left">
-                <div class="productlist-danhmuc">
-                    <div class="txtshowtitle"><h2>Danh Mục Sản Phẩm </h2></div>
-                    <div class="productlist-tab"><a>Lục Bình Gỗ</a></div>
-                    <div class="productlist-tab"><a>Lục Bình Gỗ</a></div>
-
-                </div>
+                @Html.Partial("_PartialProductList")
             </div>
             <div class="col-md-9 productlist-right">
                 <div class="showtilte">
@@ -35,6 +31,16 @@
 
                     </div>
                 }
+
+                <div style="width:90%; float:left">
+                    <ul style="float:right" class="pagination">
+                        @for (int i = 1; i <= totalPage; i++)
+                        {
+                            <li><a href="/ProductList/ProductList?ProductGroupId=2">@i</a></li>
+                        }
+                                   
+                    </ul>
+                </div>
             </div>
 
         </div>

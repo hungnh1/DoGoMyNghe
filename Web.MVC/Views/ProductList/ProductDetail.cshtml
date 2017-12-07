@@ -11,116 +11,123 @@
 <link href="~/Content/css/Cust.css" rel="stylesheet" />
 
 <div class="col-md-12">
-    <div class="detail-product">
-        <div id="imgPro">
-            <img id="mainImg" src="/@Model.Image" class="imgLarge" />
-
-            <div id="iconZoom">
-            </div>
-        </div>
-        <div class="info">
-            <div class="name">
-                @*@Model.Name*@
-            </div>
-            <div class="detail">
-                <table>
-                    <tr>
-                        <td class="title">
-                            <h2>@Model.Name</h2>
-                        </td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td class="title">
-                            Giá Sản phẩm:@Model.Price
-                        </td>
-                        <td></td>
-                    </tr>
-
-
-                </table>
-            </div>
-            <div>
-                <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                <div class="addthis_native_toolbox">
-                </div>
-                <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                @*<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5348c97229f88208"
-                    async></script>*@
-            </div>
-        </div>
+    <div class="col-md-3 productlist-left">
+        @Html.Partial("_PartialProductList")
     </div>
 
-    <div class="col-md-10 boxListImg">
-        <img src="~/images/back.png" class="back" />
-        <div id="boxdynamic" style="left:0">
-            @{List<ProductImage> listImg = (List<ProductImage>)ViewBag.listImg;
+    <div class="col-md-9 productlist-right">
+        <div class="detail-product">
+            <div id="imgPro">
+                <img id="mainImg" src="/@Model.Image" class="imgLarge" />
+
+                <div id="iconZoom">
+                </div>
+            </div>
+            <div class="info">
+                <div class="name">
+                    @*@Model.Name*@
+                </div>
+                <div class="detail">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <h2>@Model.Name</h2>
+                            </td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="title">
+                                Giá Sản phẩm:@Model.Price
+                            </td>
+                            <td></td>
+                        </tr>
+
+
+                    </table>
+                </div>
+                <div>
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_native_toolbox">
+                    </div>
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    @*<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5348c97229f88208"
+                        async></script>*@
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10 boxListImg">
+            <img src="~/images/back.png" class="back" />
+            <div id="boxdynamic" style="left:0">
+                @{List<ProductImage> listImg = (List<ProductImage>)ViewBag.listImg;
                 foreach (ProductImage proImg in listImg)
                 {
-                    <div>
-                        <img src="/@proImg.Image" class="" />
-                    </div>
+                <div>
+                    <img src="/@proImg.Image" class="" />
+                </div>
                 }
 
-            }
- 
-        </div>
-        <img src="~/images/next.jpg" class="next" />
-    </div>
-
-    <div class="col-md-12 chitiet">
-        <div class="title-chitiet">
-        <h1>Chi tiết</h1>
-        </div>
-        <div id="noidung">
-            @Html.Raw(Model.Des)
-        </div>
-    </div>
-
-    @*---------*@
-    <div class="showtilte" style="width:100%; float:left">
-        <div class="txtshowtitle">
-            <h2 style="font-size:17px">
-                Sản phẩm cùng loại
-            </h2>
-        </div>
-    </div>
-
-    @{List<Product> prctList = (List<Product>)ViewBag.Grouplist;
-            foreach (var p in prctList)
-            {
-            <div class="item col-md-4">
-                <div class="img-sp">
-                    <a href="/ProductList/ProductDetail?productId=@p.ProductId">
-                        <img alt="@p.Name" title="@p.Name" src="/@p.Image" />
-                    </a>
-                    <div class="info-sp">
-                        <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
-                        <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
-                    </div>
-                </div>
-                <div class="name-sp">
-                    <h3 class="tensp">
-                        <a href="" title="">@p.Name</a>
-                    </h3>
-                </div>
-
-                <div class="xem-sp">
-                    <div class="button">
-                        <div class="chitiet">
-                            <a href="/ProductList/ProductDetail?productId=@p.ProductId">Chi Tiết</a>
-                        </div>
-                        <div class="goingay">
-                            <a href="">Gọi Ngay</a>
-                        </div>
-                    </div>
-                </div>
+                }
 
             </div>
+            <img src="~/images/next.jpg" class="next" />
+        </div>
+
+        <div class="col-md-12 chitiet">
+            <div class="title-chitiet">
+                <h1>Chi tiết</h1>
+            </div>
+            <div id="noidung">
+                @Html.Raw(Model.Des)
+            </div>
+        </div>
+
+        @*---------*@
+        <div class="showtilte" style="width:100%; float:left">
+            <div class="txtshowtitle">
+                <h2 style="font-size:17px">
+                    Sản phẩm cùng loại
+                </h2>
+            </div>
+        </div>
+
+        @{List<Product> prctList = (List<Product>)ViewBag.Grouplist;
+            foreach (var p in prctList)
+            {
+                <div class="item col-md-4">
+                    <div class="img-sp">
+                        <a href="/ProductList/ProductDetail?productId=@p.ProductId">
+                            <img alt="@p.Name" title="@p.Name" src="/@p.Image" />
+                        </a>
+                        <div class="info-sp">
+                            <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
+                            <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
+                        </div>
+                    </div>
+                    <div class="name-sp">
+                        <h3 class="tensp">
+                            <a href="" title="">@p.Name</a>
+                        </h3>
+                    </div>
+
+                    <div class="xem-sp">
+                        <div class="button">
+                            <div class="chitiet">
+                                <a href="/ProductList/ProductDetail?productId=@p.ProductId">Chi Tiết</a>
+                            </div>
+                            <div class="goingay">
+                                <a href="">Gọi Ngay</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
         }
-    }
+    </div>
 </div>
+
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/js/multizoom.js"></script>
 @section scripts{
@@ -181,7 +188,6 @@
             
         })
     </script>
-
 
 
 }
