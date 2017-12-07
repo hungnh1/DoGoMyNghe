@@ -16,8 +16,15 @@ namespace baohiem.Controllers
         // GET: /Products/
         public ActionResult ProductList(int ProductGroupId)
         {
-
+            int pageSize = 9;
             var prolist = db.Products.Where(p => p.ProductGroupID == ProductGroupId).ToList();
+            int totalPage = prolist.Count() / pageSize;
+            if(prolist.Count() % pageSize > 0)
+            {
+                totalPage++;
+            }
+            ViewBag.totalPage = totalPage;
+            prolist = prolist.Where(p => p.ProductGroupID == ProductGroupId).Take(pageSize).ToList();
             if (prolist.Count() == 0)
             {
                 prolist = new List<Product>();
