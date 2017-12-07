@@ -1,9 +1,10 @@
 ﻿.divsanpham {
     float: left;
     background: #FFF;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 7px;
+    /* margin-bottom: 16px; */
     position: relative;
+    height: 290px;
 }
 
 .divimgsanpham {
@@ -117,39 +118,46 @@
     padding-left: 0px;
     padding-right: 0px;
 }
+
 .showtilte {
     width: 100%;
     margin-bottom: 1%;
     margin-top: 2%;
-
 }
+
 .txtshowtitle h2 {
     border: 1px solid #7c7272;
     font-size: 18px;
     background: #ffcc4e;
     padding: 9px;
 }
+
 .productlist {
     background: #c7c7c14a;
 }
+
 .container {
     margin-top: 1%;
     border: none !important;
 }
+
 .productlist-right {
     padding-right: 0px;
     padding-left: 0px;
 }
+
 .productlist-danhmuc {
     border-top: none !important;
     border: 1px solid #a29c9c;
 }
+
 .productlist-tab {
     padding-top: 0%;
     background: #c7c7c1;
     padding: 2px;
     border-bottom: 1px solid white;
 }
+
     .productlist-tab a {
         line-height: 2;
         margin: 0;
@@ -158,6 +166,7 @@
         color: black;
         text-decoration: none;
     }
+
 #imgPro {
     display: inline-block;
     width: 380px;
@@ -165,39 +174,49 @@
     float: left;
     padding-right: 1%;
 }
+
 .detail-product {
     height: 420px;
 }
+
 #mainImg {
     width: 100%;
     max-height: 100% !important;
     height: 100% !important;
 }
+
 .detail-product .info {
     display: inline-block;
     width: 490px;
 }
+
 .detail table {
     width: 100%;
 }
+
 .detail .title {
     border-bottom: 2px solid #73726f;
 }
+
 .boxListImg {
-    padding-left:0px;
-    padding-right:0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
+
     .boxListImg > div {
         height: 180px !important;
         width: 285px !important;
     }
+
 .chitiet {
     padding-left: 0px;
-    padding-right:0px;
+    padding-right: 0px;
 }
+
 .title-chitiet {
     border-bottom: 2px solid #6f6969;
 }
+
     .title-chitiet h1 {
         display: inline-block;
         font-size: 21px;
@@ -206,10 +225,12 @@
         margin-top: 10px;
         background: #ffcc4e;
     }
+
 #noidung p {
     padding-left: 1%;
     padding-right: 1%;
 }
+
 .productlist-right .item {
     margin: 0px!important;
     border: none !important;
@@ -221,4 +242,3 @@
         display: inline-block;
         vertical-align: top;
     }
-
