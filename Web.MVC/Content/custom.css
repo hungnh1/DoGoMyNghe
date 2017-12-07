@@ -704,15 +704,30 @@ table.dataTable thead th, table.dataTable thead td {
     margin-left:14px;
     margin-right:14px;
 }
- .panel-primary {
-     margin-bottom:2px !important;
- }
-
- .bs-example {
-     border-top:0 !important;
-     border-right:0 !important;
-     border-left:0 !important;
- }
+.panel-primary {
+    margin-bottom: 2px !important;
+    margin-top: 1%;
+}
+.admin-title {
+    border: 1px solid #ddd;
+    background-color: #1b9ced;
+}
+    .admin-title h2 {
+        font-size: 19px;
+        font-weight: 600;
+        color: white;
+        padding: 9px;        
+        display: inline-block;
+    }
+.product-title h2 {
+    border: 1px solid #ddd;
+    background-color: #1b9ced;
+}
+.bs-example {
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-left: 0 !important;
+}
 
  .customform {
      padding-top:5px;
