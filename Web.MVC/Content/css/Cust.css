@@ -157,3 +157,56 @@
         color: black;
         text-decoration: none;
     }
+#imgPro {
+    display: inline-block;
+    width: 380px;
+    height: 410px;
+    float: left;
+    padding-right: 1%;
+}
+.detail-product {
+    height: 420px;
+}
+#mainImg {
+    width: 100%;
+    max-height: 100% !important;
+    height: 100% !important;
+}
+.detail-product .info {
+    display: inline-block;
+    width: 490px;
+}
+.detail table {
+    width: 100%;
+}
+.detail .title {
+    border-bottom: 2px solid #73726f;
+}
+.boxListImg {
+    padding-left:0px;
+    padding-right:0px;
+}
+    .boxListImg > div {
+        height: 180px !important;
+        width: 285px !important;
+    }
+.chitiet {
+    padding-left: 0px;
+    padding-right:0px;
+}
+.title-chitiet {
+    border-bottom: 2px solid #6f6969;
+}
+    .title-chitiet h1 {
+        display: inline-block;
+        font-size: 21px;
+        padding: 8px;
+        margin: 0;
+        margin-top: 10px;
+        background: #ffcc4e;
+    }
+#noidung p {
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
