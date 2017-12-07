@@ -7,9 +7,9 @@
 
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
 
-    var listProduct = (List<Product>)ViewBag.GroupList;
-}
+    var listProduct = (List<Product>)ViewBag.GroupList;}
 <link href="~/Content/css/Cust.css" rel="stylesheet" />
+
 <div class="col-md-12">
     <div class="detail-product">
         <div id="imgPro">
@@ -69,9 +69,11 @@
         <img src="~/images/next.jpg" class="next" />
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-12 chitiet">
+        <div class="title-chitiet">
         <h1>Chi tiết</h1>
-        <div>
+        </div>
+        <div id="noidung">
             @Html.Raw(Model.Des)
         </div>
     </div>
@@ -88,13 +90,32 @@
     @{List<Product> prctList = (List<Product>)ViewBag.Grouplist;
             foreach (var p in prctList)
             {
-            <div class="divsanpham col-md-4">
-                <div class="divimgsanpham">
+            <div class="item col-md-4">
+                <div class="img-sp">
                     <a href="/ProductList/ProductDetail?productId=@p.ProductId">
                         <img alt="@p.Name" title="@p.Name" src="/@p.Image" />
                     </a>
+                    <div class="info-sp">
+                        <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
+                        <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
+                    </div>
                 </div>
-                <div class="divtensanpham">@p.Name</div>
+                <div class="name-sp">
+                    <h3 class="tensp">
+                        <a href="" title="">@p.Name</a>
+                    </h3>
+                </div>
+
+                <div class="xem-sp">
+                    <div class="button">
+                        <div class="chitiet">
+                            <a href="/ProductList/ProductDetail?productId=@p.ProductId">Chi Tiết</a>
+                        </div>
+                        <div class="goingay">
+                            <a href="">Gọi Ngay</a>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         }
