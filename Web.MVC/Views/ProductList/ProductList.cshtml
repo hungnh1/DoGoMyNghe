@@ -36,7 +36,7 @@
                     <ul style="float:right" class="pagination">
                         @for (int i = 1; i <= totalPage; i++)
                         {
-                            <li><a href="/ProductList/ProductList?ProductGroupId=2&p=@i">@i</a></li>
+                            <li><a href="/ProductList/ProductList?ProductGroupId=@ViewBag.ProductGroupId&paging=@i">@i</a></li>
                         }
                                    
                     </ul>
