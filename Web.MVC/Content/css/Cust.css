@@ -113,8 +113,47 @@
     margin-bottom: 22px !important;
 }
 
-@media (max-width:700px) {
-    #leftContract {
-        display: none;
-    }
+.productlist {
+    padding-left: 0px;
+    padding-right: 0px;
 }
+.showtilte {
+    width: 100%;
+    margin-bottom: 1%;
+    margin-top: 2%;
+
+}
+.txtshowtitle h2 {
+    border: 1px solid #7c7272;
+    font-size: 18px;
+    background: #ffcc4e;
+    padding: 9px;
+}
+.productlist {
+    background: #c7c7c14a;
+}
+.container {
+    margin-top: 1%;
+    border: none !important;
+}
+.productlist-right {
+    padding-right: 0px;
+}
+.productlist-danhmuc {
+    border-top: none !important;
+    border: 1px solid #a29c9c;
+}
+.productlist-tab {
+    padding-top: 0%;
+    background: #c7c7c1;
+    padding: 2px;
+    border-bottom: 1px solid white;
+}
+    .productlist-tab a {
+        line-height: 2;
+        margin: 0;
+        padding-left: 2%;
+        font-size: 16px;
+        color: black;
+        text-decoration: none;
+    }
