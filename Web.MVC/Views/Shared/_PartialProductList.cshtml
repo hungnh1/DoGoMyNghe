@@ -1,0 +1,27 @@
+﻿﻿@using EnF;
+@{
+    DoGoMyNgheEntities db = new DoGoMyNgheEntities();
+
+    List<Category> categoryList = db.Categories.ToList();
+}
+
+
+    <div class="productlist-danhmuc">
+        <div class="txtshowtitle"><h2>Danh Mục Sản Phẩm </h2></div>
+        @foreach (Category cate in categoryList)
+        {
+            List<ProductGroup> lstProGrp = db.ProductGroups.Where(p => p.CategoryId == cate.Id).ToList();
+
+            foreach (ProductGroup progrp in lstProGrp)
+            {
+                <div class="productlist-tab">
+                    <a href="/ProductList/ProductList?ProductGroupId=@progrp.ProductGroupId">@progrp.Name</a>
+                </div>
+
+            }
+
+        }
+
+    </div>
+ 
+
