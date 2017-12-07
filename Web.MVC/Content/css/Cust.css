@@ -211,8 +211,8 @@
     padding-right: 1%;
 }
 .productlist-right .item {
-    margin: 0px;
-    border: none;
+    margin: 0px!important;
+    border: none !important;
 }
     .productlist-right .item .row {
         width: 100%;
