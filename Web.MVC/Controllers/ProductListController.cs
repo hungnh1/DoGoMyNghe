@@ -14,7 +14,7 @@ namespace baohiem.Controllers
         private DoGoMyNgheEntities db = new DoGoMyNgheEntities();
         //
         // GET: /Products/
-        public ActionResult ProductList(int ProductGroupId)
+        public ActionResult ProductList(int ProductGroupId,int paging=1)
         {
             int pageSize = 9;
             var prolist = db.Products.Where(p => p.ProductGroupID == ProductGroupId).ToList();
@@ -24,7 +24,7 @@ namespace baohiem.Controllers
                 totalPage++;
             }
             ViewBag.totalPage = totalPage;
-            prolist = prolist.Where(p => p.ProductGroupID == ProductGroupId).Take(pageSize).ToList();
+            prolist = prolist.Where(p => p.ProductGroupID == ProductGroupId).Skip((paging - 1)* pageSize).Take(pageSize).ToList();
             if (prolist.Count() == 0)
             {
                 prolist = new List<Product>();
