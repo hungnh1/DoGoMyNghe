@@ -138,6 +138,7 @@
 }
 .productlist-right {
     padding-right: 0px;
+    padding-left: 0px;
 }
 .productlist-danhmuc {
     border-top: none !important;
@@ -209,4 +210,15 @@
     padding-left: 1%;
     padding-right: 1%;
 }
+.productlist-right .item {
+    margin: 0px;
+    border: none;
+}
+    .productlist-right .item .row {
+        width: 100%;
+        margin: 1% 0.8%;
+        border: 1px solid black;
+        display: inline-block;
+        vertical-align: top;
+    }
 
