@@ -1,14 +1,41 @@
 ﻿@using EnF
 @using Web.Repository
+@using baohiem.Models
 @{
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
-    Config config = db.Configs.First();
+    //Config config = db.Configs.First();
     Layout = null;
     var listmenu = db.Menus.Where(p => p.ParentId == 0 || p.ParentId == null).ToList();
     //  var listslidetop = db.ADVs.Where(p => p.Type == 1).ToList();
 
     List<Category> categoryList = (List<Category>)db.Categories.ToList();
     List<Product> listprodct = new List<Product>();
+
+    List<ProductClass> lstProductClass = new List<ProductClass>();
+
+    foreach (Category catg in categoryList)
+    {
+        ProductClass productClass = new ProductClass();
+        productClass.category = catg;
+
+        List<ProductGroupClass> lstProductGroupClass = new List<ProductGroupClass>();
+        ProductGroupClass productGroupBlock = new ProductGroupClass();
+
+        List<ProductGroup> lstpgp = db.ProductGroups.Where(c => c.CategoryId == catg.Id).ToList();
+        foreach (ProductGroup prdgup in lstpgp)
+        {
+            productGroupBlock.productGroup = prdgup;
+
+            productGroupBlock.lstProduct = db.Products.Where(p => p.ProductGroupID == prdgup.ProductGroupId).ToList();
+
+            lstProductGroupClass.Add(productGroupBlock);
+        }
+        productClass.lstproductGroupClass = lstProductGroupClass;
+
+        lstProductClass.Add(productClass);
+    }
+
+
 }
 <!-- start header -->
 <!-- header -->
@@ -52,6 +79,7 @@
                 </div>
             </div>
         </div>
+
         <div class="wap-menu">
             <div id="header-menu">
                 <div class="col-md-4 infologo">
@@ -63,46 +91,106 @@
                     <nav id="menu">
                         <ul>
                             <li>
-                                <a class="active" href="">Trang Chủ</a>
+                                <a class="active" href="/">Trang Chủ</a>
                             </li>
-                            <li>
-                                <a class="" href="">Giới Thiệu</a>
-                            </li>
+                            
                             <li>
                                 <a class="" href="">Sản Phẩm</a>
                                 <!--menu danh mục sản phẩm-->
                                 <ul class="sub-menu">
-                                    @foreach (Category catg in categoryList)
+                                    @foreach (ProductClass catg in lstProductClass)
                                     {
                                         List<ProductGroup> lstpgp = new List<ProductGroup>();
-                                        <li>
-                                            <a class="" href="">@catg.CategoryName</a>
-                                            <!--menu danh sách nhóm sản phẩm-->
-                                            <ul class="sub-menu2">
-                                                @foreach (ProductGroup prdgup in lstpgp)
+                                    <li>
+                                        <a class="" href="">@catg.category.CategoryName</a>
+                                        <!--menu danh sách nhóm sản phẩm-->
+                                        <ul class="sub-menu2">
+                                            @foreach (ProductGroupClass prdgup in catg.lstproductGroupClass)
                                                 {
-                                                    <li><a class="" href="">@prdgup.Name</a></li>
+                                                <li><a class="" href="">@prdgup.productGroup.Name</a></li>
                                                 }
 
-                                            </ul>
-                                        </li>
+                                        </ul>
+                                    </li>
                                     }
 
 
                                 </ul>
                             </li>
 
-                            <li>
-                                <a class="" href="">Phong Thủy</a>
-                            </li>
-                            <li>
-                                <a class="" href="">Liên Hệ</a>
-                            </li>
+                            @foreach (Menu mn in listmenu)
+                            {
+                                <li>
+                                    <a class="" target="@(mn.IsNewTab==true?"_blank":"")" href="@mn.Link">@mn.Name</a>
+                                </li>
+                            }
+
+
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
+
+    </div>
+
+    <div class="menumobi">
+        <nav class="navbar menureponsive dropdown">
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle dropbtn" onclick="myFunction()">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="dropdown-content" id="myDropdown">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="active" href="/">Trang Chủ</a>
+                    </li>
+                   
+                    <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sản Phẩm<span class="caret"></span></a>
+                        <!--menu danh mục sản phẩm-->
+                        <div class="mdivc2 mdivc2-mb">
+                            <ul>
+
+                                @foreach (ProductClass catg in lstProductClass)
+                                {
+                                    List<ProductGroup> lstpgp = new List<ProductGroup>();
+                                <li>
+                                    <a href="">@catg.category.CategoryName<span class="caret"></span></a>
+
+                                    <!--menu danh sách nhóm sản phẩm-->
+                                    <div class="mdivc3 mdivc3-mb">
+                                        <ul class="sub-menu2 dropdown-menu">
+                                            @foreach (ProductGroupClass prdgup in catg.lstproductGroupClass)
+                                                {
+                                                <li><a class="" href="">@prdgup.productGroup.Name</a></li>
+                                                }
+                                        </ul>
+                                    </div>
+
+                                </li>
+                                }
+
+                            </ul>
+                        </div>
+                    </li>
+
+                  
+                 @foreach (Menu mn in listmenu)
+                 {
+               
+                    <li>
+                        <a class="" target="@(mn.IsNewTab==true?"_blank":"")" href="@mn.Link">@mn.Name</a>
+                    </li>
+                 }
+                </ul>
+            </div>
+        </nav>
     </div>
 </header>
 
@@ -249,15 +337,15 @@
     }
 </style>
 <script type="text/javascript">
-        $(document).ready(function () {
+    $(document).ready(function () {
 
-            $('.bxslider').bxSlider({
-                auto: true,
-                autoControls: true
-            });
-
-
-
+        $('.bxslider').bxSlider({
+            auto: true,
+            autoControls: true
         });
+
+
+
+    });
 
 </script>

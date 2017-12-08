@@ -96,20 +96,18 @@
                     if (counttab == 1)
                     {
                     <li class="active">
-                        <a data-toggle="pill" href="#sanpham@(counttab)">@progrp.Name</a>
+                        <a data-toggle="pill" href="#sanpham@(cate.Id.ToString() + counttab)">@progrp.Name</a>
                     </li>
                         }
                         else
                         {
                     <li>
-                        <a data-toggle="pill" href="#sanpham@(counttab)">@progrp.Name</a>
+                        <a data-toggle="pill" href="#sanpham@(cate.Id.ToString() + counttab)">@progrp.Name</a>
                     </li>
                         }
 
                         counttab++;
                     }
-
-                  
 
                 </ul>
                
@@ -120,7 +118,7 @@
                 {
                     List<Product> lstProduct = db.Products.Where(p => p.ProductGroupID == progrp.ProductGroupId).Take(8).ToList();
 
-                <div id="sanpham@(countdtl)" class="tab-pane fade in @(countdtl==1?"active":"")">
+                <div id="sanpham@(cate.Id.ToString() + countdtl)" class="tab-pane fade in @(countdtl==1?"active":"")">
 
                     @foreach (Product pro in lstProduct)
                     {
@@ -164,7 +162,6 @@
                     </div>
                 </div>
                 
-
                     countdtl++;
                 }
 
