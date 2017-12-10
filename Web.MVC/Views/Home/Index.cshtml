@@ -16,6 +16,7 @@
 
     var listNew1 = (List<EnF.Page>)ViewBag.ListNew1;
     var listNew2 = (List<EnF.Page>)ViewBag.ListNew2;
+    Config confg = db.Configs.First();
 }
  
 
@@ -108,14 +109,7 @@
 
                         counttab++;
                     }
-<<<<<<< .mine
-||||||| .r57
 
-                  
-
-=======
-
->>>>>>> .r69
                 </ul>
             </div>
 
@@ -155,9 +149,10 @@
                                             <a href="/ProductList/ProductDetail?productId=@pro.ProductId">Chi Tiết</a>
                                         </div>
                                         <div class="goingay">
-                                            <a href="">Gọi Ngay</a>
+                                            <a href="tel:@confg.HotLine">Gọi Ngay</a>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         }
@@ -225,10 +220,21 @@
 
 
             //});
-            
+            $('.goingay a').click(function (e) {
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    // some code..
+                    
+                } else {
+                    alert("Goi ngay số @confg.HotLine ");
+                    e.preventDefault();
+                    event.preventDefault();
+                }
+            })
 
         </script>
  
+
+       
 
     }
   
