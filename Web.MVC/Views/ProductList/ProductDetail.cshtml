@@ -4,9 +4,7 @@
 @{
     ViewBag.Title = "NewsDetail";
     Layout = "~/Views/Shared/_LayoutDefault.cshtml";
-
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
-
     var listProduct = (List<Product>)ViewBag.GroupList;}
 <link href="~/Content/css/Cust.css" rel="stylesheet" />
 
@@ -45,20 +43,12 @@
 
 
                     </table>
-                </div>
-                <div>
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <div class="addthis_native_toolbox">
-                    </div>
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    @*<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5348c97229f88208"
-                        async></script>*@
-                </div>
+                </div>                
             </div>
         </div>
 
         <div class="col-md-12 boxListImg">
-            <img src="~/images/back.png" class="back" />
+            <img src="~/images/left_slide.png" class="back" />
             <div id="boxdynamic" style="left:0">
                 @{List<ProductImage> listImg = (List<ProductImage>)ViewBag.listImg;
                     foreach (ProductImage proImg in listImg)
@@ -71,7 +61,7 @@
                 }
 
             </div>
-            <img src="~/images/next.jpg" class="next" />
+            <img src="~/images/right_slide.png" class="next" />
         </div>
 
         <div class="col-md-12 chitiet">
