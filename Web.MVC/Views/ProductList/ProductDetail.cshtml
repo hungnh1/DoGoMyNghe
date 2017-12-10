@@ -17,13 +17,13 @@
 
     <div class="col-md-9 productlist-right">
         <div class="detail-product">
-            <div id="imgPro">
+            <div class="col-mđ-5" id="imgPro">
                 <img id="mainImg" src="/@Model.Image" class="imgLarge" />
 
                 <div id="iconZoom">
                 </div>
             </div>
-            <div class="info">
+            <div class="col-md-7 info">
                 <div class="name">
                     @*@Model.Name*@
                 </div>
@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <div class="col-md-10 boxListImg">
+        <div class="col-md-12 boxListImg">
             <img src="~/images/back.png" class="back" />
             <div id="boxdynamic" style="left:0">
                 @{List<ProductImage> listImg = (List<ProductImage>)ViewBag.listImg;
