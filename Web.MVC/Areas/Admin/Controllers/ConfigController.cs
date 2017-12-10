@@ -78,7 +78,7 @@ namespace baohiem.Areas.Admin.Controllers
         }
 
         // GET: /Admin/Config/Edit/5
-        [baohiem.App_Start.ActionAuthor(NotifyUrl = "~/Account/Login")]
+        //[baohiem.App_Start.ActionAuthor(NotifyUrl = "~/Account/Login")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
