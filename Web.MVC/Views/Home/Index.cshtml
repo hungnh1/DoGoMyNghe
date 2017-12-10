@@ -108,9 +108,15 @@
 
                         counttab++;
                     }
+<<<<<<< .mine
+||||||| .r57
 
+                  
+
+=======
+
+>>>>>>> .r69
                 </ul>
-               
             </div>
 
             <div class="box-sanpham tab-content">
@@ -119,42 +125,43 @@
                     List<Product> lstProduct = db.Products.Where(p => p.ProductGroupID == progrp.ProductGroupId).Take(8).ToList();
 
                 <div id="sanpham@(cate.Id.ToString() + countdtl)" class="tab-pane fade in @(countdtl==1?"active":"")">
-
-                    @foreach (Product pro in lstProduct)
+                    <div class="product-sp" style="width: 100%; height: auto;display: inline-block;">
+                        @foreach (Product pro in lstProduct)
                     {
-                        <div class="col-md-3 item">
-                            <div class="img-sp">
-                                <p>
-                                    <a href="">
-                                        <img src="/@pro.Image">
-                                    </a>
-                                </p>
-                                <div class="info-sp">
-                                    <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
-                                    <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
-                                </div>
-                            </div>
-
-                            <div class="name-sp">
-                                <h3 class="tensp">
-                                    <a href="" title="">
-                                        @pro.Name
-                                    </a>
-                                </h3>
-                            </div>
-
-                            <div class="xem-sp">
-                                <div class="button">
-                                    <div class="chitiet">
-                                        <a href="/ProductList/ProductDetail?productId=@pro.ProductId">Chi Tiết</a>
-                                    </div>
-                                    <div class="goingay">
-                                        <a href="">Gọi Ngay</a>
+                            <div class="col-md-3 item">
+                                <div class="img-sp">
+                                    <p>
+                                        <a href="">
+                                            <img src="/@pro.Image">
+                                        </a>
+                                    </p>
+                                    <div class="info-sp">
+                                        <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
+                                        <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
                                     </div>
                                 </div>
+
+                                <div class="name-sp">
+                                    <h3 class="tensp">
+                                        <a href="" title="">
+                                            @pro.Name
+                                        </a>
+                                    </h3>
+                                </div>
+
+                                <div class="xem-sp">
+                                    <div class="button">
+                                        <div class="chitiet">
+                                            <a href="/ProductList/ProductDetail?productId=@pro.ProductId">Chi Tiết</a>
+                                        </div>
+                                        <div class="goingay">
+                                            <a href="">Gọi Ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
                         }
+                    </div>
                     <div id="xemthem">
                         <a href="@(lstProduct.Count>0?"/ProductList/ProductList?ProductGroupId=" +lstProduct.First().ProductGroupID :"#")">
                             <i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
