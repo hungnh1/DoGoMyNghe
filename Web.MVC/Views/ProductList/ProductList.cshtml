@@ -21,17 +21,37 @@
 
                 @foreach (var p in Model)
             {
-                    <div class="divsanpham col-md-4">
-                        <div class="divimgsanpham">
-                            <a href="/San-pham/@(Web.Repository.ClearWordRepository.NoVNeseLower(p.Name)+"-"+p.ProductId.ToString())#mainContent">
-                                <img alt="@p.Name" title="@p.Name" src="/@p.Image" />
-                            </a>
+                    <div class="item  divsanpham col-md-4">
+                        <div class="row">
+                            <div class="img-sp divimgsanpham">
+                                <a href="/San-pham/@(Web.Repository.ClearWordRepository.NoVNeseLower(p.Name)+"-"+p.ProductId.ToString())#mainContent">
+                                    <img alt="@p.Name" title="@p.Name" src="/@p.Image" />
+                                </a>
+                                <div class="info-sp">
+                                    <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
+                                    <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
+                                </div>
+                            </div>
+                            <div class="name-sp">
+                                <h3 class="tensp">
+                                    <a href="" title="">@p.Name</a>
+                                </h3>
+                            </div>
+
+                            <div class="xem-sp">
+                                <div class="button">
+                                    <div class="chitiet">
+                                        <a href="/ProductList/ProductDetail?productId=@p.ProductId">Chi Tiết</a>
+                                    </div>
+                                    <div class="goingay">
+                                        <a href="">Gọi Ngay</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="divtensanpham">@p.Name</div>
 
                     </div>
-                }
-
+                }                
                 <div style="width:90%; float:left">
                     <ul style="float:right" class="pagination">
                         @for (int i = 1; i <= totalPage; i++)
