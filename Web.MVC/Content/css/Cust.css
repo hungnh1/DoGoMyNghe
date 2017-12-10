@@ -188,10 +188,22 @@
 }
 
 .detail-product .info {
-    display: inline-block;    
-    padding: 0;
+    display: inline-block;
+    width: 465px;
     float: left;
-    width: 55%;
+}
+.boxdynamic {
+    width: 100% !important;
+}
+.boxListImg > div > div {
+    width: 285px;
+    float: left;
+    height: 180px;
+}
+.boxListImg > div img {
+    width: 98%;
+    cursor: pointer;
+    height: 100%;
 }
 
 .detail table {
