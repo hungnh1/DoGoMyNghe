@@ -177,6 +177,8 @@
 
 .detail-product {
     height: 420px;
+    width: 100%;
+    margin-top: 4%;
 }
 
 #mainImg {
@@ -186,8 +188,10 @@
 }
 
 .detail-product .info {
-    display: inline-block;
-    width: 490px;
+    display: inline-block;    
+    padding: 0;
+    float: left;
+    width: 55%;
 }
 
 .detail table {
@@ -234,6 +238,7 @@
 .productlist-right .item {
     margin: 0px!important;
     border: none !important;
+    padding-left: 0px;
 }
     .productlist-right .item .row {
         width: 100%;
@@ -242,3 +247,22 @@
         display: inline-block;
         vertical-align: top;
     }
+<<<<<<< .mine
+#boxdynamic {
+    width: 100% !important;
+    height: 185px !important;
+}
+    #boxdynamic > div {
+        height: 185px !important;
+        width: 276px !important;
+        margin-right: 1%;
+    }
+#boxdynamic img{
+    width: 100% !important;
+    height: 185px !important;
+}
+
+||||||| .r61
+
+=======
+>>>>>>> .r69
