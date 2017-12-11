@@ -271,12 +271,12 @@
     height: 185px !important;
 }
 .next, .back {
-    height: 20%;
-    top: 44%;
-    width: 36px;
-    cursor: pointer;
+    height: 20%!important;
+    top: 44%!important;
+    width: 36px!important;
+    cursor: pointer!important;
 }
 .next{
-    right: 21px;
+    right: 21px!important;
 }
 
