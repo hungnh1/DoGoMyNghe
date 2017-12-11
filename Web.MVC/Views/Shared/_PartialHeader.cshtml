@@ -19,14 +19,15 @@
         productClass.category = catg;
 
         List<ProductGroupClass> lstProductGroupClass = new List<ProductGroupClass>();
-        ProductGroupClass productGroupBlock = new ProductGroupClass();
+
 
         List<ProductGroup> lstpgp = db.ProductGroups.Where(c => c.CategoryId == catg.Id).ToList();
         foreach (ProductGroup prdgup in lstpgp)
         {
+            ProductGroupClass productGroupBlock = new ProductGroupClass();
             productGroupBlock.productGroup = prdgup;
 
-            productGroupBlock.lstProduct = db.Products.Where(p => p.ProductGroupID == prdgup.ProductGroupId).ToList();
+            //productGroupBlock.lstProduct = db.Products.Where(p => p.ProductGroupID == prdgup.ProductGroupId).ToList();
 
             lstProductGroupClass.Add(productGroupBlock);
         }
