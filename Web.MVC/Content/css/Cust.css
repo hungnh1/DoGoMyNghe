@@ -33,14 +33,13 @@
 }*/
 
 .detail .ptitle {
-    width: 82px;
-    border-bottom: 2px solid black;
+    width: 82px;    
     margin-top: 2%;
     height: 35px;
     margin-bottom: 2%;
 }
 .detail tr {
-   border-bottom: 2px solid black;
+       border-bottom: 2px solid #aca6a6;
 }
 
 .txtshowtitle a {
@@ -300,4 +299,9 @@
 
 .next {
     right: 21px !important;
+}
+.productlist-tab:hover {
+    background: #ffcc4e;
+    color: #000;
+    height: auto;
 }
