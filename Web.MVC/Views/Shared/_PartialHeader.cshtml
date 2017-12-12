@@ -10,7 +10,7 @@
 
     List<Category> categoryList = (List<Category>)db.Categories.ToList();
     List<Product> listprodct = new List<Product>();
-
+    List<ADV> slideList = (List<ADV>)ViewBag.Slide;
     List<ProductClass> lstProductClass = new List<ProductClass>();
 
     foreach (Category catg in categoryList)
@@ -204,7 +204,24 @@
     <a href="#" class="fa fa-google"></a>
 </div>
 <!-- end icon -->
+<!-- slider -->
+<div class="home-slider">
 
+    <div class="box-img">
+        <ul class="bxslider" id="boxsl">
+            @foreach (ADV ad in slideListBanner)
+            {
+                <li>
+                    <img src="/@ad.Image" />
+                </li>
+            }
+
+        </ul>
+
+    </div>
+
+</div>
+<!-- end slider -->
 
 <style type="text/css">
     .support {
