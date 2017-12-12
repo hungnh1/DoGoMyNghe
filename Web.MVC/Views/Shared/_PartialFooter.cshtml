@@ -23,35 +23,60 @@
     lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
     Int64 quydinhDoiTra = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
 
+    idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["camketvaQuyDinhChung"]);
+    lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
+    Int64 camketvaQuyDinhChung = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
+
+    idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["baomatThongTin"]);
+    lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
+    Int64 baomatThongTin = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
     //EnF.Page CamKetQuyDinh = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["CamKetQuyDinh"])).First();
     //EnF.Page BaoMatThongTin = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["BaoMatThongTin"])).First();
 
 }
-
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=2020275718255025';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <!-- Footer -->
 <footer>
     <div class="menu-footer">
         <ul>
             <li>
-                <a href="@(huongDanMua!=0? "/Home/NewsDetail?pageId="+huongDanMua:"#")">
+                <a href="@(huongDanMua!=4? "/Home/NewsDetail?pageId="+huongDanMua:"4")">
                     Hướng Dẫn Mua Hàng
                 </a>
             </li>
             <li>
-                <a href="@(huongDanMua!=0? "/Home/NewsDetail?pageId="+huongThanhToan:"#")">
+                <a href="@(huongThanhToan!=5? "/Home/NewsDetail?pageId="+huongThanhToan:"5")">
 
                     Hướng Dẫn Thanh Toán
                 </a>
             </li>
             <li>
-                <a href="@(huongDanMua!=0? "/Home/NewsDetail?pageId="+chinhSachVanChuyen:"#")">
+                <a href="@(chinhSachVanChuyen!=6? "/Home/NewsDetail?pageId="+chinhSachVanChuyen:"6")">
 
                     Chính Sách Vận Chuyển
                 </a>
             </li>
             <li>
-                <a href="@(huongDanMua!=0? "/Home/NewsDetail?pageId="+quydinhDoiTra:"#")">
+                <a href="@(quydinhDoiTra!=7? "/Home/NewsDetail?pageId="+quydinhDoiTra:"7")">
                     Quy Định Đổi Trả
+                </a>
+            </li>
+            <li>
+                <a href="@(camketvaQuyDinhChung!=8? "/Home/NewsDetail?pageId="+camketvaQuyDinhChung:"8")">
+                Cam Kết Và Quy Định Chung
+                </a>
+            </li>
+            <li>
+                <a href="@(baomatThongTin!=9? "/Home/NewsDetail?pageId="+baomatThongTin:"9")">
+                    Bảo Mật Thông Tin
                 </a>
             </li>
 
@@ -109,6 +134,9 @@
                 <div class="for-title">
                     <h1>KẾT NỐI VỚI CHÚNG TÔI</h1>
                 </div>
+                <div class="fanpage">
+                    <div class="fb-page" data-href="https://www.facebook.com/gomynghedainghia/" data-width="400" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/gomynghedainghia/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/gomynghedainghia/">Gỗ Mỹ Nghệ Đà Nẵng Đại Nghĩa - Đồ Gỗ Tây Nguyên Cao Cấp</a></blockquote></div>
+                </div>
             </div>
         </div>
     </div>
@@ -116,6 +144,120 @@
         <p>© Bản quyền thuộc về Gỗ Mỹ Nghệ Đại Nghĩa |  <a href="">Cung cấp bởi H&T SOFT </a></p>
     </div>
 
+    <div id="fb-root"></div>
+    <script>$(document).ready(function () { var raido = $(".wrap").attr("data-toggle"); if (raido == 1) { $(".mnv-tuvan").css("display", "none"); $(".x").click(function () { $(".wrap").slideToggle(); $(".mnv-tuvan").slideToggle(); }); $(".mnv-tuvan").click(function () { $(".wrap").slideToggle(); $(this).slideToggle(); }); } else { $(".wrap").css("display", "none"); $(".x").click(function () { $(".wrap").slideToggle(); $(".mnv-tuvan").slideToggle(); }); $(".mnv-tuvan").click(function () { $(".wrap").slideToggle(); $(this).slideToggle(); }); } })(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=887080981367835"; fjs.parentNode.insertBefore(js, fjs); }(document, "script", "facebook-jssdk"));</script>
+    <style>
+        .wrap {
+            position: fixed;
+            width: 300px;
+            height: 400px;
+            z-index: 9999999;
+            right: 0px;
+            bottom: 0px;
+        }
+
+        .x {
+            font-family: arial, helvetica;
+            background: rgba(78,86,101,0.8) none repeat scroll 0 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            display: inline-block;
+            height: 25px;
+            line-height: 25px;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: -19px;
+            width: 25px;
+            z-index: 99999999;
+        }
+
+            .x:hover {
+                cursor: pointer;
+            }
+
+        .pxem {
+            text-align: left;
+            height: 20px;
+            margin-bottom: 0;
+            margin-top: 0;
+            background: #ffcc4e;
+            width: 100%;
+            bottom: 0;
+            display: block;
+            left: 0px;
+            position: absolute;
+            z-index: 999999999;
+            border-left: 1px solid #fff;
+        }
+
+            .pxem a.axem {
+                color: #fff;
+                font-family: arial,helvetica;
+                font-size: 12px;
+                line-height: 23px;
+                padding-left: 5px;
+                text-decoration: none;
+            }
+
+                .pxem a.axem:hover {
+                    text-decoration: underline;
+                }
+
+        .alogo {
+            position: absolute;
+            bottom: 0;
+            right: 0px;
+            z-index: 999999999999;
+            width: 40px;
+            height: 20px;
+            display: inline-block;
+            background: #0088b5;
+            padding-right: 0px;
+            padding-left: 5px
+        }
+
+        .mnv-tuvan {
+            position: fixed;
+            width: 300px;
+            background: #ffcc4e;
+            z-index: 99999999;
+            right: 0px;
+            bottom: 0px;
+            border-style: solid solid none;
+            border-width: 1px 1px 0;
+            border-color: #fff
+        }
+
+            .mnv-tuvan p {
+                color: #fff;
+                font-size: 15px;
+                margin: 0;
+                padding: 0 13px;
+                text-align: left;
+            }
+
+                .mnv-tuvan p a {
+                    color: #fff;
+                    font-size: 15px;
+                    padding: 5px 0px 7px;
+                    margin: 0;
+                    display: inline-block;
+                    font-family: arial, helvetica;
+                    text-decoration: none;
+                }
+
+                    .mnv-tuvan p a:hover {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+
+                .mnv-tuvan p img {
+                    float: right;
+                    margin-top: 10px;
+                }
+    </style><div data-toggle="0" class="wrap" style="position:fixed; width:280px; height: 325px; "><span class="x" style="">X</span><div class="fb-page" data-adapt-container-width="true" data-height="325" data-hide-cover="false" data-href="https://www.facebook.com/gomynghedainghia/" data-show-facepile="true" data-show-posts="false" data-small-header="false" data-tabs="messages" data-width="280" style="position:relative; z-index:9999999; right:0px; bottom:21px;border-left: 1px solid #fff;border-top: 1px solid #fff;"></div><p class="pxem" style=""><a class="axem" style="" href=" http://gomynghedainghia.vn" target="_blank">Click Tư Vấn Ngay</a><a class="alogo" style=""><img src="http://pront04.web24h.vn/Uploaded/Members/9558/images/2015/11/logo-web.png" width="27px" height="14px" style="margin-top: 3px"></a></p></div><div class="mnv-tuvan" style="width: 278px;"><p style=" "><a style="">Bạn cần tư vấn ?</a><img src="http://pront04.web24h.vn/Uploaded/Members/9558/images/2015/11/supprt.png"></p></div>
 </footer>
 
 <!-- end footer -->
