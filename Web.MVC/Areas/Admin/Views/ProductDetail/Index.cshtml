@@ -10,33 +10,21 @@
     vdDictionaryT1.Add("Level", "product");
 }
 <div style="margin-top: 45px; background: #eee;">
-    <h2>@Html.Partial("_PartialBreakum", null, vdDictionaryT1)</h2>
-
-
+    @Html.Partial("_PartialBreakum", null, vdDictionaryT1)
 </div>
-
-
 <div class="panel panel-primary color noneborder">
     <div class="panel-heading colortheme noneborder">
         <div class="titletable">Danh sách sản phẩm</div>
         <ul class="list-unstyled menu">
-
             <li>
                 <i class="fa fa-plus-square-o"></i>
                 @Html.ActionLink("Thêm mới", "Create", new { ProductGroupID = ViewBag.ProductGroupID })
-
             </li>
-
-
-
             <li>
                 <a href="#" onclick="ReloadCurrentPage()">
                     <i class="fa fa-refresh"></i> Nạp lại
                 </a>
             </li>
-
-
-
         </ul>
         <div class="clearfix"></div>
     </div>
