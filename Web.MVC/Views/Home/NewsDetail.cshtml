@@ -8,20 +8,21 @@
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
     var listPro = (List<Product>)ViewData["ListProduct"];
     var listPage = (List<EnF.Page>)ViewData["ListPages"];
-
-
 }
+<link href="~/Content/css/Cust.css" rel="stylesheet" />
 
-
- 
             <div class="cold-md-12 ProDetail">
-                <div><h1>@Model.Name</h1></div>
-                <div>
-                    <p>
-                        @Model.PContent
-                    </p>
-
+                <div class="col-md-3">
+                    @Html.Partial("_PartialProductList")
                 </div>
+                <div class="col-md-9 new-product"> 
+                    <div><h1>@Model.Name</h1></div>
+                    <div>
+                        <p>
+                            @Model.PContent
+                        </p>
 
+                    </div>
+                </div>
             </div>
  
