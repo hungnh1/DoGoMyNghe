@@ -12,7 +12,6 @@
     <div class="col-md-3 productlist-left">
         @Html.Partial("_PartialProductList")
     </div>
-
     <div class="col-md-9 productlist-right">
         <div class="detail-product">
             <div class="col-md-5" id="imgPro">
@@ -26,14 +25,7 @@
                    <h2>@Model.Name</h2> 
                 </div>
                 <div class="detail">
-                    <table>
-                        @*<tr>
-                            <td class="title">
-                                <h2>@Model.Name</h2>
-                            </td>
-                            <td></td>
-                        </tr>*@
-
+                    <table>                        
                         <tr>
                             <td class="ptitle">
                                 Giá:
@@ -41,7 +33,12 @@
                             <td>@Model.Price</td>
                            
                         </tr>
-
+                        <tr>
+                            <td class="ptitle">
+                                Mã Sản Phẩm:
+                            </td>
+                            <td>@Model.ImageList</td>
+                        </tr>
                         <tr>                          
                             <td class="ptitle">
                                 Chất liệu :
@@ -51,9 +48,15 @@
 
                         <tr>
                             <td class="ptitle">
-                                Size :
+                                Kích Thước :
                             </td>
                             <td>@Model.Size</td>
+                        </tr>
+                        <tr>
+                            <td class="ptitle">
+                                Trạng Thái Hàng:
+                            </td>
+                            <td>@Model.</td>
                         </tr>
                     </table>
                 </div>                
