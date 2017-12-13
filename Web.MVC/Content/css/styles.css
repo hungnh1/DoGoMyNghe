@@ -746,7 +746,6 @@ font-weight: 600;}
         
          width: 100%;
 }
-<<<<<<< .mine
 .navbar-nav>li>a{
       color: white;
     font-size: 17px;
@@ -810,72 +809,6 @@ font-weight: 600;}
     margin-top: 3%;
     margin-right: 12px;
 }
-||||||| .r28
-=======
-.navbar-nav>li>a{
-      color: white;
-    font-size: 17px;
-    font-weight: 600;
-}
-.navbar-nav>li:hover > .mdivc2{
-  display: block;
-  position: static;
-}
-.mdivc3 {
- width: 100%;
-  position: absolute;
-  z-index: 999999;     
-        border: solid #DDD 1px;
-
-}
-.mdivc3 ul {
-  background: #ffcc4e;
-    display: inline-block;
-    display: none;
-}
-.mdivc2 {
-  width: 100%;
-   position: absolute
-   background: #FFCC4E;
-    z-index: 999;
-    min-width: 214px;
-    display: none;
-    border: solid #DDD 1px;
-    left: 0px;
-    top: 100%;
-}
-.mdivc2 ul {
-  background: #94938b;
-  list-style: none;
-  padding: 0;
-}
-.mdivc2  li {
-      height: 35px;
-      border-bottom: 1px solid black;
-}
-.mdivc2  li a{
-  color: white;
-    font-size: 16px;
-    font-weight: 600;
-    padding-left: 40px;
-    line-height: 2;
-        display: inline-block;
-    width: 100%;
-}
-.navbar-nav ul > li > ul > li:hover > ul{
-  display: block;
-  position: static;
-}
-.nav>li {
-  background: #86857f;
-  border-bottom: 1px solid white;
-}
-.caret{
-  float: right;
-    margin-top: 3%;
-    margin-right: 12px;
-}
->>>>>>> .r37
 .menumobi {
        display: block;
    }
@@ -885,10 +818,7 @@ font-weight: 600;}
 .navbar-nav>li {
     width: 100%;
 }
-.navbar-collapse {
-    display: inline-block !important;
-   
-}
+
 .chinhsach ul li {
     width: 50%;
     float: left;
