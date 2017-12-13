@@ -10,7 +10,7 @@
 
     List<Category> categoryList = (List<Category>)db.Categories.ToList();
     List<Product> listprodct = new List<Product>();
-    List<ADV> slideList = (List<ADV>)ViewBag.Slide;
+    //List<ADV> slideList = (List<ADV>)ViewBag.Slide;
     List<ProductClass> lstProductClass = new List<ProductClass>();
 
     foreach (Category catg in categoryList)
@@ -94,7 +94,7 @@
                             <li>
                                 <a class="active" href="/">Trang Chủ</a>
                             </li>
-                            
+
                             <li>
                                 <a class="" href="">Sản Phẩm</a>
                                 <!--menu danh mục sản phẩm-->
@@ -108,9 +108,10 @@
                                         <ul class="sub-menu2">
                                             @foreach (ProductGroupClass prdgup in catg.lstproductGroupClass)
                                                 {
-                                                <li><a class="" href="">@prdgup.productGroup.Name</a></li>
+                                                <li>
+                                                    <a class="" href="/ProductList/ProductList?ProductGroupId=@prdgup.productGroup.ProductGroupId">@prdgup.productGroup.Name</a>
+                                                </li>
                                                 }
-
                                         </ul>
                                     </li>
                                     }
@@ -121,10 +122,24 @@
 
                             @foreach (Menu mn in listmenu)
                             {
-                                <li>
-                                    <a class="" target="@(mn.IsNewTab==true?"_blank":"")" href="@mn.Link">@mn.Name</a>
-                                </li>
-                            }
+                            <li>
+                                <a class="" target="@(mn.IsNewTab==true?"_blank":"")" href="@mn.Link">@mn.Name</a>
+                                @{
+                                        List<EnF.Menu> lstSubMenu = db.Menus.Where(p => p.ParentId == mn.MenuId).ToList();
+                                }
+                                <ul class="sub-menu">
+                                    @foreach (Menu submn in lstSubMenu)
+                                        {
+                                        <li>
+                                            <a class="" href="@submn.Link">@submn.Name</a>
+                                        </li>
+                                        }
+
+
+                                </ul>
+
+                            </li>
+                                        }
 
 
                         </ul>
@@ -134,65 +149,82 @@
         </div>
 
     </div>
-
-    <div class="menumobi">
-        <nav class="navbar menureponsive dropdown">
+    <nav class="navbar navbar-inverse menureponsive">
+        <div class="container-fluid">
             <div class="navbar-header">
 
-                <button type="button" class="navbar-toggle dropbtn" onclick="myFunction()">
+
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="navbar-brand" href="#">GỖ ĐẠI NGHĨA</a>
             </div>
-
-            <div class="dropdown-content" id="myDropdown">
+            <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a class="active" href="/">Trang Chủ</a>
+                        <a href="/" title="Trang chủ" alt="trang chủ">Trang chủ</a>
                     </li>
-                   
                     <li>
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sản Phẩm<span class="caret"></span></a>
-                        <!--menu danh mục sản phẩm-->
-                        <div class="mdivc2 mdivc2-mb">
+                        <a href="#" data-toggle="collapse" data-target="#subproduct">Sản phẩm</a>
+                        <div class="collapse" id="subproduct">
                             <ul>
-
                                 @foreach (ProductClass catg in lstProductClass)
                                 {
                                     List<ProductGroup> lstpgp = new List<ProductGroup>();
-                                <li>
-                                    <a href="">@catg.category.CategoryName<span class="caret"></span></a>
+                                    <li>
+                                        <a href="#">@catg.category.CategoryName<span class="caret"></span></a>
 
-                                    <!--menu danh sách nhóm sản phẩm-->
-                                    <div class="mdivc3 mdivc3-mb">
-                                        <ul class="sub-menu2 dropdown-menu">
-                                            @foreach (ProductGroupClass prdgup in catg.lstproductGroupClass)
+                                        <!--menu danh sách nhóm sản phẩm-->
+                                        <div class="">
+                                            <ul class="sub-menu2 dropdown-menu">
+                                                @foreach (ProductGroupClass prdgup in catg.lstproductGroupClass)
                                                 {
-                                                <li><a class="" href="">@prdgup.productGroup.Name</a></li>
+                                                    <li>
+                                                        <a class="" href="/ProductList/ProductList?ProductGroupId=@prdgup.productGroup.ProductGroupId">@prdgup.productGroup.Name</a>
+                                                    </li>
                                                 }
-                                        </ul>
-                                    </div>
+                                            </ul>
+                                        </div>
 
-                                </li>
+                                    </li>
                                 }
 
                             </ul>
                         </div>
                     </li>
 
-                  
-                 @foreach (Menu mn in listmenu)
-                 {
-               
-                    <li>
-                        <a class="" target="@(mn.IsNewTab==true?"_blank":"")" href="@mn.Link">@mn.Name</a>
-                    </li>
-                 }
+                    @foreach (Menu mn in listmenu)
+                    {
+                        <li class="limobile">
+                            <a  data-toggle="collapse" data-target="#@mn.MenuId" class="" target="@(mn.IsNewTab==true?"_blank":"")" href="@mn.Link">@mn.Name</a>
+                            @{
+                                List<EnF.Menu> lstSubMenu = db.Menus.Where(p => p.ParentId == mn.MenuId).ToList();
+                            }
+                            <ul class="sub-menu collapse" id="@mn.MenuId">
+                                @foreach (Menu submn in lstSubMenu)
+                                {
+                                    <li>
+                                        <a class="" href="@submn.Link">@submn.Name</a>
+                                    </li>
+                                }
+
+                            </ul>
+
+                        </li>
+                                }
+
                 </ul>
+                @*<ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>*@
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
+  
 </header>
 
 <!-- end header -->
@@ -205,22 +237,22 @@
 </div>
 <!-- end icon -->
 <!-- slider -->
-<div class="home-slider">
+@*<div class="home-slider">
 
-    <div class="box-img">
-        <ul class="bxslider" id="boxsl">
-            @foreach (ADV ad in slideListBanner)
-            {
-                <li>
-                    <img src="/@ad.Image" />
-                </li>
-            }
+        <div class="box-img">
+            <ul class="bxslider" id="boxsl">
+                @foreach (ADV ad in slideListBanner)
+                {
+                    <li>
+                        <img src="/@ad.Image" />
+                    </li>
+                }
 
-        </ul>
+            </ul>
 
-    </div>
+        </div>
 
-</div>
+    </div>*@
 <!-- end slider -->
 
 <style type="text/css">
@@ -353,6 +385,38 @@
     .mdivc2-mb > ul > li {
         background: #ad7f0f !important;
     }
+
+    #subproduct > ul > li, .limobile .sub-menu li {
+        padding: 5px;
+        background: #25251f;
+        color: white;
+        font-weight: bold;
+        border: 1px solid;
+        cursor: pointer;
+    }
+    .limobile .sub-menu{
+        margin-left:20px;
+    }
+
+        #subproduct > ul > li > div {
+            display: none;
+        }
+
+        #subproduct > ul > li:hover div, #subproduct > ul > li .dropdown-menu {
+            display: block;
+        }
+
+        
+
+
+        #subproduct > ul > li .dropdown-menu {
+            z-index: 9999;
+            background: #70712e;
+        }
+
+    #subproduct > ul a {
+        color: white;
+    }
 </style>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -361,24 +425,6 @@
             auto: true,
             autoControls: true
         });
-
-     
-
-       
-        window.onclick = function (event) {
-            if (!event.target.matches('.dropbtn')) {
-
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
- 
 
     });
 

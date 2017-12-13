@@ -7,29 +7,29 @@
     List<EnF.Page> lstTempPage = new List<EnF.Page>();
 
     idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["huongDanMua"]);
-    lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
-    Int64 huongDanMua = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
+    lstTempPage = db.Pages.Where(p => p.PageId == idKey).ToList();
+    Int64 huongDanMua = idKey;// lstTempPage.Count() > 0 ? lstTempPage.First().PageId : 0;
 
 
     idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["huongThanhToan"]);
     lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
-    Int64 huongThanhToan = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
+    Int64 huongThanhToan = idKey;//lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
 
     idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["chinhSachVanChuyen"]);
     lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
-    Int64 chinhSachVanChuyen = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
+    Int64 chinhSachVanChuyen = idKey;//lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
 
     idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["quydinhDoiTra"]);
     lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
-    Int64 quydinhDoiTra = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
+    Int64 quydinhDoiTra = idKey;//lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
 
-    idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["camketvaQuyDinhChung"]);
+    idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["CamKetQuyDinh"]);
     lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
-    Int64 camketvaQuyDinhChung = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
+    Int64 camketvaQuyDinhChung = idKey;//lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
 
-    idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["baomatThongTin"]);
+    idKey = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["BaoMatThongTin"]);
     lstTempPage = lstPage.Where(p => p.PageId == Convert.ToInt16(idKey)).ToList();
-    Int64 baomatThongTin = lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
+    Int64 baomatThongTin =  idKey;//lstTempPage.Count > 0 ? lstTempPage.First().PageId : 0;
     //EnF.Page CamKetQuyDinh = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["CamKetQuyDinh"])).First();
     //EnF.Page BaoMatThongTin = lstPage.Where(p => p.PageId == Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["BaoMatThongTin"])).First();
 
@@ -53,29 +53,29 @@
                 </a>
             </li>
             <li>
-                <a href="@(huongDanMua!=0? "/Home/NewsDetail?pageId="+huongThanhToan:"#")">
+                <a href="@(huongThanhToan!=0? "/Home/NewsDetail?pageId="+huongThanhToan:"#")">
 
                     Hướng Dẫn Thanh Toán
                 </a>
             </li>
             <li>
-                <a href="@(huongDanMua!=0? "/Home/NewsDetail?pageId="+chinhSachVanChuyen:"#")">
+                <a href="@(chinhSachVanChuyen!=0? "/Home/NewsDetail?pageId="+chinhSachVanChuyen:"#")">
 
                     Chính Sách Vận Chuyển
                 </a>
             </li>
             <li>
-                <a href="@(huongDanMua!=0? "/Home/NewsDetail?pageId="+quydinhDoiTra:"#")">
+                <a href="@(quydinhDoiTra!=0? "/Home/NewsDetail?pageId="+quydinhDoiTra:"#")">
                     Quy Định Đổi Trả
                 </a>
             </li>
             <li>
-                <a href="@(camketvaQuyDinhChung!=8? "/Home/NewsDetail?pageId="+camketvaQuyDinhChung:"8")">
+                <a href="@(camketvaQuyDinhChung!=0? "/Home/NewsDetail?pageId="+camketvaQuyDinhChung:"#")">
                     Cam Kết Và Quy Định Chung
                 </a>
             </li>
             <li>
-                <a href="@(baomatThongTin!=9? "/Home/NewsDetail?pageId="+baomatThongTin:"9")">
+                <a href="@(baomatThongTin!=0? "/Home/NewsDetail?pageId="+baomatThongTin:"#")">
                     Bảo Mật Thông Tin
                 </a>
             </li>
