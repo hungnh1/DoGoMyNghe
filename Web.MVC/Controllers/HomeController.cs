@@ -68,6 +68,10 @@ namespace baohiem.Controllers
             }
  
             var pge = db.Pages.Find(pageId);
+            if (pge == null)
+            {
+                pge = db.Pages.First();
+            }
 
             ViewData["ListPages"] = db.Pages.Where(p => p.ParentId == pge.ParentId).ToList();
             return View(pge);
