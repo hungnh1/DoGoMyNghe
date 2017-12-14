@@ -905,6 +905,9 @@ font-weight: 600;}
   .menureponsive {
     display: block;
 	}
+  #prolist{
+      display:none;
+  }
   #mainImg{
       width: 100% !important;
   }
