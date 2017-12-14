@@ -24,7 +24,7 @@
     {
         for (int i = 0; i < listNews.Count; i++)
         {
-            listNewsItem.Add(new SelectListItem { Text = listNews[i].Name, Value = listNews[i].PageId.ToString() });
+            listNewsItem.Add(new SelectListItem { Text = listNews[i].Name, Value = "/Home/NewsDetail?pageId="+listNews[i].PageId.ToString() });
         }
     }
 }
