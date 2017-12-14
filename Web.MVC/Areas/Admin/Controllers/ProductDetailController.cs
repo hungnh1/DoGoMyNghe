@@ -125,13 +125,13 @@ namespace baohiem.Areas.Admin.Controllers
                 indexfile++;
 
             }
-            var listimg = "";
-            var ImageList = db.ProductImages.Where(p => p.ProductId == product.ProductId).ToList();
-            foreach (var il in ImageList)
-            {
-                listimg += "{ \"Image\": \"" + il.Image + "\",\"ProductId\": " + il.ProductId + "},";
-            }
-            product.ImageList = "{ \"imalist\":[" + listimg + "] }";
+            //var listimg = "";
+            //var ImageList = db.ProductImages.Where(p => p.ProductId == product.ProductId).ToList();
+            //foreach (var il in ImageList)
+            //{
+            //    listimg += "{ \"Image\": \"" + il.Image + "\",\"ProductId\": " + il.ProductId + "},";
+            //}
+            //product.ImageList = "{ \"imalist\":[" + listimg + "] }";
             db.SaveChanges();
             if (productGroup.IsDefault == true)
             {
