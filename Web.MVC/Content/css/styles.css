@@ -676,7 +676,9 @@ font-weight: 600;}
 .menumobi {
     display: none;
 }
-
+.menureponsive {
+    display: none;
+}
 /*style responsive*/
 @media only screen and (max-width: 1024px) {
    .xem-sp .goingay {
@@ -885,16 +887,29 @@ font-weight: 600;}
 .mdivc3-mb {
   position: absolute;
 }
+
+
 }
 @media (max-width: 680) {
 .for-lienhe .intro h1 {
     font-size: 17px !important; 
 }
+
 .navbar-header {
   margin: 0px !important;
 }
 
 }
+
+@media only screen and (max-width: 650px) {
+  .menureponsive {
+    display: block;
+	}
+  #mainImg{
+      width: 100% !important;
+  }
+}
+
 @media (max-width: 480px) {
 .chinhsach {
   display: inline-block;
