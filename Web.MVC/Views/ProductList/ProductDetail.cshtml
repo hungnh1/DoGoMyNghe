@@ -62,8 +62,8 @@
                         </tr>
                     </table>
                 </div>                
+            </div>            
             </div>
-        </div>
 
         <div class="col-md-12 boxListImg">
             <img src="~/images/left_slide.png" class="back" />
@@ -75,9 +75,7 @@
                             <img src="/@proImg.Image" class="" />
                         </div>
                     }
-
                 }
-
             </div>
             <img src="~/images/right_slide.png" class="next" />
         </div>
@@ -89,6 +87,9 @@
             <div id="noidung">
                 @Html.Raw(Model.Des)
             </div>
+        </div>
+        <div class="cmt-facebook">
+            <div class="fb-comments" data-href="http://gomynghedainghia.vn/ProductList/ProductDetail?productId=" data-numposts="5"></div>
         </div>
 
         @*---------*@
@@ -144,25 +145,7 @@
 @section scripts{
 
     <script type="text/javascript">
-
-        //jQuery(document).ready(function ($) {
-
-        //    $('.imgLarge').addimagezoom({
-        //        speed: 1500,
-        //        descpos: true,
-        //        imagevertcenter: true,
-        //        magvertcenter: true,
-        //        zoomrange: [3, 10],
-        //        magnifiersize: [300, 300],
-        //        magnifierpos: 'right',
-        //        cursorshade: true
-        //    });
-
-
-        //});
-
-
-
+        
         $('.back').click(function () {
 
 
