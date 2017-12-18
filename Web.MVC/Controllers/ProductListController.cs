@@ -35,6 +35,7 @@ namespace baohiem.Controllers
                 ViewBag.groupname = prolist.First().ProductGroupName;
             }
             ViewBag.ProductGroupId = ProductGroupId;
+            ViewBag.paging = paging;
             return View(prolist);
         }
         public ActionResult ProductDetail(int productId)
