@@ -770,3 +770,15 @@ table.dataTable thead th, table.dataTable thead td {
 .elfinder-button {
  box-sizing:unset !important;
 }
+.bs-docs-container h2 {
+    padding: 9px;
+    font-size: 21px;
+    background: #1b9ced;
+    font-weight: 600;
+}
+    .bs-docs-container h2 a {        
+        font-size: 21px;        
+        font-weight: 600;
+        text-decoration: none;
+        color: black;
+    }
