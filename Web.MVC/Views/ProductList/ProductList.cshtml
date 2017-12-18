@@ -1,5 +1,6 @@
 ﻿@model List<EnF.Product>
 @using EnF;
+@using Web.Repository;
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_LayoutDefault.cshtml";
@@ -9,71 +10,84 @@
 }
 <link href="~/Content/css/Cust.css" rel="stylesheet" />
 
-        <div class="col-md-12 productlist" >
-            <div class="col-md-3">
-                @Html.Partial("_PartialProductList")
-            </div>
-            <div class="col-md-9 productlist-right">
-                <div class="showtilte">
-                    <div class="txtshowtitle"><h2 style="font-size:17px">@ViewBag.groupname </h2></div>
-
-                </div>
-
-                @foreach (var p in Model)
-            {
-                    <div class="item  divsanpham col-md-4">
-                        <div class="row">
-                            <div class="img-sp divimgsanpham">
-                                <a href="/San-pham/@(Web.Repository.ClearWordRepository.NoVNeseLower(p.Name)+"-"+p.ProductId.ToString())#mainContent">
-                                    <img alt="@p.Name" title="@p.Name" src="/@p.Image" />
-                                </a>
-                                <div class="info-sp">
-                                    <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
-                                    <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
-                                </div>
-                            </div>
-                            <div class="name-sp">
-                                <h3 class="tensp">
-                                    <a href="" title="">@p.Name</a>
-                                </h3>
-                            </div>
-
-                            <div class="xem-sp">
-                                <div class="button">
-                                    <div class="chitiet">
-                                        <a href="/ProductList/ProductDetail?productId=@p.ProductId">Chi Tiết</a>
-                                    </div>
-                                    <div class="goingay">
-                                        <a href="">Gọi Ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                }                
-                <div style="width:90%; float:left">
-                    <ul style="float:right" class="pagination">
-                        @for (int i = 1; i <= totalPage; i++)
-                        {
-                            <li><a href="/ProductList/ProductList?ProductGroupId=@ViewBag.ProductGroupId&paging=@i">@i</a></li>
-                        }
-                                   
-                    </ul>
-                </div>
-            </div>
+<div class="col-md-12 productlist">
+    <div class="col-md-3">
+        @Html.Partial("_PartialProductList")
+    </div>
+    <div class="col-md-9 productlist-right">
+        <div class="showtilte">
+            <div class="txtshowtitle"><h2 style="font-size:17px">@ViewBag.groupname </h2></div>
 
         </div>
 
- 
+        @foreach (var p in Model)
+            {
+            <div class="item  divsanpham col-md-4">
+                <div class="row">
+                    <div class="img-sp divimgsanpham">
+                        <a href="/San-pham/@(Web.Repository.ClearWordRepository.NoVNeseLower(p.Name)+"-"+p.ProductId.ToString())#mainContent">
+                            <img alt="@p.Name" title="@p.Name" src="/@p.Image" />
+                        </a>
+                        <div class="info-sp">
+                            <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
+                            <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
+                        </div>
+                    </div>
+                    <div class="name-sp">
+                        <h3 class="tensp">
+                            <a href="" title="">@p.Name</a>
+                        </h3>
+                    </div>
+
+                    <div class="xem-sp">
+                        <div class="button">
+                            <div class="chitiet">
+                                <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(p.Name)?"a":p.Name )+"-"+p.ProductId)">Chi Tiết</a>
+                            </div>
+                            <div class="goingay">
+                                <a href="">Gọi Ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        }
+        <div style="width:90%; float:left">
+            <ul style="float:right" class="pagination">
+                @for (int i = 1; i <= totalPage; i++)
+                {
+                    if ((Int16)ViewBag.paging == i)
+                    {
+                        <li>
+                            <a style="background: #193346; color: white;" href="/ProductList/ProductList?ProductGroupId=@ViewBag.ProductGroupId&paging=@i">
+                                @i
+                        </a>
+                    </li>
+                    }
+                    else
+                    {
+                        <li><a href="/ProductList/ProductList?ProductGroupId=@ViewBag.ProductGroupId&paging=@i">@i</a></li>
+                    }
+
+                }
+
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
 
 <style type="text/css">
     .container, .divsanpham {
         background-image: url('/images/bgGroupProct.png');
-            border: 1px solid #CCCCCC;
+        border: 1px solid #CCCCCC;
     }
-    .list-group-item{
-         background-image: url('/images/bgGroupLeft.png');
+
+    .list-group-item {
+        background-image: url('/images/bgGroupLeft.png');
     }
     /*.col-md-3 {
         padding-left:0;
@@ -81,7 +95,7 @@
     .col-md-9{
         padding-right:0px;
     }*/
-    .bx-wrapper{
-        margin-bottom:10px;
+    .bx-wrapper {
+        margin-bottom: 10px;
     }
 </style>

@@ -1,4 +1,5 @@
 ﻿@model EnF.Product
+@using Web.Repository;
 @using EnF;
 @using System.Data;
 @{
@@ -107,7 +108,7 @@
                 <div class="item col-md-4" style="">
                     <div class="row">
                         <div class="img-sp">
-                            <a href="/ProductList/ProductDetail?productId=@p.ProductId">
+                            <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(p.Name)?"a":p.Name )+"-"+p.ProductId)">
                                 <img alt="@p.Name" title="@p.Name" src="/@p.Image" />
                             </a>
                             <div class="info-sp">
@@ -124,7 +125,7 @@
                         <div class="xem-sp">
                             <div class="button">
                                 <div class="chitiet">
-                                    <a href="/ProductList/ProductDetail?productId=@p.ProductId">Chi Tiết</a>
+                                    <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(p.Name)?"a":p.Name )+"-"+p.ProductId)">Chi Tiết</a>
                                 </div>
                                 <div class="goingay">
                                     <a href="">Gọi Ngay</a>
