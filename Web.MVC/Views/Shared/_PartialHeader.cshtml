@@ -109,7 +109,7 @@
                                             @foreach (ProductGroupClass prdgup in catg.lstproductGroupClass)
                                                 {
                                                 <li>
-                                                    <a class="" href="/ProductList/ProductList?ProductGroupId=@prdgup.productGroup.ProductGroupId">@prdgup.productGroup.Name</a>
+                                                    <a class="" href="/Nhom-san-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(prdgup.productGroup.Name)?"a":prdgup.productGroup.Name )+"-"+prdgup.productGroup.ProductGroupId)">@prdgup.productGroup.Name</a>
                                                 </li>
                                                 }
                                         </ul>
@@ -183,7 +183,7 @@
                                                 @foreach (ProductGroupClass prdgup in catg.lstproductGroupClass)
                                                 {
                                                     <li>
-                                                        <a class="" href="/ProductList/ProductList?ProductGroupId=@prdgup.productGroup.ProductGroupId">@prdgup.productGroup.Name</a>
+                                                        <a class="" href="/Nhom-san-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(prdgup.productGroup.Name)?"a":prdgup.productGroup.Name )+"-"+prdgup.productGroup.ProductGroupId)">@prdgup.productGroup.Name</a>
                                                     </li>
                                                 }
                                             </ul>

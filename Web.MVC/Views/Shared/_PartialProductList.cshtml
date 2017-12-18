@@ -1,4 +1,5 @@
 ﻿﻿@using EnF;
+@using Web.Repository;
 @{
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
     List<Category> categoryList = db.Categories.ToList();
@@ -12,7 +13,7 @@
             foreach (ProductGroup progrp in lstProGrp)
             {
                 <div class="productlist-tab">
-                    <a href="/ProductList/ProductList?ProductGroupId=@progrp.ProductGroupId">@progrp.Name</a>
+                    <a href="/Nhom-san-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(progrp.Name)?"a":progrp.Name )+"-"+progrp.ProductGroupId)">@progrp.Name</a>
                 </div>
             }
         }

@@ -134,7 +134,7 @@
 
                                 <div class="name-sp">
                                     <h3 class="tensp">
-                                        <a href="" title="">
+                                        <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)" title="">
                                             @pro.Name
                                         </a>
                                     </h3>
@@ -143,7 +143,7 @@
                                 <div class="xem-sp">
                                     <div class="button">
                                         <div class="chitiet">
-                                            <a href="/ProductList/ProductDetail?productId=@pro.ProductId">Chi Tiết</a>
+                                            <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)">Chi Tiết</a>
                                         </div>
                                         <div class="goingay">
                                             <a href="tel:@confg.HotLine">Gọi Ngay</a>
