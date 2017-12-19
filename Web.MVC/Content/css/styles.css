@@ -578,7 +578,8 @@ background: #c7c7c1;
   display: none;
 }
 .menu-footer {
-  height: 45px;
+  width: 100%;
+  display: inline-block;
 }
 .menu-footer ul {
     list-style: none;
@@ -591,20 +592,22 @@ background: #c7c7c1;
   text-decoration: none;
   
 }
-.menu-footer ul li {
-font-size: 14px;
-    padding: 0px 30px;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: block;
-    font-weight: 600;
-    height: 100%;
-    color: black;
-    background: #c7c7c1;
-    float: left;
+    .menu-footer ul li {
+        font-size: 13px;
+        padding: 2px 7px;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        font-weight: 600;
+        height: 100%;
+        color: black;
+        background: #c7c7c1;
+        float: left;
         line-height: 3;
-            border-right: 2px solid white;
-}
+        border-right: 2px solid white;
+        width: 16.6666%;
+        text-align: center;
+    }
 .menu-footer ul li a {
   color: black;
 }
@@ -658,13 +661,13 @@ font-size: 20PX;
     text-align: center;
 }
 .creat-by {
-  background: black;
-    height: 35px;
+  background: black;   
 }
-.creat-by p{
-  text-align: center;
-  color: white;
-}
+    .creat-by p {
+        text-align: center;
+        color: white;
+        padding: 5px 0;
+    }
 .creat-by p a {
   text-decoration: none;
   color:  red ;
@@ -679,9 +682,30 @@ font-weight: 600;}
 .menureponsive {
     display: none;
 }
+.title-contact {
+margin-top: 2%;
+}
+.title-contact span {
+    border-bottom: 3px solid #e0dfd9;
+    display: block;
+    padding: 5px 10px;
+    font-size: 20px;
+    background: #ffcc4e;
+}
+.rightdoc p {
+    padding: 10px 20px;
+    text-align:center;
+}
+.rightdoc ul {
+    list-style-type: none;
+    padding: 7px;
+}
+.googlemap {
+    height: 300px;
+}
 /*style responsive*/
 @media only screen and (max-width: 1024px) {
-   .xem-sp .goingay {
+    .xem-sp .goingay {
     padding: 0px 4px;
     width: 50%;
    }
