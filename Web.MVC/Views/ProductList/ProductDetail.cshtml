@@ -18,7 +18,7 @@
             <div class="col-md-5" id="imgPro">
                 @*<img id="mainImg" src="/@Model.Image" class="MagicZoom imgLarge" />*@
                 <a href="/@Model.Image" class="MagicZoom" data-options="zoomPosition: inner">
-                <img src="/@Model.Image">
+                <img id="mainImg" src="/@Model.Image">
                 </a>
                 @*<div id="iconZoom">
                 </div>*@
@@ -180,8 +180,9 @@
 
             $('#mainImg')[0].setAttribute("src", this.src);
             //$('.imgLarge').addimagezoom().largeimage = "myimagescr";
-            $('.magnifyarea > div > img')[0].setAttribute("src", this.src);
-
+            //$('.magnifyarea > div > img')[0].setAttribute("src", this.src);
+            $('.mz-lens img')[0].setAttribute("src", this.src);
+            
         })
     </script>
 
