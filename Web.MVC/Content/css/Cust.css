@@ -33,7 +33,7 @@
 }*/
 
 .detail .ptitle {
-    width: 82px;    
+    width: 130px;
     margin-top: 2%;
     height: 35px;
     margin-bottom: 2%;
@@ -178,15 +178,19 @@
 
 #imgPro {
     display: inline-block;
-    width: 380px;
-    height: 410px;
+    height: 400px;
     float: left;
     padding-right: 1%;
     padding-left: 0px;
+    padding-top: 20px;
+    height: 320px;
 }
-
+.figure.mz-figure img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
 .detail-product {
-    height: 420px;
+    height: auto;
     width: 100%;
 }
 
@@ -221,6 +225,7 @@
 
 .detail table {
     width: 100%;
+    margin-bottom: 2%;
 }
 
 .detail .title {
