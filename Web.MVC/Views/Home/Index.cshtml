@@ -9,7 +9,7 @@
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
 
     List<ADV> slideList = (List<ADV>)ViewBag.Slide;
-    List<ADV>  slideListBanner = slideList.Where(p => p.Type == 1).ToList();
+  
     List<ADV> slideListPopup = slideList.Where(p => p.Type == 2).ToList();
 
     List<Category> categoryList = (List<Category>)ViewBag.listCategory;
@@ -20,20 +20,7 @@
 }
  
 
-<!-- slider -->
-<div class="home-slider">
 
-    <div class="box-img">
-        <ul class="bxslider" id="boxsl">
-            @foreach (ADV ad in slideListBanner)
-            {
-                <li>
-                    <img src="/@ad.Image" />
-                </li>
-            }
-        </ul>
-    </div>
-</div>
 <!-- end slider -->
 <!-- icon chính sách mua hàng -->
 <div class="chinhsach">
@@ -122,7 +109,7 @@
                             <div class="col-md-3 item">
                                 <div class="img-sp">
                                     <p>
-                                        <a href="">
+                                        <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)">
                                             <img src="/@pro.Image">
                                         </a>
                                     </p>
