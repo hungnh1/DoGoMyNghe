@@ -16,12 +16,15 @@
                     @Html.Partial("_PartialProductList")
                 </div>
                 <div class="col-md-9 new-product"> 
-                    <div><h1>@Model.Name</h1></div>
+                    <div class="tiitle-news"><h1>@Model.Name</h1></div>
                     <div>
                         <p>
                             @Html.Raw(Model.PContent) 
                         </p>
 
+                    </div>
+                    <div class="cmt-facebook">
+                        <div class="fb-comments" data-href="http://gomynghedainghia.vn/ProductList/ProductDetail?productId=" data-numposts="5"></div>
                     </div>
                 </div>
             </div>
