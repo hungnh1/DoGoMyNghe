@@ -22,47 +22,7 @@
 
 
 <!-- end slider -->
-<!-- icon chính sách mua hàng -->
-<div class="chinhsach">
-    <ul>
-        <li class="col4 item_cs">
-            <a href="">
-                <div class="avarta"><i class="fa fa-truck" aria-hidden="true"></i></div>
-                <div class="info_cs">
-                    <h3>MIỄN PHÍ VẬN CHUYỂN</h3>
-                    <p>Tất cả đơn hàng</p>
-                </div>
-            </a>
-        </li>
-        <li class="col4 item_cs">
-            <a href="">
-                <div class="avarta"><i class="fa fa-headphones" aria-hidden="true"></i></div>
-                <div class="info_cs">
-                    <h3>HỔ TRỢ KHÁCH HÀNG</h3>
-                    <p>24/7</p>
-                </div>
-            </a>
-        </li>
-        <li class="col4 item_cs">
-            <a href="">
-                <div class="avarta"><i class="fa fa-reply-all" aria-hidden="true"></i></div>
-                <div class="info_cs">
-                    <h3>DỄ DÀNG</h3>
-                    <p>đổi trả</p>
-                </div>
-            </a>
-        </li>
-        <li class="col4 item_cs">
-            <a href="">
-                <div class="avarta"><i class="fa fa-bullhorn" aria-hidden="true"></i></div>
-                <div class="info_cs">
-                    <h3>THANH TOÁN</h3>
-                    <p>khi nhận hàng</p>
-                </div>
-            </a>
-        </li>
-    </ul>
-</div>
+
 <!-- End Chính sách mua hàng -->
 <!-- show product -->
 <div class="product">
@@ -100,7 +60,7 @@
             <div class="box-sanpham tab-content">
                 @foreach (ProductGroup progrp in lstProGrp)
                 {
-                    List<Product> lstProduct = db.Products.Where(p => p.ProductGroupID == progrp.ProductGroupId).Take(8).ToList();
+                    List<Product> lstProduct = db.Products.Where(p => p.ProductGroupID == progrp.ProductGroupId).OrderByDescending(o=>o.ProductId).Take(8).ToList();
 
                 <div id="sanpham@(cate.Id.ToString() + countdtl)" class="tab-pane fade in @(countdtl==1?"active":"")">
                     <div class="product-sp" style="width: 100%; height: auto;display: inline-block;">
@@ -214,3 +174,8 @@
     }
   
 
+<style type="text/css">
+    #slidehome, .chinhsach{
+        display:block !important;
+    }
+</style>
