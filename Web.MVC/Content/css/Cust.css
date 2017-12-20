@@ -139,6 +139,7 @@
     background: #ffcc4e;
     padding: 9px;
     margin-top: 0px;
+        margin-bottom: 0px;
 }
 
 .productlist {
@@ -175,8 +176,7 @@
         color: black;
         text-decoration: none;
     }
-
-#imgPro {
+   #imgPro {
     display: inline-block;
     height: 400px;
     float: left;
@@ -196,7 +196,7 @@
 
 #mainImg {
     width: 100%;
-    max-height: 100% !important;
+        max-height: 300px !important;
     height: 100% !important;
 }
 
@@ -307,8 +307,13 @@
 }
 .productlist-tab:hover {
     background: #ffcc4e;
-    color: #000;
+    
     height: auto;
+        padding-left: 5%;
+            transition: 0.5s;
+}
+.productlist-tab:hover a {
+    color: white;
 }
 .tiitle-news h1 {
     font-size: 24px;
