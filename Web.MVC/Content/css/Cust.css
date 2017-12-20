@@ -202,7 +202,7 @@
 
 .detail-product .info {
     display: inline-block;
-    width: 465px;
+    /*width: 465px;*/
     float: left;
     padding-left: 0px;
 }
