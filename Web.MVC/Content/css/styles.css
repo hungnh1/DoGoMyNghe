@@ -932,6 +932,10 @@ margin-top: 2%;
   #slideProduct,#slidehome{
     display:none !important;
 }
+
+  .info{
+      width: 100%;
+  }
   #prolist{
       display:none;
   }
