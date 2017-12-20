@@ -310,3 +310,13 @@
     color: #000;
     height: auto;
 }
+.tiitle-news h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    padding: 7px 10px;
+    background: #ffcc4e;
+}
+.entry-content {
+    padding: 0px 10px;
+}
+
