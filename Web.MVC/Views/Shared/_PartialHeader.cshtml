@@ -37,7 +37,7 @@
         lstProductClass.Add(productClass);
     }
 
-
+    List<Product> lstProduct = db.Products.OrderByDescending(o => o.ProductId).Take(10).ToList();
 }
 <!-- start header -->
 <!-- header -->
@@ -227,10 +227,11 @@
     </nav>
   
 </header>
-<!-- slider -->
-<div class="col-md-12">
-    <div class="home-slider">
 
+
+<!-- slider -->
+<div class="col-md-12" id="slidehome">
+    <div class="home-slider">
         <div class="box-img">
             <ul class="bxslider" id="boxsl">
                 @foreach (ADV ad in slideListBanner)
@@ -243,6 +244,104 @@
         </div>
     </div>
 </div>
+
+<!-- icon chính sách mua hàng -->
+<div class="col-lg-12">
+
+    <div class="container chinhsach">
+        <ul>
+            <li class="col4 item_cs">
+                <a href="">
+                    <div class="avarta"><i class="fa fa-truck" aria-hidden="true"></i></div>
+                    <div class="info_cs">
+                        <h3>MIỄN PHÍ VẬN CHUYỂN</h3>
+                        <p>Tất cả đơn hàng</p>
+                    </div>
+                </a>
+            </li>
+            <li class="col4 item_cs">
+                <a href="">
+                    <div class="avarta"><i class="fa fa-headphones" aria-hidden="true"></i></div>
+                    <div class="info_cs">
+                        <h3>HỔ TRỢ KHÁCH HÀNG</h3>
+                        <p>24/7</p>
+                    </div>
+                </a>
+            </li>
+            <li class="col4 item_cs">
+                <a href="">
+                    <div class="avarta"><i class="fa fa-reply-all" aria-hidden="true"></i></div>
+                    <div class="info_cs">
+                        <h3>DỄ DÀNG</h3>
+                        <p>đổi trả</p>
+                    </div>
+                </a>
+            </li>
+            <li class="col4 item_cs">
+                <a href="">
+                    <div class="avarta"><i class="fa fa-bullhorn" aria-hidden="true"></i></div>
+                    <div class="info_cs">
+                        <h3>THANH TOÁN</h3>
+                        <p>khi nhận hàng</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="col-md-12">
+    <div class="home-slider">
+        <div class="box-img">
+            <ul class="slpro" id="boxsl">
+                @foreach (Product pro in lstProduct)
+            {
+                    <li>
+                        <div class="item">
+                            <div class="img-sp">
+                                <p>
+                                    <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)">
+                                        <img src="/@pro.Image">
+                                    </a>
+                                </p>
+                                <div class="info-sp">
+                                    <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
+                                    <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
+                                </div>
+                            </div>
+
+                            <div class="name-sp">
+                                <h3 class="tensp">
+                                    <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)" title="">
+                                        @pro.Name
+                                    </a>
+                                </h3>
+                            </div>
+
+                            @*<div class="xem-sp">
+                                <div class="button">
+                                    <div class="chitiet">
+                                        <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)">Chi Tiết</a>
+                                    </div>
+                                    <div class="goingay">
+                                        <a href="tel:@confg.HotLine">Gọi Ngay</a>
+                                    </div>
+                                </div>
+
+                            </div>*@
+                        </div>
+                       @*<a href="/ProductList/ProductDetail?productId=@pro.ProductId">
+                           <img src="/@pro.Image" />
+                       </a>*@ 
+                    </li>
+                   
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
 <!-- end header -->
 <!-- icon share left luon chạy -->
 <div id="at4-share-left" class="at4-share addthis_32x32_style atss atss-left addthis-animated slideInLeft">
@@ -433,6 +532,10 @@
     #subproduct > ul a {
         color: white;
     }
+
+    #slidehome, .chinhsach{
+        display:none;
+    }
 </style>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -442,9 +545,30 @@
             autoControls: true
         });
 
+        $('.slpro').bxSlider({
+            auto: true,
+            autoControls: true,
+            minSlides: 5,
+            maxSlides: 5,
+            slideWidth: 200,
+            slideMargin: 10
+        });
+        
     });
 
     function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
     }
+
+    //$(document).ready(function () {
+    //    $('.slider1').bxSlider({
+    //        slideWidth: 200,
+    //        minSlides: 2,
+    //        maxSlides: 3,
+    //        slideMargin: 10
+    //    });
+    //});
 </script>
+
+       
+       
