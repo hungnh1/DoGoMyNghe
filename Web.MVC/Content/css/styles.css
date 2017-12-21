@@ -726,9 +726,7 @@ margin-top: 2%;
     .bx-wrapper .bx-viewport h2 {
         font-size: 13px !important;
     }
-    .bx-wrapper .bx-viewport img {
-        height: 230px !important;
-    }
+    
     .bx-wrapper .bx-viewport .tensp a {
         font-size: 16px;
         text-align: center;
@@ -954,7 +952,9 @@ margin-top: 2%;
 .for-lienhe .intro h1 {
     font-size: 17px !important; 
 }
-
+.bx-wrapper .bx-viewport img {
+        height: 230px !important;
+    }
 .navbar-header {
   margin: 0px !important;
 }
