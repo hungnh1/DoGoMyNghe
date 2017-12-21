@@ -160,7 +160,9 @@
     border-top: none !important;
     border: 1px solid #a29c9c;
 }
-
+    .productlist-danhmuc .txtshowtitle h2 span {
+        padding-right: 5px;
+    }
 .productlist-tab {
     padding-top: 0%;
     background: #969692;
