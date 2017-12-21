@@ -282,14 +282,14 @@
     }
 
 #boxdynamic {
-    width: 100% !important;
+    width: 4000px !important;
     height: 185px !important;
 }
 
     #boxdynamic > div {
         height: 185px !important;
         width: 276px !important;
-        margin-right: 1%;
+        margin-right: 2px;
     }
 
     #boxdynamic img {
