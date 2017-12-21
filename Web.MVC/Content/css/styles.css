@@ -958,7 +958,7 @@ margin-top: 2%;
 .navbar-header {
   margin: 0px !important;
 }
-.new-product div img{
+.new-product > div > p > img{
 width: 100% !important;
 }
 .cmt-facebook .fb-comments {
