@@ -122,8 +122,8 @@ background: #c3baba;
     background: #e0dfd9;
 }
 #wap-header #at4-share {
-   margin-top: 0px;
-text-align: right;
+    text-align: right;
+    width: 100%;
 }
 #wap-header #at4-share a {
   font-size: 20px;
@@ -176,7 +176,7 @@ height: 35px;
     list-style: none;
 }
 .info-company {
-  width: 80%;
+  width: 70%;
 float: left;
 }
 .info-company ul  li{
@@ -386,6 +386,10 @@ text-transform: uppercase;}
 }
 .chinhsach ul li.item_cs:hover .info_cs {
     color: #f80205;
+}
+.chinhsach ul li.item_cs:hover .fa {
+    transition: 1s;
+    transform: rotate(360deg);
 }
 .chinhsach a {
   color: black;
@@ -702,6 +706,38 @@ margin-top: 2%;
 }
 .googlemap {
     height: 300px;
+}
+.bx-wrapper .bx-viewport {
+    height: 320px !important;
+}
+.bx-wrapper .bx-viewport ul {
+    list-style-type: none;
+}
+.bx-wrapper .bx-viewport li {
+    height: 320px !important;
+}
+    .bx-wrapper .bx-viewport .item {
+        height: 305px !important;
+        border: 1px solid #c6c3bd !important;
+    }
+    .bx-wrapper .bx-viewport h1 {
+        font-size: 18px !important;
+    }
+    .bx-wrapper .bx-viewport h2 {
+        font-size: 13px !important;
+    }
+    .bx-wrapper .bx-viewport img {
+        height: 230px !important;
+    }
+    .bx-wrapper .bx-viewport .tensp a {
+        font-size: 16px;
+        text-align: center;
+        font-weight: bold;
+        font-style: normal;
+    }
+.header-share {
+    width: 30%;
+    float: left;
 }
 /*style responsive*/
 @media only screen and (max-width: 1024px) {
