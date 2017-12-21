@@ -958,7 +958,18 @@ margin-top: 2%;
 .navbar-header {
   margin: 0px !important;
 }
-
+.new-product div img{
+width: 100% !important;
+}
+.cmt-facebook .fb-comments {
+	width: 100% !important;
+}
+.cmt-facebook .fb-comments  span {
+	width: 100% !important;
+}
+.cmt-facebook .fb-comments iframe {
+	width: 100% !important;
+}
 }
 
 @media only screen and (max-width: 650px) {
