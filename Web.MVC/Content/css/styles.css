@@ -688,6 +688,8 @@ font-weight: 600;}
 }
 .title-contact {
 margin-top: 2%;
+display: inline-block;
+    width: 100%;
 }
 .title-contact span {
     border-bottom: 3px solid #e0dfd9;
@@ -866,8 +868,8 @@ margin-top: 2%;
 }
 .caret{
   float: right;
-    margin-top: 3%;
-    margin-right: 12px;
+    margin-top: 1%;
+    margin-right: 15px;
 }
 .menumobi {
        display: block;
@@ -945,8 +947,49 @@ margin-top: 2%;
 .mdivc3-mb {
   position: absolute;
 }
+.menureponsive {
+    display: block;
+	}
+.menureponsive .collapse {
+	padding: 0px;
+}
+.menureponsive  .navbar-header .navbar-brand {
+	    color: black;
+    margin-left: 2% !important;
+    font-weight: bold;
+}
+.navbar-inverse .navbar-nav>li>a {
+	    text-transform: uppercase;
+    color: white !important;
+}
+#at4-share-left {
+	display: none;
+}
+#subproduct ul {
+list-style-type: none;
+    padding: 0;
+}
+#subproduct > ul > li, .limobile .sub-menu li {
+	    padding: 8px !important; 
+}
+.sub-menu2 {
+	    background: #ffcc4e !important;
+    width: 35% !important;
+}
+.sub-menu2 li {
 
-
+    border-bottom: 1px solid black;
+}
+.sub-menu2 li:last-child {
+	border-bottom: none;
+}
+.limobile .sub-menu {
+	    list-style: none;
+    margin: 0 !important;
+}
+.limobile .sub-menu li a {
+	color: white !important;
+}
 }
 @media (max-width: 680) {
 .for-lienhe .intro h1 {
@@ -970,6 +1013,9 @@ width: 100% !important;
 .cmt-facebook .fb-comments iframe {
 	width: 100% !important;
 }
+.menureponsive {
+    display: block;
+	}
 }
 
 @media only screen and (max-width: 650px) {
@@ -992,8 +1038,44 @@ width: 100% !important;
 }
 
 @media (max-width: 480px) {
+#slidehome {
+	    height: 230px;
+}
+.home-slider {
+	    height: 230px !important;
+}
+.home-slider .box-img {
+	    height: 230px !important;
+}
+.home-slider .bx-wrapper{
+	    height: 230px !important;
+}
+.home-slider .bx-wrapper .bx-viewport{
+	    height: 230px !important;
+}
+.title li a {
+	    font-size: 13px;
+	    padding: 0px 7px !important;
+	        font-weight: bold;
+}
+.bx-wrapper .bx-viewport li {
+	height: 230px !important;
+}
 .chinhsach {
   display: inline-block;
+}
+.productlist-right {
+	    text-align: center;
+}
+.home-slider img {
+	    width: 100% !important;
+    height: 96% !important;
+}
+.productlist-right .item  {
+width: 85%;
+}
+.for-facebook{
+	display: none;
 }
 .navbar-header {
   margin: 0px !important;
