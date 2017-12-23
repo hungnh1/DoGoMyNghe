@@ -1053,6 +1053,9 @@ width: 100% !important;
 .home-slider .bx-wrapper .bx-viewport{
 	    height: 230px !important;
 }
+.menureponsive .navbar-header .navbar-brand {
+	font-size: 15px;
+}
 .title li a {
 	    font-size: 13px;
 	    padding: 0px 7px !important;
@@ -1069,6 +1072,9 @@ width: 100% !important;
 }
 .productlist-right {
 	    text-align: center;
+}
+.productlist-right .chitiet {
+     text-align: left !important;
 }
 .home-slider img {
 	    width: 100% !important;
