@@ -17,6 +17,11 @@
         <div class="titletable">Danh sách sản phẩm</div>
         <ul class="list-unstyled menu">
             <li>
+                <input type="text" placeholder="nhập mã SP" id="txtSearch" />
+                <input type="button" id="searchPro" class="btn-danger" value="Tìm" />
+            </li>
+
+            <li>
                 <i class="fa fa-plus-square-o"></i>
                 @Html.ActionLink("Thêm mới", "Create", new { ProductGroupID = ViewBag.ProductGroupID })
             </li>
@@ -36,7 +41,9 @@
                     <th>
                         Tên
                     </th>
-
+                    <th>
+                        Mã sản phẩm
+                    </th>
                     <th>
                        hình ảnh
                     </th>
@@ -55,7 +62,9 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
-
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ImageList)
+                        </td>
                         <td>
                             <img src="/@item.Image" height="100" />
                         </td>
@@ -76,6 +85,7 @@
         </table>
     </div>
 </div>
+@section Scripts {
 <script type="text/javascript">
     function ConfirmDel() {
         var rs = confirm("Chắc chắn muốn xóa");
@@ -84,4 +94,14 @@
         }
 
     }
+
+    $('#searchPro').click(function () {
+        if ($('#txtSearch').val() == '') {
+            return;
+        }
+
+        location.href = "/Admin/ProductDetail/SearchProduct?code=" + $('#txtSearch').val();
+
+    });
 </script>
+    }

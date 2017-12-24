@@ -21,7 +21,7 @@ namespace baohiem.Areas.Admin.Controllers
         public ActionResult Index(Int32 CategoryId)
         {
             ViewBag.CategoryId = CategoryId;
-            return View(db.ProductGroups.Where(p=>p.CategoryId== CategoryId).ToList());
+            return View(db.ProductGroups.Where(p=>p.CategoryId== CategoryId).OrderBy(o=>o.Des).ToList());
         }
 
         // GET: /Admin/ProductGroup/Details/5
@@ -173,6 +173,18 @@ namespace baohiem.Areas.Admin.Controllers
             {
                 Directory.CreateDirectory(path);
             }
+        }
+
+        public JsonResult UpdateSTT(int productGroupId, string stt)
+        {
+            ProductGroup productGroup = db.ProductGroups.Find(productGroupId);
+            productGroup.Des = stt;
+            if (db.SaveChanges() > 0)
+            {
+                return Json(1, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(0, JsonRequestBehavior.AllowGet);
         }
     }
 }

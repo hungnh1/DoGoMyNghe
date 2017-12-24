@@ -23,6 +23,18 @@ namespace baohiem.Areas.Admin.Controllers
             ViewBag.ProductGroupID = ProductGroupId;
             return View(prodlist);
         }
+
+        public ActionResult SearchProduct(string code)
+        {
+            var prodlist = db.Products.Where(p => p.ImageList.Contains(code)).OrderByDescending(p => p.ProductId).ToList();
+            //ViewBag.ProductGroupName = db.ProductGroups.Find(ProductGroupId).Name;
+            //ViewBag.ProductGroupID = ProductGroupId;
+            ViewBag.Keyword = code;
+            return View(prodlist);
+        }
+
+        
+
         public ActionResult ShowProdct()
         {
             var prodlist = (from prt in db.Products

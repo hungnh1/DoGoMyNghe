@@ -17,7 +17,7 @@ namespace baohiem.Areas.Admin.Controllers
         // GET: Admin/Categories
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Categories.OrderBy(o=>o.Stt).ToList());
         }
 
         // GET: Admin/Categories/Details/5
@@ -133,6 +133,18 @@ namespace baohiem.Areas.Admin.Controllers
         {
             Category category = db.Categories.Find(categoryId);
             category.Des = isCheck.ToString();
+            if (db.SaveChanges() > 0)
+            {
+                return Json(1, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(0, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult UpdateSTT(int categoryId, int stt)
+        {
+            Category category = db.Categories.Find(categoryId);
+            category.Stt = stt;
             if (db.SaveChanges() > 0)
             {
                 return Json(1, JsonRequestBehavior.AllowGet);

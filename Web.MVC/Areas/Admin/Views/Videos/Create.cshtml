@@ -1,0 +1,47 @@
+﻿@model EnF.Video
+
+@{
+    ViewBag.Title = "Thêm mới video";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+     
+        <hr />
+        @Html.ValidationSummary(true)
+       
+
+        <div class="form-group">
+            @Html.Label("Mã nhúng", new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.TextArea("FrameCode", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FrameCode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Tiêu đề", new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

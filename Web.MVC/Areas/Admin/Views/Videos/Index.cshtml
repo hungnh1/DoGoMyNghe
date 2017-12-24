@@ -1,0 +1,85 @@
+﻿@model IEnumerable<EnF.Video>
+
+@{
+    ViewBag.Title = "Quản lý video";
+}
+
+<h2>Quản lý video</h2>
+
+<div class="panel panel-primary color noneborder">
+    <div class="panel-heading colortheme noneborder">
+        <div class="titletable">Danh sách sản phẩm</div>
+        <ul class="list-unstyled menu">
+            @*<li>
+                <input type="text" placeholder="nhập mã SP" id="txtSearch" />
+                <input type="button" id="searchPro" class="btn-danger" value="Tìm" />
+            </li>*@
+
+            <li>
+                <i class="fa fa-plus-square-o"></i>
+                @Html.ActionLink("Thêm mới", "Create")
+            </li>
+            <li>
+                <a href="#" onclick="ReloadCurrentPage()">
+                    <i class="fa fa-refresh"></i> Nạp lại
+                </a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th>
+                    Video
+                </th>
+               
+                <th>
+                    Tiêu đề
+                </th>
+                
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.Raw(item.FrameCode)
+                    </td>
+                    
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+                        <a href="/Admin/Videos/Delete/@item.Id" onclick="return ConfirmDel()">Xóa</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
+<style type="text/css">
+    iframe{
+        height:200px;
+        width:300px
+    }
+
+</style>
+@section Scripts {
+    <script type="text/javascript">
+    function ConfirmDel() {
+        var rs = confirm("Chắc chắn muốn xóa");
+        if (rs == false) {
+            return false;
+        }
+
+    }
+ 
+    </script>
+}
