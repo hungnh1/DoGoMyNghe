@@ -12,7 +12,7 @@
     List<Category> categoryList = (List<Category>)db.Categories.ToList();
     List<Product> listprodct = new List<Product>();
     //List<ADV> slideList = (List<ADV>)ViewBag.Slide;
-    var listVideo = (List<EnF.Video>)ViewBag.listVideo;
+
     List<ProductClass> lstProductClass = new List<ProductClass>();
 
     foreach (Category catg in categoryList)
@@ -39,6 +39,7 @@
     }
 
     List<Product> lstProduct = db.Products.OrderByDescending(o => o.ProductId).Take(10).ToList();
+    List<Video> listVideo = db.Videos.Take(4).ToList();
 }
 <!-- start header -->
 <!-- header -->
@@ -110,9 +111,9 @@
                                         <ul class="sub-menu2">
                                             @foreach (ProductGroupClass prdgup in catg.lstproductGroupClass)
                                                 {
-                                                <li>
-                                                    <a class="" href="/Nhom-san-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(prdgup.productGroup.Name)?"a":prdgup.productGroup.Name )+"-"+prdgup.productGroup.ProductGroupId)">@prdgup.productGroup.Name</a>
-                                                </li>
+                                            <li>
+                                                <a class="" href="/Nhom-san-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(prdgup.productGroup.Name)?"a":prdgup.productGroup.Name )+"-"+prdgup.productGroup.ProductGroupId)">@prdgup.productGroup.Name</a>
+                                            </li>
                                                 }
                                         </ul>
                                     </li>
@@ -132,9 +133,9 @@
                                 <ul class="sub-menu">
                                     @foreach (Menu submn in lstSubMenu)
                                         {
-                                        <li>
-                                            <a class="" href="@submn.Link">@submn.Name</a>
-                                        </li>
+                                    <li>
+                                        <a class="" href="@submn.Link">@submn.Name</a>
+                                    </li>
                                         }
 
 
@@ -176,22 +177,22 @@
                                 @foreach (ProductClass catg in lstProductClass)
                                 {
                                     List<ProductGroup> lstpgp = new List<ProductGroup>();
-                                    <li>
-                                        <a href="#">@catg.category.CategoryName<span class="caret"></span></a>
+                                <li>
+                                    <a href="#">@catg.category.CategoryName<span class="caret"></span></a>
 
-                                        <!--menu danh sách nhóm sản phẩm-->
-                                        <div class="">
-                                            <ul class="sub-menu2 dropdown-menu">
-                                                @foreach (ProductGroupClass prdgup in catg.lstproductGroupClass)
+                                    <!--menu danh sách nhóm sản phẩm-->
+                                    <div class="">
+                                        <ul class="sub-menu2 dropdown-menu">
+                                            @foreach (ProductGroupClass prdgup in catg.lstproductGroupClass)
                                                 {
-                                                    <li>
-                                                        <a class="" href="/Nhom-san-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(prdgup.productGroup.Name)?"a":prdgup.productGroup.Name )+"-"+prdgup.productGroup.ProductGroupId)">@prdgup.productGroup.Name</a>
-                                                    </li>
+                                                <li>
+                                                    <a class="" href="/Nhom-san-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(prdgup.productGroup.Name)?"a":prdgup.productGroup.Name )+"-"+prdgup.productGroup.ProductGroupId)">@prdgup.productGroup.Name</a>
+                                                </li>
                                                 }
-                                            </ul>
-                                        </div>
+                                        </ul>
+                                    </div>
 
-                                    </li>
+                                </li>
                                 }
 
                             </ul>
@@ -200,22 +201,22 @@
 
                     @foreach (Menu mn in listmenu)
                     {
-                        <li class="limobile">
-                            <a  data-toggle="collapse" data-target="#@mn.MenuId" class="" target="@(mn.IsNewTab==true?"_blank":"")" href="@mn.Link">@mn.Name</a>
-                            @{
+                    <li class="limobile">
+                        <a data-toggle="collapse" data-target="#@mn.MenuId" class="" target="@(mn.IsNewTab==true?"_blank":"")" href="@mn.Link">@mn.Name</a>
+                        @{
                                 List<EnF.Menu> lstSubMenu = db.Menus.Where(p => p.ParentId == mn.MenuId).ToList();
-                            }
-                            <ul class="sub-menu collapse" id="@mn.MenuId">
-                                @foreach (Menu submn in lstSubMenu)
+                        }
+                        <ul class="sub-menu collapse" id="@mn.MenuId">
+                            @foreach (Menu submn in lstSubMenu)
                                 {
-                                    <li>
-                                        <a class="" href="@submn.Link">@submn.Name</a>
-                                    </li>
+                                <li>
+                                    <a class="" href="@submn.Link">@submn.Name</a>
+                                </li>
                                 }
 
-                            </ul>
+                        </ul>
 
-                        </li>
+                    </li>
                                 }
 
                 </ul>
@@ -226,7 +227,7 @@
             </div>
         </div>
     </nav>
-  
+
 </header>
 
 
@@ -237,9 +238,9 @@
             <ul class="bxslider" id="boxsl">
                 @foreach (ADV ad in slideListBanner)
             {
-                    <li>
-                        <img src="/@ad.Image" style="width:100%" />
-                    </li>
+                <li>
+                    <img src="/@ad.Image" style="width:100%" />
+                </li>
             }
             </ul>
         </div>
@@ -265,16 +266,16 @@
         <div class="videoLeft">
             @foreach (var video in listVideo)
             {
-                <div class="col-md-6 col-xs-6 videoShow">
+            <div class="col-md-6 col-xs-6 videoShow">
+                @Html.Raw(video.FrameCode)
+                <div id="vd@(video.Id)" class="helpClick">
                     @Html.Raw(video.FrameCode)
-                    <div id="vd@(video.Id)" class="helpClick">
-                        @Html.Raw(video.FrameCode)
-                    </div>
                 </div>
-                <div class="col-md-6 col-xs-6" onclick="loadvideo('@video.Id')">
-                    <a href="javascript:void(0)" style="cursor:pointer; color:black; font-size:20px">@video.Title</a>
-                </div>
-                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-6 col-xs-6" onclick="loadvideo('@video.Id')">
+                <a href="javascript:void(0)" style="cursor:pointer; color:black; font-size:20px">@video.Title</a>
+            </div>
+            <div class="clearfix"></div>
             }
         </div>
     </div>
@@ -332,29 +333,29 @@
             <ul class="slpro" id="boxsl">
                 @foreach (Product pro in lstProduct)
             {
-                    <li>
-                        <div class="item">
-                            <div class="img-sp">
-                                <p>
-                                    <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)">
-                                        <img src="/@pro.Image">
-                                    </a>
-                                </p>
-                                <div class="info-sp">
-                                    <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
-                                    <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
-                                </div>
+                <li>
+                    <div class="item">
+                        <div class="img-sp">
+                            <p>
+                                <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)">
+                                    <img src="/@pro.Image">
+                                </a>
+                            </p>
+                            <div class="info-sp">
+                                <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
+                                <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
                             </div>
+                        </div>
 
-                            <div class="name-sp">
-                                <h3 class="tensp">
-                                    <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)" title="">
-                                        @pro.Name
-                                    </a>
-                                </h3>
-                            </div>
+                        <div class="name-sp">
+                            <h3 class="tensp">
+                                <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)" title="">
+                                    @pro.Name
+                                </a>
+                            </h3>
+                        </div>
 
-                            @*<div class="xem-sp">
+                        @*<div class="xem-sp">
                                 <div class="button">
                                     <div class="chitiet">
                                         <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)">Chi Tiết</a>
@@ -365,12 +366,12 @@
                                 </div>
 
                             </div>*@
-                        </div>
-                       @*<a href="/ProductList/ProductDetail?productId=@pro.ProductId">
-                           <img src="/@pro.Image" />
-                       </a>*@ 
-                    </li>
-                   
+                    </div>
+                    @*<a href="/ProductList/ProductDetail?productId=@pro.ProductId">
+                            <img src="/@pro.Image" />
+                        </a>*@
+                </li>
+
                 }
             </ul>
         </div>
@@ -544,32 +545,81 @@
         border: 1px solid;
         cursor: pointer;
     }
-    .limobile .sub-menu{
-        margin-left:20px;
+
+    .limobile .sub-menu {
+        margin-left: 20px;
     }
 
-        #subproduct > ul > li > div {
-            display: none;
-        }
+    #subproduct > ul > li > div {
+        display: none;
+    }
 
-        #subproduct > ul > li:hover div, #subproduct > ul > li .dropdown-menu {
-            display: block;
-        }
-
-        
+    #subproduct > ul > li:hover div, #subproduct > ul > li .dropdown-menu {
+        display: block;
+    }
 
 
-        #subproduct > ul > li .dropdown-menu {
-            z-index: 9999;
-            background: #70712e;
-        }
+
+
+    #subproduct > ul > li .dropdown-menu {
+        z-index: 9999;
+        background: #70712e;
+    }
 
     #subproduct > ul a {
         color: white;
     }
 
-    #slidehome, .chinhsach{
-        display:none;
+    #slidehome, .chinhsach {
+        display: none;
+    }
+
+    /*video*/
+     .videodetail {
+        width: 100%;
+    }
+
+    .groupvideo {
+        float: left;
+        width: 100%;
+    }
+
+        .groupvideo iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+    .helpClick {
+        height: 100%;
+        /*border: 1px solid red;*/
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+
+        .helpClick iframe {
+            display: none;
+        }
+
+    iframe {
+        max-width: 100%;
+    }
+
+    .videoShow iframe {
+        /*width: 50%;*/
+        width:200px;
+        height: auto;
+    }
+
+    .videoLeft {
+        max-height: 406px;
+        overflow: auto;
+    }
+
+    #videocontain{
+        text-align:center;
     }
 </style>
 <script type="text/javascript">
@@ -609,5 +659,5 @@
     //});
 </script>
 
-       
-       
+
+
