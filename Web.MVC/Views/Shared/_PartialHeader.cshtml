@@ -291,7 +291,7 @@
 
 </div>
 
-<div class="col-md-12" id="slideProduct">
+<div class="col-md-12" id="slideProduct" style="visibility:hidden">
     <div class="home-slider">
         <div class="box-img">
             <ul class="slpro" id="boxsl">
@@ -554,7 +554,10 @@
             slideMargin: 335,
             slideMargin: 10
         });
-        
+        //setTimeout(function () {
+        //    document.getElementById('slideProduct').style.display = "block";
+        //}, 100)
+        document.getElementById('slideProduct').style.visibility = "unset";
     });
 
     function myFunction() {

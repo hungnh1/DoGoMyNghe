@@ -9,7 +9,7 @@
     DoGoMyNgheEntities db = new DoGoMyNgheEntities();
 
     List<ADV> slideList = (List<ADV>)ViewBag.Slide;
-  
+
     List<ADV> slideListPopup = slideList.Where(p => p.Type == 2).ToList();
 
     List<Category> categoryList = (List<Category>)ViewBag.listCategory;
@@ -17,18 +17,53 @@
     var listNew1 = (List<EnF.Page>)ViewBag.ListNew1;
     var listNew2 = (List<EnF.Page>)ViewBag.ListNew2;
     Config confg = db.Configs.First();
+
+    var listVideo = (List<EnF.Video>)ViewBag.listVideo;
 }
- 
+
+<div class="container">
+
+    <div class="col-md-7">
+        <section class="videodetail">
+            <div id="videocontain">
+                @Html.Raw(listVideo.Count > 0 ? listVideo.First().FrameCode : "")
+            </div>
+
+            @*<div>
+                <h3>@(listVideo.Count > 0 ? listVideo.First().Title : "")</h3>
+            </div>*@
+
+        </section>
+
+    </div>
+
+    <div class="col-md-5">
+        <div class="videoLeft">
+            @foreach (var video in listVideo)
+            {
+                <div class="col-md-6 col-xs-6 videoShow">
+                    @Html.Raw(video.FrameCode)
+                    <div id="vd@(video.Id)" class="helpClick">
+                        @Html.Raw(video.FrameCode)
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6" onclick="loadvideo('@video.Id')">
+                    <a href="javascript:void(0)" style="cursor:pointer; color:black; font-size:20px">@video.Title</a>
+                </div>
+                <div class="clearfix"></div>
+            }
+        </div>
+    </div>
+</div>
 
 
 <!-- end slider -->
-
 <!-- End Chính sách mua hàng -->
 <!-- show product -->
 <div class="product">
     @foreach (Category cate in categoryList)
     {
-        List<ProductGroup> lstProGrp = db.ProductGroups.Where(p => p.CategoryId == cate.Id).ToList();
+        List<ProductGroup> lstProGrp = db.ProductGroups.Where(p => p.CategoryId == cate.Id).OrderBy(o => o.Des).ToList();
 
         int counttab = 1;
         int countdtl = 1;
@@ -66,39 +101,39 @@
                     <div class="product-sp" style="width: 100%; height: auto;display: inline-block;">
                         @foreach (Product pro in lstProduct)
                     {
-                            <div class="col-md-3 item">
-                                <div class="img-sp">
-                                    <p>
-                                        <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)">
-                                            <img alt="@pro.Name" src="/@pro.Image">
-                                        </a>
-                                    </p>
-                                    <div class="info-sp">
-                                        <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
-                                        <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
-                                    </div>
-                                </div>
-
-                                <div class="name-sp">
-                                    <h3 class="tensp">
-                                        <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)" title="">
-                                            @pro.Name
-                                        </a>
-                                    </h3>
-                                </div>
-
-                                <div class="xem-sp">
-                                    <div class="button">
-                                        <div class="chitiet">
-                                            <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)">Chi Tiết</a>
-                                        </div>
-                                        <div class="goingay">
-                                            <a href="tel:@confg.HotLine">Gọi Ngay</a>
-                                        </div>
-                                    </div>
-
+                        <div class="col-md-3 item">
+                            <div class="img-sp">
+                                <p>
+                                    <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)">
+                                        <img alt="@pro.Name" src="/@pro.Image">
+                                    </a>
+                                </p>
+                                <div class="info-sp">
+                                    <h1 id="info-ten">Gỗ Mỹ Nghệ Đại Nghĩa</h1>
+                                    <h2 id="info-diachi">80 Nguyễn Tri Phương - Đà Nẵng</h2>
                                 </div>
                             </div>
+
+                            <div class="name-sp">
+                                <h3 class="tensp">
+                                    <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)" title="">
+                                        @pro.Name
+                                    </a>
+                                </h3>
+                            </div>
+
+                            <div class="xem-sp">
+                                <div class="button">
+                                    <div class="chitiet">
+                                        <a href="/San-pham/@(ClearWordRepository.NoVNeseLower(string.IsNullOrEmpty(pro.Name)?"a":pro.Name )+"-"+pro.ProductId)">Chi Tiết</a>
+                                    </div>
+                                    <div class="goingay">
+                                        <a href="tel:@confg.HotLine">Gọi Ngay</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                         }
                     </div>
                     <div id="xemthem">
@@ -107,7 +142,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                     countdtl++;
                 }
 
@@ -115,9 +150,9 @@
         </div>
     }
 
- </div>
+</div>
 
-    <!-- end product -->
+<!-- end product -->
 <button type="button" id="openPopup" style="display:none" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 <!-- Modal -->
@@ -130,52 +165,134 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 @if (slideListPopup.Count > 0)
                 {
-                    <h4 class="modal-title">@slideListPopup.First().Name</h4>
-                }  
+                <h4 class="modal-title">@slideListPopup.First().Name</h4>
+                }
             </div>
             <div class="modal-body">
                 @if (slideListPopup.Count > 0)
                 {
-                    <img src="/@slideListPopup.First().Image" style="width:100%" />
+                <img src="/@slideListPopup.First().Image" style="width:100%" />
                 }
-                
+
             </div>
             @*<div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>*@
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>*@
         </div>
 
     </div>
 </div>
 
 
-    @section Scripts {
+@section Scripts {
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                @if (db.ADVs.Where(p => p.Type == 2).Count() > 0)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            @if (db.ADVs.Where(p => p.Type == 2).Count() > 0)
                 {
                     <text>   $("#openPopup").click();   </text>
                 }
-               
-            });
-            //$(window).load(function () {
-            //    //$('#mypopup').popup($('#mypopup').data());
+
+        });
+        //$(window).load(function () {
+        //    //$('#mypopup').popup($('#mypopup').data());
 
 
-            //});
-         
+        //});
+        $('.helpClick').click(function () {
+            var ifm = this.innerHTML.trim();
+            //var ifsrc = ifm.split(' ')[3];
+            //var old = ifsrc;
+            //ifsrc = ifsrc.split('"')[1];
+            //ifsrc = ifsrc + '?autoplay=1';
+            //ifsrc = 'src="' + ifsrc + '"';
+            //ifm = ifm.replace(old, ifsrc);
+            $('#videocontain').html(ifm);
 
-        </script>
- 
+            //https://developers.facebook.com/docs/plugins/embedded-video-player
+            //data - autoplay
 
-       
+            //history.pushState({}, null, "/Home/Video?Id=" + this.id);
+            //window.scrollTo(0, 0);
+            @*var curentVideoId = this.id;
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: '@Url.Action("SetAdvanView", "Home")',//"/DotThi/_PartialPopUp",
+                data: { Id: curentVideoId },
+                success: function (response) {
 
-    }
-  
+                }
+            });*@
+
+
+        });
+
+        function loadvideo(videoId) {
+            var curentVideo = document.getElementById('vd' + videoId);
+            $('#videocontain').html(curentVideo.innerHTML);
+            //history.pushState({}, null, "/Home/Video?Id=" + videoId);
+            // window.scrollTo(0, 0);?autoplay=1
+            //https://developers.google.com/youtube/iframe_api_reference#Example_Video_Player_Constructors
+        }
+
+    </script>
+
+
+
+
+}
+
 
 <style type="text/css">
-    #slidehome, .chinhsach{
-        display:block !important;
+    #slidehome, .chinhsach {
+        display: block !important;
+    }
+
+    .videodetail {
+        width: 100%;
+    }
+
+    .groupvideo {
+        float: left;
+        width: 100%;
+    }
+
+        .groupvideo iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+    .helpClick {
+        height: 100%;
+        /*border: 1px solid red;*/
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+
+        .helpClick iframe {
+            display: none;
+        }
+
+    iframe {
+        max-width: 100%;
+    }
+
+    .videoShow iframe {
+        /*width: 50%;*/
+        width:200px;
+        height: auto;
+    }
+
+    .videoLeft {
+        max-height: 406px;
+        overflow: auto;
+    }
+
+    #videocontain{
+        text-align:center;
     }
 </style>
