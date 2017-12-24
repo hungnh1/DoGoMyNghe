@@ -17,7 +17,7 @@ namespace baohiem.Controllers
         public ActionResult ProductList(int ProductGroupId,int paging=1)
         {
             int pageSize = 9;
-            var prolist = db.Products.Where(p => p.ProductGroupID == ProductGroupId).ToList();
+            var prolist = db.Products.Where(p => p.ProductGroupID == ProductGroupId).OrderByDescending(o=>o.ProductId).ToList();
             int totalPage = prolist.Count() / pageSize;
             if(prolist.Count() % pageSize > 0)
             {
@@ -43,7 +43,7 @@ namespace baohiem.Controllers
             Product productdt = null;
             productdt = db.Products.Where(p => p.ProductId == productId).First();
          
-            ViewBag.GroupList=db.Products.Where(p=>p.ProductGroupID== productdt.ProductGroupID).ToList();
+            ViewBag.GroupList=db.Products.Where(p=>p.ProductGroupID== productdt.ProductGroupID).Take(9).ToList();
             ViewBag.listImg = db.ProductImages.Where(p => p.ProductId == productdt.ProductId).ToList();
 
             return View(productdt);

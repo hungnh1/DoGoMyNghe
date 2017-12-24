@@ -84,9 +84,11 @@ namespace baohiem.Controllers
         }
           public ActionResult Logout()   
         {
-          FormsAuthentication.SignOut();
+            AuthenticationManager.SignOut();
+            return RedirectToAction("Login", "Account");
+            //FormsAuthentication.SignOut();
 
-          return Redirect("/Home"); ;
+            //return Redirect("/Home"); ;
         }
            
         //
