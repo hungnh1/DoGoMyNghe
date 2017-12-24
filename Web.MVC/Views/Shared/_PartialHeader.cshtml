@@ -12,6 +12,7 @@
     List<Category> categoryList = (List<Category>)db.Categories.ToList();
     List<Product> listprodct = new List<Product>();
     //List<ADV> slideList = (List<ADV>)ViewBag.Slide;
+    var listVideo = (List<EnF.Video>)ViewBag.listVideo;
     List<ProductClass> lstProductClass = new List<ProductClass>();
 
     foreach (Category catg in categoryList)
@@ -241,6 +242,40 @@
                     </li>
             }
             </ul>
+        </div>
+    </div>
+</div>
+<div class="col-lg-12 video">
+
+    <div class="col-md-7">
+        <section class="videodetail">
+            <div id="videocontain">
+                @Html.Raw(listVideo.Count > 0 ? listVideo.First().FrameCode : "")
+            </div>
+
+            @*<div>
+                    <h3>@(listVideo.Count > 0 ? listVideo.First().Title : "")</h3>
+                </div>*@
+
+        </section>
+
+    </div>
+
+    <div class="col-md-5">
+        <div class="videoLeft">
+            @foreach (var video in listVideo)
+            {
+                <div class="col-md-6 col-xs-6 videoShow">
+                    @Html.Raw(video.FrameCode)
+                    <div id="vd@(video.Id)" class="helpClick">
+                        @Html.Raw(video.FrameCode)
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6" onclick="loadvideo('@video.Id')">
+                    <a href="javascript:void(0)" style="cursor:pointer; color:black; font-size:20px">@video.Title</a>
+                </div>
+                <div class="clearfix"></div>
+            }
         </div>
     </div>
 </div>
