@@ -20,43 +20,6 @@
 
     var listVideo = (List<EnF.Video>)ViewBag.listVideo;
 }
-
-<div class="container">
-
-    <div class="col-md-7">
-        <section class="videodetail">
-            <div id="videocontain">
-                @Html.Raw(listVideo.Count > 0 ? listVideo.First().FrameCode : "")
-            </div>
-
-            @*<div>
-                <h3>@(listVideo.Count > 0 ? listVideo.First().Title : "")</h3>
-            </div>*@
-
-        </section>
-
-    </div>
-
-    <div class="col-md-5">
-        <div class="videoLeft">
-            @foreach (var video in listVideo)
-            {
-                <div class="col-md-6 col-xs-6 videoShow">
-                    @Html.Raw(video.FrameCode)
-                    <div id="vd@(video.Id)" class="helpClick">
-                        @Html.Raw(video.FrameCode)
-                    </div>
-                </div>
-                <div class="col-md-6 col-xs-6" onclick="loadvideo('@video.Id')">
-                    <a href="javascript:void(0)" style="cursor:pointer; color:black; font-size:20px">@video.Title</a>
-                </div>
-                <div class="clearfix"></div>
-            }
-        </div>
-    </div>
-</div>
-
-
 <!-- end slider -->
 <!-- End Chính sách mua hàng -->
 <!-- show product -->
