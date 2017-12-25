@@ -230,9 +230,28 @@
 
 </header>
 
-
 <!-- slider -->
-<div class="col-md-12" id="slidehome">
+<div class="fluid_container">
+   
+    <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+
+        @foreach (ADV ad in slideListBanner)
+            {
+            <div data-thumb="/@ad.Image" data-src="/@ad.Image">
+
+                <div class="camera_caption fadeFromBottom">
+                    @ad.Title
+                </div>
+            </div>
+        }
+        
+
+      
+       
+    </div><!-- #camera_wrap_1 -->
+</div><!-- .fluid_container -->
+
+@*<div class="col-md-12" id="slidehome">
     <div class="home-slider">
         <div class="box-img">
             <ul class="bxslider" id="boxsl">
@@ -245,11 +264,11 @@
             </ul>
         </div>
     </div>
-</div>
+</div>*@
 <div class="col-lg-12 video">
 
     <div class="col-md-7">
-        <section class="videodetail">
+        <section class="videodetailvideo">
             <div id="videocontain">
                 @Html.Raw(listVideo.Count > 0 ? listVideo.First().FrameCode : "")
             </div>
@@ -610,7 +629,7 @@
     .videoShow iframe {
         /*width: 50%;*/
         width:200px;
-        height: auto;
+        height: 121px;
     }
 
     .videoLeft {
@@ -624,6 +643,24 @@
     .video{
         display:none;
     }
+
+    /*slide*/
+    #back_to_camera {
+			clear: both;
+			display: block;
+			height: 80px;
+			line-height: 40px;
+			padding: 20px;
+		}
+		.fluid_container {
+			margin: 0 auto;
+			max-width: 1000px;
+			width: 90%;
+            max-height: 400px;
+		}
+        #camera_wrap_1{
+            display:none;
+        }
 </style>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -646,6 +683,24 @@
         //    document.getElementById('slideProduct').style.display = "block";
         //}, 100)
         document.getElementById('slideProduct').style.visibility = "unset";
+
+        jQuery(function () {
+
+            jQuery('#camera_wrap_1').camera({
+                height: '400px',
+                thumbnails: true
+            });
+
+            jQuery('#camera_wrap_2').camera({
+                height: '400px',
+                loader: 'bar',
+                pagination: false,
+                thumbnails: true
+            });
+        });
+       
+         
+
     });
 
     function myFunction() {
@@ -660,7 +715,20 @@
     //        slideMargin: 10
     //    });
     //});
+  
+    
 </script>
+ 
 
+<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-9745065-19']);
+	  _gaq.push(['_trackPageview']);
 
-
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+</script>
+ 
