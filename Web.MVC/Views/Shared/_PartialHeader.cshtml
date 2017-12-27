@@ -654,9 +654,9 @@
 		}
 		.fluid_container {
 			margin: 0 auto;
-			max-width: 1000px;
-			width: 90%;
-            max-height: 400px;
+			/*max-width: 1000px;*/
+			width: 100%;
+            max-height: 450px;
 		}
         #camera_wrap_1, .fluid_container{
             display:none;
@@ -687,8 +687,9 @@
         jQuery(function () {
 
             jQuery('#camera_wrap_1').camera({
-                height: '400px',
-                thumbnails: true
+                height: '450px',
+                thumbnails: true,
+                time: 1000
             });
 
             jQuery('#camera_wrap_2').camera({
