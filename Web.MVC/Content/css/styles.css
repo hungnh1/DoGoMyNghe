@@ -1038,6 +1038,9 @@ width: 100% !important;
   #slideProduct,#slidehome{
     display:none !important;
 }
+   #videocontain iframe{
+        height: 100%;
+    }
 
   .info{
       width: 100%;
